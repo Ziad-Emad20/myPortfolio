@@ -1,0 +1,6 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --main-bg: linear-gradient(180deg,rgba(0, 0, 0, 1) 23%, rgba(1, 1, 59, 1) 100%);
+    --font-family: 'Arial, sans-serif';
+}
