@@ -1,0 +1,229 @@
+.site-header {
+    position: relative;
+    z-index: 1000;
+    padding-top: 24px;
+}
+
+.navbar {
+    min-height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1px;
+    line-height: 1;
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    color: #f5f5f5;
+    transition: 0.3s ease;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #89b7ff;
+}
+
+.consultation-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 26px;
+    border-radius: 999px;
+    color: #ffffff;
+    font-size: 1.05rem;
+    border: 1px solid rgba(65, 131, 255, 0.45);
+    background: linear-gradient(180deg, rgba(10, 16, 32, 0.95), rgba(8, 10, 18, 0.95));
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+        0 0 18px rgba(0, 102, 255, 0.22),
+        0 6px 18px rgba(0, 0, 0, 0.35);
+    transition: 0.3s ease;
+    white-space: nowrap;
+}
+
+.consultation-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+        0 0 24px rgba(0, 102, 255, 0.3),
+        0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+.nav-mobile {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+}
+
+.mobile-icon-btn {
+    width: 56px;
+    height: 56px;
+    border: 1px solid rgba(56, 116, 255, 0.35);
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(18, 28, 56, 0.95), rgba(7, 10, 18, 0.98));
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+        0 0 18px rgba(0, 102, 255, 0.32),
+        0 8px 18px rgba(0, 0, 0, 0.35);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s ease;
+    flex-shrink: 0;
+}
+
+.mobile-icon-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+}
+
+.mobile-icon-btn i {
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.menu-toggle i {
+    font-size: 1.2rem;
+}
+
+.mobile-consultation-inline {
+    flex: 1;
+    min-height: 48px;
+    font-size: 0.95rem;
+    padding: 0 16px;
+    max-width: 190px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 1rem;
+    right: 1rem;
+    padding: 18px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(6, 9, 18, 0.98), rgba(8, 12, 25, 0.98));
+    border: 1px solid rgba(56, 116, 255, 0.2);
+    box-shadow:
+        0 0 25px rgba(0, 102, 255, 0.15),
+        0 14px 30px rgba(0, 0, 0, 0.45);
+}
+
+.mobile-menu.active {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    animation: fadeSlideDown 0.25s ease;
+}
+
+.mobile-menu-link {
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 10px 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: 0.3s ease;
+}
+
+.mobile-menu-link:hover {
+    color: #89b7ff;
+    padding-left: 8px;
+}
+
+
+@media (max-width: 991px) {
+    .logo {
+        font-size: 1.9rem;
+    }
+
+    .nav-desktop {
+        gap: 20px;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+    }
+
+    .consultation-btn {
+        min-height: 44px;
+        padding: 0 20px;
+        font-size: 0.98rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .site-header {
+        padding-top: 20px;
+    }
+
+    .navbar {
+        min-height: 72px;
+    }
+
+    .nav-desktop {
+        display: none;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .nav-mobile {
+        display: flex;
+    }
+
+    .container {
+        padding: 0 1.25rem;
+    }
+
+    .mobile-consultation-inline {
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-icon-btn {
+        width: 52px;
+        height: 52px;
+    }
+
+    .mobile-consultation-inline {
+        min-height: 44px;
+        font-size: 0.88rem;
+        max-width: 165px;
+        padding: 0 14px;
+    }
+}
+
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
