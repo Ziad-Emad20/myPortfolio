@@ -43,11 +43,11 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 48px;
-    padding: 0 26px;
+    padding: 6px 15px;
     border-radius: 999px;
     color: #ffffff;
-    font-size: 1.05rem;
+    font-size: 1rem;
+    font-weight: 600;
     border: 1px solid rgba(65, 131, 255, 0.45);
     background: linear-gradient(180deg, rgba(10, 16, 32, 0.95), rgba(8, 10, 18, 0.95));
     box-shadow:
@@ -75,8 +75,8 @@
 }
 
 .mobile-icon-btn {
-    width: 56px;
-    height: 56px;
+    width: 36px;
+    height: 36px;
     border: 1px solid rgba(56, 116, 255, 0.35);
     border-radius: 50%;
     background: radial-gradient(circle at center, rgba(18, 28, 56, 0.95), rgba(7, 10, 18, 0.98));
@@ -98,7 +98,7 @@
 }
 
 .mobile-icon-btn i {
-    font-size: 1.25rem;
+    font-size: 0.9rem;
     color: #fff;
 }
 
@@ -166,9 +166,8 @@
     }
 
     .consultation-btn {
-        min-height: 44px;
-        padding: 0 20px;
-        font-size: 0.98rem;
+        font-size: 0.8rem;
+        font-weight: 500;
     }
 }
 
@@ -203,17 +202,8 @@
 }
 
 @media (max-width: 480px) {
-    .mobile-icon-btn {
-        width: 52px;
-        height: 52px;
-    }
-
-    .mobile-consultation-inline {
-        min-height: 44px;
-        font-size: 0.88rem;
-        max-width: 165px;
-        padding: 0 14px;
-    }
+ 
+  
 }
 
 @keyframes fadeSlideDown {
