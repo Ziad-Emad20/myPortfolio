@@ -1,12 +1,12 @@
 .hero {
     position: relative;
-    padding: 48px 0 80px;
+    padding: 30px 0 40px;
 }
 
 .hero-card-wrapper {
     position: relative;
     max-width: 980px;
-    margin: 50px auto 0;
+    margin: 80px auto 0;
 }
 
 .hero-avatar {
@@ -52,15 +52,9 @@
     padding: 124px 48px 42px;
     border-radius: 34px;
     text-align: center;
-    background:
-        linear-gradient(180deg, rgba(8, 10, 20, 0.92), rgba(2, 4, 18, 0.96)),
-        radial-gradient(circle at top center, rgba(18, 55, 160, 0.18), transparent 55%);
-    border: 1px solid rgba(92, 132, 255, 0.12);
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.04),
-        0 0 0 1px rgba(0, 51, 170, 0.12),
-        0 18px 40px rgba(0, 0, 0, 0.42),
-        0 0 38px rgba(0, 55, 255, 0.08);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
 }
 
 .hero-card::before {
@@ -179,7 +173,7 @@
 /* Mobile */
 @media (max-width: 767px) {
     .hero {
-        padding: 18px 0 46px;
+        padding: 20px 0 20px;
     }
 
     .hero-card-wrapper {
@@ -245,5 +239,154 @@
 
     .hero-description {
         font-size: 0.92rem;
+    }
+}
+
+
+/* Staus Section */
+
+.stats-section {
+    padding: 30px 0 40px;
+}
+
+.stats-card {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 10px;
+
+    border-radius: 34px;
+
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+}
+
+.stats-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(0, 81, 255, 0.15), transparent 42%),
+        radial-gradient(circle at 50% 100%, rgba(0, 81, 255, 0.10), transparent 35%);
+    pointer-events: none;
+    animation: statsGlowFloat 8s ease-in-out infinite alternate;
+}
+
+.stats-card::after {
+    content: "";
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    bottom: -16px;
+    height: 36px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(0, 89, 255, 0.32), transparent 70%);
+    filter: blur(18px);
+    pointer-events: none;
+    animation: statsGlowPulse 6s ease-in-out infinite;
+}
+
+.stats-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+.stat-item {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    padding: 14px 10px;
+    border-radius: 22px;
+    transition: transform 0.25s ease;
+}
+
+.stat-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -5px;
+    top: 18%;
+    bottom: 18%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.stat-item:hover {
+    transform: translateY(-3px);
+}
+
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #fff;
+    letter-spacing: -0.03em;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: rgba(224, 232, 255, 0.72);
+}
+
+
+@keyframes statsGlowFloat {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateY(-6px) scale(1.02);
+        opacity: 1;
+    }
+}
+
+@keyframes statsGlowPulse {
+    0%,
+    100% {
+        opacity: 0.55;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1.03);
+    }
+}
+
+
+@media (max-width: 767px) {
+
+    .stats-card {
+        flex-direction: row; 
+        gap: 6px;
+        border-radius: 24px;
+    }
+
+    .stat-item {
+        flex: 1;
+        padding: 12px 6px;
+    }
+
+    .stat-value {
+        font-size: 1.3rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
+
+    .stat-item:not(:last-child)::after {
+        display: block;
+        right: 0;
+        top: 20%;
+        bottom: 20%;
     }
 }
