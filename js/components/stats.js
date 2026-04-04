@@ -27,10 +27,9 @@ function renderStats() {
     .join("");
 }
 
-/* 🔥 أنيميشن أسرع */
 function animateCount(el, target, prefix, suffix) {
   let current = 0;
-  const increment = target / 30; // السرعة (قلل الرقم = أسرع)
+  const increment = target / 90; // السرعة (قلل الرقم = أسرع)
 
   function update() {
     current += increment;

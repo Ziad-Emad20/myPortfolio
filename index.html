@@ -20,7 +20,6 @@
     <meta property="twitter:image" content="assets/images/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +27,8 @@
         rel="stylesheet">
 
     <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="css/base/variables.css">
     <link rel="stylesheet" href="css/base/global.css">
 
@@ -91,10 +92,32 @@
                 <div class="stats-card" id="statsCard"></div>
             </div>
         </section>
-    </main>
 
-    <script src="/js/components/navbar.js"></script>
-    <script src="/js/components/stats.js"></script>
+
+        <section class="offers-section" id="services">
+            <div class="container">
+                <div id="offers-container"></div>
+            </div>
+        </section>
+
+
+        <section class="feedback-section" id="feedback">
+  <div class="container">
+    <div id="feedback-container"></div>
+  </div>
+</section>
+
+<footer id="footer-container"></footer>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="/js/components/navbar.js" ></script>
+    <script src="/js/components/footer.js" defer></script>
+    <script src="/js/components/offers.js" defer></script>
+    <script src="/js/components/stats.js" defer></script>
+    <script src="/js/components/feedback.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="/js/home-animations.js" defer></script>
     <script src="/js/main.js"></script>
 </body>
 

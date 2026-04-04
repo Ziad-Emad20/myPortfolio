@@ -16,3 +16,21 @@
         0 18px 40px rgba(0, 0, 0, 0.35),
         0 0 30px rgba(0, 55, 255, 0.08);
 }
+
+
+/* =========================
+   Home Page Spacing System
+   ========================= */
+
+:root {
+    --section-space-lg: 56px;
+    --section-space-md: 44px;
+    --section-space-sm: 32px;
+
+    --section-title-gap: 28px;
+    --section-title-gap-mobile: 18px;
+
+    --card-radius-lg: 34px;
+    --card-radius-md: 28px;
+    --card-radius-sm: 24px;
+}

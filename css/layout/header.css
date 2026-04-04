@@ -1,11 +1,33 @@
 .site-header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
-    padding-top: 24px;
+
+    padding-top: 20px;
+
+    transition:
+        background 0.35s ease,
+        backdrop-filter 0.35s ease,
+        box-shadow 0.35s ease,
 }
 
+.site-header.scrolled {
+    background: rgba(6, 10, 20, 0.65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(0, 102, 255, 0.08);
+}
+
+
 .navbar {
-    min-height: 84px;
+    min-height: 74px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -56,7 +78,11 @@
         0 6px 18px rgba(0, 0, 0, 0.35);
     transition: 0.3s ease;
     white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
 
 .consultation-btn:hover {
     transform: translateY(-2px);
@@ -64,6 +90,50 @@
         0 0 0 1px rgba(255, 255, 255, 0.04) inset,
         0 0 24px rgba(0, 102, 255, 0.3),
         0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+
+.consultation-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 102, 255, 0.18), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+
+.consultation-btn {
+    position: relative;
+    overflow: hidden;
+    animation: floatBtn 3s ease-in-out infinite;
+}
+
+@keyframes floatBtn {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+/* glow خفيف */
+.consultation-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle, rgba(0,102,255,0.25), transparent 70%);
+    opacity: 0.4;
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.consultation-btn:hover::before {
+    opacity: 1;
 }
 
 .nav-mobile {
@@ -115,27 +185,33 @@
     margin-left: auto;
     margin-right: auto;
 }
-
 .mobile-menu {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
     position: absolute;
     top: calc(100% + 10px);
     left: 1rem;
     right: 1rem;
     padding: 18px;
     border-radius: 20px;
-    background: linear-gradient(180deg, rgba(6, 9, 18, 0.98), rgba(8, 12, 25, 0.98));
+    background: linear-gradient(180deg, rgba(6, 9, 18, 0.96), rgba(8, 12, 25, 0.98));
     border: 1px solid rgba(56, 116, 255, 0.2);
     box-shadow:
         0 0 25px rgba(0, 102, 255, 0.15),
         0 14px 30px rgba(0, 0, 0, 0.45);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px) scale(0.98);
+    transform-origin: top center;
 }
 
 .mobile-menu.active {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    animation: fadeSlideDown 0.25s ease;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .mobile-menu-link {
@@ -150,7 +226,6 @@
     color: #89b7ff;
     padding-left: 8px;
 }
-
 
 @media (max-width: 991px) {
     .logo {
@@ -173,11 +248,11 @@
 
 @media (max-width: 767px) {
     .site-header {
-        padding-top: 20px;
+        padding-top: 8px;
     }
 
     .navbar {
-        min-height: 72px;
+        min-height: 52px;
     }
 
     .nav-desktop {
