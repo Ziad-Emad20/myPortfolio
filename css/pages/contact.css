@@ -1,0 +1,565 @@
+/* =========================
+   Contact Section
+   ========================= */
+
+.contact-section {
+    position: relative;
+    padding: 130px 0 var(--section-space-lg);
+}
+
+.contact-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-wrapper {
+    width: 100%;
+}
+
+/* =========================
+   Contact Header
+   ========================= */
+
+.contact-header {
+    text-align: center;
+    margin-bottom: var(--section-title-gap);
+}
+
+.contact-header h2 {
+    margin: 0 0 10px;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.08;
+    font-weight: 500;
+    color: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.contact-header p {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 0.98rem;
+    line-height: 1.75;
+    color: rgba(224, 232, 255, 0.78);
+}
+
+/* =========================
+   Main Contact Card
+   ========================= */
+
+.contact-card {
+    position: relative;
+    overflow: hidden;
+    padding: 28px;
+    border-radius: var(--card-radius-lg);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+}
+
+.contact-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(0, 81, 255, 0.12), transparent 38%),
+        radial-gradient(circle at 100% 20%, rgba(0, 81, 255, 0.08), transparent 26%),
+        radial-gradient(circle at 50% 100%, rgba(0, 81, 255, 0.08), transparent 34%);
+    pointer-events: none;
+}
+
+.contact-card::after {
+    content: "";
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    bottom: -16px;
+    height: 34px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(0, 89, 255, 0.24), transparent 70%);
+    filter: blur(18px);
+    pointer-events: none;
+}
+
+/* =========================
+   Flex Layout
+   ========================= */
+
+.contact-grid {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+}
+
+.contact-form {
+    flex: 1 1 auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.contact-side-card {
+    flex: 0 0 370px;
+    min-width: 370px;
+}
+
+/* =========================
+   Form
+   ========================= */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.3;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid rgba(84, 117, 255, 0.12);
+    background: linear-gradient(180deg, rgba(7, 10, 28, 0.88), rgba(4, 6, 20, 0.94));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.025),
+        0 0 0 rgba(0, 0, 0, 0);
+    color: #ffffff;
+    font-family: var(--font-primary);
+    font-size: 0.96rem;
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.form-group input {
+    height: 56px;
+    padding: 0 18px;
+    border-radius: 18px;
+}
+
+.form-group textarea {
+    min-height: 180px;
+    padding: 16px 18px;
+    border-radius: 22px;
+    resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(224, 232, 255, 0.42);
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+    border-color: rgba(105, 158, 255, 0.22);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgba(105, 158, 255, 0.4);
+    background: linear-gradient(180deg, rgba(10, 14, 34, 0.96), rgba(5, 8, 24, 0.98));
+    box-shadow:
+        0 0 0 3px rgba(0, 102, 255, 0.09),
+        0 0 22px rgba(0, 102, 255, 0.08);
+}
+
+/* =========================
+   Send Button
+   ========================= */
+
+.send-btn {
+    align-self: center;
+    min-width: 142px;
+    height: 48px;
+    margin-top: 6px;
+    padding: 0 28px;
+    border: 1px solid rgba(105, 158, 255, 0.28);
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(12, 18, 36, 0.98), rgba(7, 10, 22, 0.98));
+    color: #ffffff;
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 18px rgba(0, 102, 255, 0.12);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.send-btn:hover {
+    transform: translateY(-3px);
+    border-color: rgba(105, 158, 255, 0.45);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 0 24px rgba(0, 102, 255, 0.18),
+        0 10px 20px rgba(0, 0, 0, 0.22);
+}
+
+/* =========================
+   Side Card
+   ========================= */
+
+.contact-side-card {
+    position: relative;
+    overflow: hidden;
+    padding: 24px;
+    border-radius: var(--card-radius-md);
+    background: linear-gradient(180deg, rgba(8, 10, 32, 0.96), rgba(5, 7, 24, 0.98));
+    border: 1px solid rgba(93, 108, 255, 0.12);
+    box-shadow:
+        0 16px 24px rgba(0, 0, 0, 0.38),
+        0 24px 40px rgba(0, 0, 0, 0.16),
+        0 0 20px rgba(0, 68, 255, 0.05);
+}
+
+.contact-side-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(0, 81, 255, 0.14), transparent 40%),
+        radial-gradient(circle at 100% 30%, rgba(0, 81, 255, 0.08), transparent 30%);
+    pointer-events: none;
+}
+
+.contact-side-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.side-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    padding: 0 12px;
+    margin-bottom: 16px;
+    border-radius: 999px;
+    background: rgba(0, 102, 255, 0.08);
+    border: 1px solid rgba(105, 158, 255, 0.16);
+    color: #89b7ff;
+    font-size: 0.76rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.side-title {
+    margin: 0 0 12px;
+    font-size: clamp(1.75rem, 2vw, 2.35rem);
+    line-height: 1.08;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.side-text {
+    margin: 0 0 20px;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: rgba(224, 232, 255, 0.8);
+}
+
+/* =========================
+   WhatsApp CTA
+   ========================= */
+
+.whatsapp-cta {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 18px 18px;
+    margin-bottom: 18px;
+    border-radius: 22px;
+    text-decoration: none;
+    background: linear-gradient(180deg, rgba(10, 16, 32, 0.95), rgba(8, 10, 18, 0.98));
+    border: 1px solid rgba(65, 131, 255, 0.24);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 0 18px rgba(0, 102, 255, 0.08);
+    transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease,
+        border-color 0.28s ease;
+}
+
+.whatsapp-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(77, 163, 255, 0.08), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.7s ease;
+    pointer-events: none;
+}
+
+.whatsapp-cta:hover {
+    transform: translateY(-4px);
+    border-color: rgba(105, 158, 255, 0.34);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 0 24px rgba(0, 102, 255, 0.14),
+        0 12px 22px rgba(0, 0, 0, 0.24);
+}
+
+.whatsapp-cta:hover::before {
+    transform: translateX(100%);
+}
+
+.whatsapp-cta-icon {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: radial-gradient(circle at center, rgba(20, 180, 90, 0.2), rgba(8, 16, 36, 0.7));
+    border: 1px solid rgba(52, 255, 130, 0.14);
+    color: #25d366;
+    font-size: 1.3rem;
+}
+
+.whatsapp-cta-content {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.whatsapp-cta-content strong {
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+.whatsapp-cta-content small {
+    color: rgba(224, 232, 255, 0.76);
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.whatsapp-cta-arrow {
+    margin-left: auto;
+    flex-shrink: 0;
+    color: #9ecbff;
+    font-size: 0.95rem;
+    transition: transform 0.25s ease;
+}
+
+.whatsapp-cta:hover .whatsapp-cta-arrow {
+    transform: translateX(4px);
+}
+
+/* =========================
+   Mini Points
+   ========================= */
+
+.contact-mini-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.mini-point {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: rgba(224, 232, 255, 0.78);
+    font-size: 0.8rem;
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease;
+}
+
+.mini-point:hover {
+    transform: translateY(-2px);
+    border-color: rgba(105, 158, 255, 0.22);
+    color: #ffffff;
+}
+
+/* =========================
+   Tablet
+   ========================= */
+
+@media (max-width: 991px) {
+    .contact-section {
+        padding: 110px 0 var(--section-space-md);
+    }
+
+    .contact-grid {
+        flex-direction: column;
+    }
+
+    .contact-side-card {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .contact-card {
+        padding: 24px;
+        border-radius: var(--card-radius-md);
+    }
+
+    .contact-side-card {
+        border-radius: 24px;
+    }
+}
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 767px) {
+
+ .contact-grid {
+        flex-direction: column;
+    }
+
+    .contact-side-card {
+        order: -1;
+    }
+
+  
+
+
+
+
+    .contact-section {
+        padding: 88px 0 var(--section-space-sm);
+    }
+
+    .contact-section .container {
+        padding: 0 16px;
+    }
+
+    .contact-header {
+        margin-bottom: var(--section-title-gap-mobile);
+    }
+
+    .contact-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .contact-header p {
+        font-size: 0.9rem;
+        line-height: 1.65;
+    }
+
+    .contact-card {
+        padding: 18px;
+        border-radius: var(--card-radius-sm);
+    }
+
+    .contact-grid {
+        gap: 18px;
+    }
+
+    .form-group {
+        gap: 7px;
+    }
+
+    .form-group label {
+        font-size: 0.92rem;
+    }
+
+    .form-group input {
+        height: 52px;
+        padding: 0 16px;
+        border-radius: 16px;
+    }
+
+    .form-group textarea {
+        min-height: 150px;
+        padding: 14px 16px;
+        border-radius: 18px;
+    }
+
+    .send-btn {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .contact-side-card {
+        padding: 18px;
+        border-radius: 22px;
+    }
+
+    .side-title {
+        font-size: 1.85rem;
+    }
+
+    .side-text {
+        font-size: 0.92rem;
+    }
+
+    .whatsapp-cta {
+        padding: 16px 14px;
+        border-radius: 18px;
+        gap: 12px;
+    }
+
+    .whatsapp-cta-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        font-size: 1.15rem;
+    }
+
+    .whatsapp-cta-content strong {
+        font-size: 0.92rem;
+    }
+
+    .whatsapp-cta-content small {
+        font-size: 0.76rem;
+    }
+
+    .contact-mini-points {
+        gap: 8px;
+    }
+
+    .mini-point {
+        min-height: 34px;
+        padding: 0 11px;
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-header h2 {
+        font-size: 2rem;
+    }
+
+    .side-title {
+        font-size: 1.65rem;
+    }
+
+    .whatsapp-cta-arrow {
+        display: none;
+    }
+}
