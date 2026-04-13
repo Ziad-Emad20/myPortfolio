@@ -1,35 +1,61 @@
 const statsData = [
-  { value: 31, prefix: "+", suffix: "", label: "Clients" },
-  { value: 12, prefix: "+", suffix: "", label: "Countries" },
-  { value: 4, prefix: "+", suffix: "M", label: "Reach" },
+  { value: 31, prefix: "+", suffix: "", labelKey: "stats.clients", fallback: "Clients" },
+  { value: 12, prefix: "+", suffix: "", labelKey: "stats.countries", fallback: "Countries" },
+  { value: 4, prefix: "+", suffix: "M", labelKey: "stats.reach", fallback: "Reach" },
 ];
+
+function getStatsDictionary() {
+  const lang =
+    typeof getCurrentLanguage === "function"
+      ? getCurrentLanguage()
+      : localStorage.getItem("lang") || "en";
+
+  if (typeof translations !== "undefined" && translations[lang]) {
+    return translations[lang];
+  }
+
+  return null;
+}
+
+function getNestedValue(obj, path) {
+  return path.split(".").reduce((acc, key) => acc?.[key], obj);
+}
+
+function getTranslatedText(dict, key, fallback) {
+  if (!dict) return fallback;
+  return getNestedValue(dict, key) || fallback;
+}
 
 function renderStats() {
   const container = document.getElementById("statsCard");
   if (!container) return;
 
+  const dict = getStatsDictionary();
+
   container.innerHTML = statsData
-    .map(
-      (item) => `
-      <div class="stat-item">
-        <h3 
-          class="stat-value" 
-          data-target="${item.value}" 
-          data-prefix="${item.prefix}" 
-          data-suffix="${item.suffix}"
-        >
-          ${item.prefix}0${item.suffix}
-        </h3>
-        <p class="stat-label">${item.label}</p>
-      </div>
-    `
-    )
+    .map((item) => {
+      const label = getTranslatedText(dict, item.labelKey, item.fallback);
+
+      return `
+        <div class="stat-item">
+          <h3 
+            class="stat-value" 
+            data-target="${item.value}" 
+            data-prefix="${item.prefix}" 
+            data-suffix="${item.suffix}"
+          >
+            ${item.prefix}0${item.suffix}
+          </h3>
+          <p class="stat-label">${label}</p>
+        </div>
+      `;
+    })
     .join("");
 }
 
 function animateCount(el, target, prefix, suffix) {
   let current = 0;
-  const increment = target / 90; // السرعة (قلل الرقم = أسرع)
+  const increment = target / 90;
 
   function update() {
     current += increment;
@@ -48,6 +74,8 @@ function animateCount(el, target, prefix, suffix) {
 function initStatsAnimation() {
   const section = document.querySelector(".stats-section");
   const values = document.querySelectorAll(".stat-value");
+
+  if (!section || !values.length) return;
 
   let triggered = false;
 
@@ -74,5 +102,9 @@ function initStatsAnimation() {
   observer.observe(section);
 }
 
-renderStats();
-initStatsAnimation();
+function initStatsSection() {
+  renderStats();
+  initStatsAnimation();
+}
+
+document.addEventListener("DOMContentLoaded", initStatsSection);

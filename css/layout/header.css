@@ -4,29 +4,25 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-
     padding-top: 20px;
-
     transition:
         background 0.35s ease,
         backdrop-filter 0.35s ease,
-        box-shadow 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 .site-header.scrolled {
     background: rgba(6, 10, 20, 0.65);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-
     box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.35),
         0 0 25px rgba(0, 102, 255, 0.08);
 }
 
-
 .navbar {
+    position: relative;
     min-height: 74px;
     display: flex;
     align-items: center;
@@ -35,26 +31,28 @@
 }
 
 .logo {
+    flex-shrink: 0;
     font-size: 2.2rem;
     font-weight: 700;
-    color: #ffffff;
-    letter-spacing: 1px;
     line-height: 1;
-    font-family: Georgia, 'Times New Roman', serif;
+    letter-spacing: 1px;
+    color: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
 }
 
 .nav-desktop {
     display: flex;
     align-items: center;
     gap: 32px;
+    margin-left: auto;
 }
 
 .nav-link {
     font-size: 1.1rem;
-    color: #f5f5f5;
-    transition: 0.3s ease;
-    letter-spacing: 0.5px;
     font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #f5f5f5;
+    transition: color 0.3s ease;
 }
 
 .nav-link:hover {
@@ -62,11 +60,14 @@
 }
 
 .consultation-btn {
+    position: relative;
+    overflow: hidden;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 15px;
+    padding: 7px 15px;
     border-radius: 999px;
+    white-space: nowrap;
     color: #ffffff;
     font-size: 1rem;
     font-weight: 600;
@@ -76,13 +77,33 @@
         0 0 0 1px rgba(255, 255, 255, 0.03) inset,
         0 0 18px rgba(0, 102, 255, 0.22),
         0 6px 18px rgba(0, 0, 0, 0.35);
-    transition: 0.3s ease;
-    white-space: nowrap;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    animation: floatBtn 3s ease-in-out infinite;
 }
 
+.consultation-btn::before,
+.consultation-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+}
+
+.consultation-btn::before {
+    background: radial-gradient(circle at 50% 50%, rgba(0, 102, 255, 0.18), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.consultation-btn::after {
+    background: radial-gradient(circle, rgba(0, 102, 255, 0.25), transparent 70%);
+    opacity: 0.4;
+    filter: blur(10px);
+    z-index: -1;
+}
 
 .consultation-btn:hover {
     transform: translateY(-2px);
@@ -92,23 +113,8 @@
         0 10px 24px rgba(0, 0, 0, 0.4);
 }
 
-
-.consultation-btn::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(circle at 50% 50%, rgba(0, 102, 255, 0.18), transparent 70%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-
-
-.consultation-btn {
-    position: relative;
-    overflow: hidden;
-    animation: floatBtn 3s ease-in-out infinite;
+.consultation-btn:hover::before {
+    opacity: 1;
 }
 
 @keyframes floatBtn {
@@ -120,33 +126,13 @@
     }
 }
 
-/* glow خفيف */
-.consultation-btn::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(circle, rgba(0,102,255,0.25), transparent 70%);
-    opacity: 0.4;
-    filter: blur(10px);
-    z-index: -1;
-}
-
-.consultation-btn:hover::before {
-    opacity: 1;
-}
-
-.nav-mobile {
-    display: none;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    width: 100%;
-}
-
 .mobile-icon-btn {
     width: 36px;
     height: 36px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid rgba(56, 116, 255, 0.35);
     border-radius: 50%;
     background: radial-gradient(circle at center, rgba(18, 28, 56, 0.95), rgba(7, 10, 18, 0.98));
@@ -154,13 +140,9 @@
         0 0 0 1px rgba(255, 255, 255, 0.03) inset,
         0 0 18px rgba(0, 102, 255, 0.32),
         0 8px 18px rgba(0, 0, 0, 0.35);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     color: #ffffff;
     cursor: pointer;
-    transition: 0.3s ease;
-    flex-shrink: 0;
+    transition: transform 0.3s ease;
 }
 
 .mobile-icon-btn:hover {
@@ -176,23 +158,87 @@
     font-size: 1.2rem;
 }
 
-.mobile-consultation-inline {
-    flex: 1;
-    min-height: 48px;
-    font-size: 0.95rem;
-    padding: 0 16px;
-    max-width: 190px;
-    margin-left: auto;
-    margin-right: auto;
+/* language toggle */
+.lang-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 14px;
+    border: 1px solid rgba(56, 116, 255, 0.35);
+    border-radius: 999px;
+    background: radial-gradient(circle at center, rgba(18, 28, 56, 0.95), rgba(7, 10, 18, 0.98));
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+        0 0 18px rgba(0, 102, 255, 0.28),
+        0 8px 18px rgba(0, 0, 0, 0.35);
+    color: #ffffff;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    flex-shrink: 0;
 }
+
+.lang-toggle-btn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(90, 146, 255, 0.5);
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+        0 0 24px rgba(0, 102, 255, 0.34),
+        0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+.lang-toggle-btn span {
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+#langToggle {
+    margin-left: 6px;
+}
+
+#langToggleMobile {
+    display: none;
+}
+
+.lang-toggle-btn--mobile {
+    min-height: 36px;
+    padding: 0 10px;
+}
+
+.lang-toggle-btn--mobile span {
+    font-size: 0.72rem;
+}
+
+.nav-mobile {
+    display: none;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.mobile-actions-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
 .mobile-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
     position: absolute;
     top: calc(100% + 10px);
     left: 1rem;
     right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
     padding: 18px;
     border-radius: 20px;
     background: linear-gradient(180deg, rgba(6, 9, 18, 0.96), rgba(8, 12, 25, 0.98));
@@ -200,18 +246,22 @@
     box-shadow:
         0 0 25px rgba(0, 102, 255, 0.15),
         0 14px 30px rgba(0, 0, 0, 0.45);
-
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transform: translateY(-8px) scale(0.98);
     transform-origin: top center;
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
 }
 
 .mobile-menu.active {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    transform: translateY(0) scale(1);
 }
 
 .mobile-menu-link {
@@ -219,7 +269,9 @@
     font-size: 1rem;
     padding: 10px 4px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    transition: 0.3s ease;
+    transition:
+        color 0.3s ease,
+        padding 0.3s ease;
 }
 
 .mobile-menu-link:hover {
@@ -227,6 +279,22 @@
     padding-left: 8px;
 }
 
+/* RTL */
+body.rtl .nav-desktop {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+body.rtl .nav-mobile {
+    flex-direction: row-reverse;
+}
+
+body.rtl .mobile-menu-link:hover {
+    padding-left: 4px;
+    padding-right: 8px;
+}
+
+/* responsive */
 @media (max-width: 991px) {
     .logo {
         font-size: 1.9rem;
@@ -255,11 +323,9 @@
         min-height: 52px;
     }
 
-    .nav-desktop {
-        display: none;
-    }
-
-    .logo {
+    .nav-desktop,
+    .logo,
+    #langToggle {
         display: none;
     }
 
@@ -267,28 +333,24 @@
         display: flex;
     }
 
+    #langToggleMobile {
+        display: inline-flex;
+    }
+
     .container {
         padding: 0 1.25rem;
     }
 
-    .mobile-consultation-inline {
-        max-width: 180px;
-    }
-}
-
-@media (max-width: 480px) {
- 
-  
-}
-
-@keyframes fadeSlideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-8px);
+    .mobile-actions-group {
+        gap: 6px;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .lang-toggle-btn {
+        min-height: 36px;
+        padding: 0 10px;
+    }
+
+    .lang-toggle-btn span {
+        font-size: 0.68rem;
     }
 }

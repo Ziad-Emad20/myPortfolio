@@ -1,69 +1,110 @@
+// =========================
+// Social Links (Static)
+// =========================
+
 const socialLinks = [
   {
-    label: "YouTube",
+    key: "youtube",
     href: "https://youtube.com/",
     icon: "fa-brands fa-youtube",
   },
   {
-    label: "LinkedIn",
+    key: "linkedin",
     href: "https://linkedin.com/",
     icon: "fa-brands fa-linkedin-in",
   },
   {
-    label: "Instagram",
+    key: "instagram",
     href: "https://instagram.com/",
     icon: "fa-brands fa-instagram",
   },
   {
-    label: "Facebook",
+    key: "facebook",
     href: "https://facebook.com/",
     icon: "fa-brands fa-facebook-f",
   },
 ];
 
+// =========================
+// Generate Social Links (Translated)
+// =========================
+
 function generateSocialLinks() {
+  const lang = getCurrentLanguage();
+  const dict = translations[lang];
+
   return socialLinks
-    .map(
-      (item) => `
+    .map((item) => {
+      const label =
+        dict?.footer?.socials?.[item.key] || item.key;
+
+      return `
         <a 
           href="${item.href}" 
           class="footer-social-link" 
           target="_blank" 
           rel="noopener noreferrer"
-          aria-label="${item.label}"
+          aria-label="${label}"
         >
           <i class="${item.icon}"></i>
         </a>
-      `
-    )
+      `;
+    })
     .join("");
 }
 
-const footerTemplate = `
-  <div class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-content">
-        <a href="#home" class="footer-logo">ZIAD</a>
-
-        <p class="footer-text">
-          Building modern websites, Shopify experiences, and digital content with a clean premium touch.
-        </p>
-
-        <div class="footer-socials">
-          ${generateSocialLinks()}
-        </div>
-
-        <p class="footer-copy">© 2024 - All Rights Reserved.</p>
-      </div>
-    </div>
-  </div>
-`;
+// =========================
+// Render Footer
+// =========================
 
 function renderFooter() {
   const footerContainer = document.getElementById("footer-container");
   if (!footerContainer) return;
 
-  footerContainer.innerHTML = footerTemplate;
+  const lang = getCurrentLanguage();
+  const dict = translations[lang];
+
+  const text =
+    dict?.footer?.text ||
+    "Building modern websites, Shopify experiences, and digital content with a clean premium touch.";
+
+  const copy =
+    dict?.footer?.copy ||
+    "© 2024 - All Rights Reserved.";
+
+  footerContainer.innerHTML = `
+    <div class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <a href="#home" class="footer-logo">ZIAD</a>
+
+          <p class="footer-text">
+            ${text}
+          </p>
+
+          <div class="footer-socials">
+            ${generateSocialLinks()}
+          </div>
+
+          <p class="footer-copy">${copy}</p>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
-renderFooter();
+// =========================
+// Init
+// =========================
+
+function initFooter() {
+  renderFooter();
+}
+
+// =========================
+// First Load
+// =========================
+
+document.addEventListener("DOMContentLoaded", () => {
+  initFooter();
+});

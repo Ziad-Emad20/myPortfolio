@@ -282,6 +282,203 @@ window.addEventListener("load", () => {
     });
   }
 
+  function animateContact() {
+    const section = $(".contact-section");
+    if (!section) return;
+
+    const header = $(".contact-header", section);
+    const card = $(".contact-card", section);
+    const formGroups = $$(".form-group", section);
+    const sendBtn = $(".send-btn", section);
+    const sideCard = $(".contact-side-card", section);
+    const sideBadge = $(".side-badge", section);
+    const sideTitle = $(".side-title", section);
+    const sideText = $(".side-text", section);
+    const whatsappCta = $(".whatsapp-cta", section);
+    const miniPoints = $$(".mini-point", section);
+
+    if (header) {
+      const headingTitle = $("h2", header);
+      const headingText = $("p", header);
+
+      const headerTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 84%",
+          once: true,
+        },
+      });
+
+      if (headingTitle) {
+        headerTl.from(headingTitle, {
+          yPercent: 18,
+          opacity: 0,
+          filter: "blur(8px)",
+          duration: 0.8,
+          ease: "expo.out",
+          clearProps: "opacity,filter",
+        });
+      }
+
+      if (headingText) {
+        headerTl.from(
+          headingText,
+          {
+            yPercent: 14,
+            opacity: 0,
+            filter: "blur(6px)",
+            duration: 0.72,
+            ease: "expo.out",
+            clearProps: "opacity,filter",
+          },
+          "-=0.5"
+        );
+      }
+    }
+
+    if (card) {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top 88%",
+          once: true,
+        },
+        yPercent: 8,
+        opacity: 0,
+        filter: "blur(8px)",
+        duration: 0.9,
+        ease: "expo.out",
+        clearProps: "opacity,filter",
+      });
+    }
+
+    if (formGroups.length) {
+      gsap.from(formGroups, {
+        scrollTrigger: {
+          trigger: card || section,
+          start: "top 86%",
+          once: true,
+        },
+        yPercent: 12,
+        opacity: 0,
+        filter: "blur(6px)",
+        duration: 0.65,
+        stagger: 0.07,
+        ease: "expo.out",
+        clearProps: "opacity,filter",
+      });
+    }
+
+    if (sendBtn) {
+      gsap.from(sendBtn, {
+        scrollTrigger: {
+          trigger: sendBtn,
+          start: "top 94%",
+          once: true,
+        },
+        yPercent: 12,
+        opacity: 0,
+        duration: 0.45,
+        delay: 0.08,
+        ease: "power3.out",
+        clearProps: "opacity",
+      });
+    }
+
+    if (sideCard) {
+      const sideTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sideCard,
+          start: "top 88%",
+          once: true,
+        },
+      });
+
+      sideTl.from(sideCard, {
+        yPercent: 10,
+        opacity: 0,
+        filter: "blur(8px)",
+        duration: 0.8,
+        ease: "expo.out",
+        clearProps: "opacity,filter",
+      });
+
+      if (sideBadge) {
+        sideTl.from(
+          sideBadge,
+          {
+            yPercent: 12,
+            opacity: 0,
+            duration: 0.4,
+            ease: "power3.out",
+            clearProps: "opacity",
+          },
+          "-=0.45"
+        );
+      }
+
+      if (sideTitle) {
+        sideTl.from(
+          sideTitle,
+          {
+            yPercent: 14,
+            opacity: 0,
+            filter: "blur(6px)",
+            duration: 0.62,
+            ease: "expo.out",
+            clearProps: "opacity,filter",
+          },
+          "-=0.28"
+        );
+      }
+
+      if (sideText) {
+        sideTl.from(
+          sideText,
+          {
+            yPercent: 12,
+            opacity: 0,
+            filter: "blur(6px)",
+            duration: 0.65,
+            ease: "expo.out",
+            clearProps: "opacity,filter",
+          },
+          "-=0.38"
+        );
+      }
+
+      if (whatsappCta) {
+        sideTl.from(
+          whatsappCta,
+          {
+            yPercent: 10,
+            opacity: 0,
+            filter: "blur(6px)",
+            duration: 0.55,
+            ease: "expo.out",
+            clearProps: "opacity,filter",
+          },
+          "-=0.34"
+        );
+      }
+
+      if (miniPoints.length) {
+        sideTl.from(
+          miniPoints,
+          {
+            yPercent: 10,
+            opacity: 0,
+            duration: 0.4,
+            stagger: 0.05,
+            ease: "power3.out",
+            clearProps: "opacity",
+          },
+          "-=0.22"
+        );
+      }
+    }
+  }
+
   function animateFooter() {
     const footer = $("#footer-container");
     const logo = $(".footer-logo");
@@ -443,19 +640,13 @@ window.addEventListener("load", () => {
   }
 
   waitForSelectors(
-    [
-      ".hero-card",
-      ".stat-item",
-      ".offer-card__content",
-      ".feedback-card__text",
-      ".footer-logo",
-      "#mobileMenu",
-    ],
+    ["#mobileMenu"],
     () => {
       animateHero();
       animateStats();
       animateOffers();
       animateFeedback();
+      animateContact();
       animateFooter();
       animateMobileMenu();
       ScrollTrigger.refresh();

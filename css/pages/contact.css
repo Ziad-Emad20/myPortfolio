@@ -563,3 +563,42 @@
         display: none;
     }
 }
+
+
+
+.form-message {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    font-size: 0.9rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: all 0.35s ease;
+}
+
+.form-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.form-message.is-success {
+    background: rgba(0, 255, 150, 0.08);
+    border: 1px solid rgba(0, 255, 150, 0.2);
+    color: #7dffbf;
+}
+
+.form-message.is-error {
+    background: rgba(255, 80, 80, 0.08);
+    border: 1px solid rgba(255, 80, 80, 0.2);
+    color: #ff8e8e;
+}
+
+
+
+
+.contact-form input[type="tel"] {
+  direction: ltr;
+  text-align: left;
+}

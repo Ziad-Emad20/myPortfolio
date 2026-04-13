@@ -148,6 +148,18 @@
         0 10px 20px rgba(0, 0, 0, 0.28);
 }
 
+
+body.rtl .hero-card {
+    text-align: center;
+}
+
+body.rtl .hero-description {
+    direction: rtl;
+}
+
+/* =========================
+   Stats Section
+   ========================= */
 /* =========================
    Stats Section
    ========================= */
@@ -164,6 +176,8 @@
     align-items: stretch;
     justify-content: space-between;
     gap: 10px;
+    max-width: 980px;
+    margin: 0 auto;
     border-radius: var(--card-radius-lg);
     background: var(--card-bg);
     border: 1px solid var(--card-border);
@@ -237,6 +251,10 @@
     color: rgba(224, 232, 255, 0.72);
 }
 
+body.rtl .stat-label {
+    direction: rtl;
+}
+
 @keyframes statsGlowFloat {
     0% {
         transform: translateY(0) scale(1);
@@ -266,7 +284,7 @@
    ========================= */
 
 .offers-section {
-    padding: 0 0 var(--section-space-lg);
+    padding: 100px 0 var(--section-space-lg);
     overflow: hidden;
 }
 
@@ -664,6 +682,7 @@
     }
 
     .offers-section {
+        padding-top: 70px;
         padding-bottom: var(--section-space-md);
     }
 

@@ -3,7 +3,7 @@ const offersData = [
     title: "shopify",
     subtitle: "Design & development",
     description: "Lorem ipsum dolor sit amet consecte, adipisicing elit.",
-    count: 5,
+    count: 22,
     label: "client",
     image:
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
@@ -13,7 +13,7 @@ const offersData = [
     title: "content creator",
     subtitle: "Ideas, design & storytelling",
     description: "Lorem ipsum dolor sit amet consecte, adipisicing elit.",
-    count: 3,
+    count: 7,
     label: "brands",
     image:
       "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
@@ -23,17 +23,24 @@ const offersData = [
     title: "website",
     subtitle: "Front-end & back-end developer",
     description: "Lorem ipsum dolor sit amet consecte, adipisicing elit.",
-    count: 7,
+    count: 3,
     label: "client",
     image:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop",
     link: "#",
   },
 ];
+function getOffersData() {
+  const lang = getCurrentLanguage();
+  return translations[lang]?.offers?.items || [];
+}
 
 let offersSwiperInstance = null;
 
 function createOfferCard(item) {
+  const lang = getCurrentLanguage();
+  const openText = lang === "ar" ? "افتح" : "Open";
+
   return `
     <article class="offer-card">
       <div class="offer-card__image-wrap">
@@ -53,7 +60,7 @@ function createOfferCard(item) {
             <span class="offer-card__label">${item.label}</span>
           </div>
 
-          <a href="${item.link}" class="offer-card__arrow" aria-label="Open ${item.title}">
+          <a href="${item.link}" class="offer-card__arrow" aria-label="${openText} ${item.title}">
             <i class="fa-solid fa-arrow-right"></i>
           </a>
         </div>
@@ -66,9 +73,15 @@ function renderOffersSection() {
   const container = document.getElementById("offers-container");
   if (!container) return;
 
+  const lang = getCurrentLanguage();
+  const dict = translations[lang];
+  const offersData = getOffersData();
+
+  const title = dict?.offers?.title || "What I Offer";
+
   container.innerHTML = `
     <div class="offers-head">
-      <h2 class="offers-title">What I Offer</h2>
+      <h2 class="offers-title">${title}</h2>
     </div>
 
     <div class="swiper offers-swiper">
@@ -83,7 +96,7 @@ function renderOffersSection() {
           )
           .join("")}
       </div>
-      <!-- Pagination -->
+
       <div class="offers-swiper-pagination"></div>
     </div>
   `;
@@ -130,6 +143,11 @@ function initOffersSwiper() {
     },
   });
 }
+
+function initOffersSection() {
+  renderOffersSection();
+}
+
 let resizeTimer;
 
 window.addEventListener("resize", () => {
@@ -139,4 +157,6 @@ window.addEventListener("resize", () => {
   }, 150);
 });
 
-document.addEventListener("DOMContentLoaded", renderOffersSection);
+document.addEventListener("DOMContentLoaded", () => {
+  initOffersSection();
+});

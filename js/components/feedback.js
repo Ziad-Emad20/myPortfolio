@@ -1,39 +1,31 @@
-const feedbackData = [
-  {
-    name: "user_",
-    avatar: "https://i.pravatar.cc/100?img=12",
-    rating: 5,
-    text: "Lorem ipsum dolor sit amet sed doule eiusmod te incididunt",
-  },
-  {
-    name: "user_",
-    avatar: "https://i.pravatar.cc/100?img=32",
-    rating: 5,
-    text: "Lorem ipsum dolor sit amet sed doule eiusmod te incididunt",
-  },
-  {
-    name: "user_",
-    avatar: "https://i.pravatar.cc/100?img=25",
-    rating: 5,
-    text: "Lorem ipsum dolor sit amet sed doule eiusmod te incididunt",
-  },
-  {
-    name: "user_",
-    avatar: "https://i.pravatar.cc/100?img=15",
-    rating: 4,
-    text: "Lorem ipsum dolor sit amet sed do eiusmod te incididunt",
-  },
-];
+// =========================
+// Feedback Data (Dynamic from translations)
+// =========================
+
+function getFeedbackData() {
+  const lang = getCurrentLanguage();
+  return translations[lang]?.feedback?.items || [];
+}
 
 let feedbackSwiperInstance = null;
 
+// =========================
+// Helpers
+// =========================
+
 function createStars(rating) {
   return Array.from({ length: 5 }, (_, index) => {
-    return `<span class="feedback-card__star ${index < rating ? "is-active" : ""}">★</span>`;
+    return `<span class="feedback-card__star ${
+      index < rating ? "is-active" : ""
+    }">★</span>`;
   }).join("");
 }
 
 function createFeedbackCard(item) {
+  const lang = getCurrentLanguage();
+  const ariaText =
+    translations[lang]?.feedback?.ariaStars || "out of 5 stars";
+
   return `
     <article class="feedback-card">
       <div class="feedback-card__top">
@@ -44,7 +36,7 @@ function createFeedbackCard(item) {
           <h3 class="feedback-card__name">${item.name}</h3>
         </div>
 
-        <div class="feedback-card__rating" aria-label="${item.rating} out of 5 stars">
+        <div class="feedback-card__rating" aria-label="${item.rating} ${ariaText}">
           ${createStars(item.rating)}
         </div>
       </div>
@@ -54,13 +46,23 @@ function createFeedbackCard(item) {
   `;
 }
 
+// =========================
+// Render Section
+// =========================
+
 function renderFeedbackSection() {
   const container = document.getElementById("feedback-container");
   if (!container) return;
 
+  const lang = getCurrentLanguage();
+  const dict = translations[lang];
+  const feedbackData = getFeedbackData();
+
+  const title = dict?.feedback?.title || "Feedback";
+
   container.innerHTML = `
     <div class="feedback-head">
-      <h2 class="feedback-title">Feedbackes</h2>
+      <h2 class="feedback-title">${title}</h2>
     </div>
 
     <div class="swiper feedback-swiper">
@@ -83,8 +85,14 @@ function renderFeedbackSection() {
   initFeedbackSwiper();
 }
 
+// =========================
+// Swiper
+// =========================
+
 function initFeedbackSwiper() {
   if (typeof Swiper === "undefined") return;
+
+  const feedbackData = getFeedbackData();
 
   if (feedbackSwiperInstance) {
     feedbackSwiperInstance.destroy(true, true);
@@ -131,6 +139,18 @@ function initFeedbackSwiper() {
   });
 }
 
+// =========================
+// Init Section
+// =========================
+
+function initFeedbackSection() {
+  renderFeedbackSection();
+}
+
+// =========================
+// Resize Handling
+// =========================
+
 let feedbackResizeTimer;
 
 window.addEventListener("resize", () => {
@@ -140,4 +160,10 @@ window.addEventListener("resize", () => {
   }, 150);
 });
 
-document.addEventListener("DOMContentLoaded", renderFeedbackSection);
+// =========================
+// Init on Load
+// =========================
+
+document.addEventListener("DOMContentLoaded", () => {
+  initFeedbackSection();
+});
