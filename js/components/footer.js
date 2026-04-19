@@ -5,23 +5,23 @@
 const socialLinks = [
   {
     key: "youtube",
-    href: "https://youtube.com/",
+    href: "https://www.youtube.com/@ziademad2023",
     icon: "fa-brands fa-youtube",
   },
   {
-    key: "linkedin",
-    href: "https://linkedin.com/",
-    icon: "fa-brands fa-linkedin-in",
-  },
-  {
     key: "instagram",
-    href: "https://instagram.com/",
+    href: "https://www.instagram.com/ziiademad_/",
     icon: "fa-brands fa-instagram",
   },
   {
     key: "facebook",
-    href: "https://facebook.com/",
+    href: "https://www.facebook.com/ZiadEmad2004",
     icon: "fa-brands fa-facebook-f",
+  },
+  {
+    key: "linkedin",
+    href: "https://www.linkedin.com/in/ziad-emad2004/",
+    icon: "fa-brands fa-linkedin-in",
   },
 ];
 

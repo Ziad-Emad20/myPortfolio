@@ -599,7 +599,7 @@ body.rtl .stat-label {
 
 .feedback-card__name {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     line-height: 1;
     font-weight: 500;
     color: #ffffff;
@@ -744,7 +744,7 @@ body.rtl .stat-label {
     }
 
     .feedback-card__name {
-        font-size: 1.35rem;
+        font-size: 1.25rem;
     }
 
     .feedback-card__text {

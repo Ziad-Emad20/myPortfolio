@@ -1,7 +1,7 @@
 const statsData = [
-  { value: 31, prefix: "+", suffix: "", labelKey: "stats.clients", fallback: "Clients" },
-  { value: 12, prefix: "+", suffix: "", labelKey: "stats.countries", fallback: "Countries" },
-  { value: 4, prefix: "+", suffix: "M", labelKey: "stats.reach", fallback: "Reach" },
+  { value: 45, prefix: "+", suffix: "", labelKey: "stats.clients", fallback: "Clients" },
+  { value: 10, prefix: "+", suffix: "", labelKey: "stats.countries", fallback: "Countries" },
+  { value: 5, prefix: "+", suffix: "M", labelKey: "stats.reach", fallback: "Reach" },
 ];
 
 function getStatsDictionary() {

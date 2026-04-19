@@ -152,7 +152,6 @@ function bindNavbarEvents(navbarContainer) {
   const menuToggle = navbarContainer.querySelector(".menu-toggle");
   const mobileMenu = navbarContainer.querySelector("#mobileMenu");
 
-  // scroll effect
   if (header) {
     const handleScroll = () => {
       header.classList.toggle("scrolled", window.scrollY > 40);
@@ -162,7 +161,6 @@ function bindNavbarEvents(navbarContainer) {
     window.addEventListener("scroll", handleScroll);
   }
 
-  // language switch
   langBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const current = safeGetCurrentLanguage();
@@ -171,16 +169,25 @@ function bindNavbarEvents(navbarContainer) {
       safeSetLanguage(next);
       renderNavbar();
 
-      if (typeof applyLanguage === "function") applyLanguage(next);
-      if (typeof initStatsSection === "function") initStatsSection();
-      if (typeof initOffersSection === "function") initOffersSection();
-      if (typeof initFeedbackSection === "function") initFeedbackSection();
-      if (typeof initFooter === "function") initFooter();
-      if (typeof initContactSection === "function") initContactSection();
+      if (typeof applyLanguage === "function") {
+        applyLanguage(next);
+      }
+
+      if (typeof renderCoursePage === "function") {
+        renderCoursePage();
+      } else {
+        if (typeof initStatsSection === "function") initStatsSection();
+        if (typeof initOffersSection === "function") initOffersSection();
+        if (typeof initFeedbackSection === "function") initFeedbackSection();
+        if (typeof initContactSection === "function") initContactSection();
+      }
+
+      if (typeof initFooter === "function") {
+        initFooter();
+      }
     });
   });
 
-  // mobile menu
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener("click", (e) => {
       e.stopPropagation();
