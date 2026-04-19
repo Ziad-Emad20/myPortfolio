@@ -67,44 +67,44 @@ const translations = {
       items: [
         {
           name: "sis.sportswear",
-          avatar: "https://i.pravatar.cc/100?img=12",
+          avatar: "/assets/sis.jpg",
           rating: 5,
           text: "Great experience, everything was smooth and professional.",
         },
         {
           name: "Mohamed Ghaith",
-          avatar: "https://i.pravatar.cc/100?img=32",
+          avatar: "/assets/mohamed.jpg",
           rating: 5,
           text: "Very clean work and fast delivery, highly recommended.",
         },
         {
           name: "Route Academy",
-          avatar: "https://i.pravatar.cc/100?img=25",
+          avatar: "/assets/route.jpg",
           rating: 5,
           text: "Amazing attention to detail and great communication.",
         },
         {
           name: "marvelmenswear",
-          avatar: "https://i.pravatar.cc/100?img=25",
+          avatar: "/assets/marvel.jpg",
           rating: 5,
           text: "Amazing attention to detail and great communication.",
         },
          {
            name: "stunning.so",
-           avatar: "https://i.pravatar.cc/100?img=15",
+           avatar: "/assets/stunning.jpg",
            rating: 5,
            text: "Good work overall, will definitely work together again.",
           },
           {
             name: "Vertex Store",
-          avatar: "https://i.pravatar.cc/100?img=15",
+          avatar: "/assets/vertex.jpg",
           rating: 4,
           text: "Good work overall, will definitely work together again.",
         }
         ,
         {
           name: "Whapi App",
-          avatar: "https://i.pravatar.cc/100?img=15",
+          avatar: "/assets/whapi.jpg",
           rating: 5,
           text: "Good work overall, will definitely work together again.",
         },
@@ -422,47 +422,53 @@ const translations = {
       items: [
         {
           name: "sis.sportswear",
-          avatar: "https://i.pravatar.cc/100?img=12",
+          avatar: "/assets/sis.jpg",
           rating: 5,
           text: "تجربة ممتازة، كل حاجة كانت احترافية وسلسة.",
         },
         {
           name: "Mohamed Ghaith",
-          avatar: "https://i.pravatar.cc/100?img=32",
+          avatar: "/assets/mohamed.jpg",
           rating: 5,
           text: "شغل نظيف وتسليم سريع جدًا، أنصح بيه.",
         },
         {
           name: "Route Academy",
-          avatar: "https://i.pravatar.cc/100?img=25",
+          avatar: "/assets/route.jpg",
           rating: 5,
           text: "اهتمام بالتفاصيل والتواصل كان ممتاز.",
         },
         {
           name: "marvelmenswear",
-          avatar: "https://i.pravatar.cc/100?img=15",
+          avatar: "/assets/marvel.jpg",
           rating: 5,
           text: "شغل كويس جدًا وإن شاء الله نشتغل سوا تاني.",
         },
         {
           name: "stunning.so",
-          avatar: "https://i.pravatar.cc/100?img=15",
+          avatar: "/assets/stunning.jpg",
           rating: 5,
           text: "شغل كويس جدًا وإن شاء الله نشتغل سوا تاني.",
         },
         {
           name: "Vertex Store",
-          avatar: "https://i.pravatar.cc/100?img=15",
+          avatar: "/assets/vertex.jpg",
           rating: 5,
           text: "شغل كويس جدًا وإن شاء الله نشتغل سوا تاني.",
         },
         ,
         {
           name: "Whapi App",
-          avatar: "https://i.pravatar.cc/100?img=32",
+          avatar: "/assets/whapi.jpg",
           rating: 5,
           text: "شغل نظيف وتسليم سريع جدًا، أنصح بيه.",
         },
+         {
+          name: "Abdo Karem",
+          avatar: "https://i.pravatar.cc/100?img=15",
+          rating: 5,
+          text: "Good work overall, will definitely work together again.",
+        }
       ],
     },
 
