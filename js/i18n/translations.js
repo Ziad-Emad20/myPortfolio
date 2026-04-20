@@ -167,193 +167,244 @@ const translations = {
         points: ["Shopify Stores", "Custom Websites", "Brand Collaboration"],
       },
     },
+coursePage: {
+  hero: {
+    eyebrow: "Shopify Course / No-Code / Practical Learning",
+    title: "Build a professional Shopify store from scratch — without code.",
+    description:
+      "A practical Shopify course that helps beginners, brand owners, and freelancers build real stores step by step with clarity, confidence, and a workflow they can actually apply.",
+    tags: ["Design", "Development", "No Code"],
+    primaryCtaLabel: "Join Now & Get Early Access",
+    secondaryCtaLabel: "Have a question? Chat on WhatsApp",
+    currentPrice: "2300 EGP",
+    oldPrice: "4000 EGP",
+    note: "First round only • Limited launch price",
+    image:
+      "https://cdn.shopify.com/b/shopify-brochure2-assets/49bbf17e5d43dcd0bd09ad39724ae7ac.png",
+    imageAlt: "Shopify Course Preview",
+    miniLabel: "shopify course",
+    language: "Arabic",
+    languageAriaLabel: "Course language",
+  },
 
-    coursePage: {
-      hero: {
-        eyebrow: "Shopify Course / No-Code / Practical Learning",
-        title: "Build a professional Shopify store from scratch — without code.",
-        description:
-          "A practical Shopify course that helps beginners, brand owners, and freelancers build real stores step by step with clarity, confidence, and a workflow they can actually apply.",
-        tags: ["Design", "Development", "No Code"],
-        primaryCtaLabel: "Join Now & Get Early Access",
-        secondaryCtaLabel: "Have a question? Chat on WhatsApp",
-        currentPrice: "2300 EGP",
-        oldPrice: "4000 EGP",
-        note: "First round only • Limited launch price",
+  highlights: [
+    { value: "Beginner", label: "Friendly" },
+    { value: "Live", label: "Course" },
+    { value: "3", label: "Practical Stores" },
+    { value: "Step by", label: "Step" },
+  ],
+
+  fit: {
+    title: "Is this for you?",
+    items: [
+      "Ready to start your online business",
+      "Want a clear step-by-step path",
+      "Want to build a professional store without coding",
+      "Want to launch faster with less confusion",
+      "Want to turn your skills into real income",
+      "Want to understand Shopify the practical way",
+    ],
+  },
+
+  achievements: {
+    title: "What You'll Achieve!",
+    items: [
+      "Launch a professional Shopify store",
+      "Build a store optimized for conversions",
+      "Manage your business with confidence",
+      "Understand store setup, products, and workflows",
+      "Create a strong foundation for long-term growth",
+    ],
+  },
+
+  content: {
+    title: "Course Content",
+    modules: [
+      {
+        title: "Build a Professional Shopify Store from Scratch",
+        text: "Learn how Shopify works, how to set up your store the right way, and how to build a strong foundation from day one.",
+      },
+      {
+        title: "Product Management & Store Setup",
+        text: "Organize products, collections, and key store settings in a practical way that makes your store easier to manage and grow.",
+      },
+      {
+        title: "Store Design & User Experience Optimization",
+        text: "Create a cleaner layout, improve the shopping experience, and make your store feel more polished and more trustworthy.",
+      },
+      {
+        title: "Payment & Shipping Configuration",
+        text: "Set up the most important operational settings every real Shopify store needs before launch.",
+      },
+      {
+        title: "Sales & Marketing Strategies for Growth",
+        text: "Understand the basics that help your store build trust, improve performance, and prepare for long-term growth.",
+      },
+    ],
+  },
+
+  difference: {
+    title: "Why This Course Is Different",
+    items: [
+      "Practical, not just theory",
+      "No-code and beginner friendly",
+      "Built around real store creation",
+      "Clear learning path without random confusion",
+      "Focused on execution, not information overload",
+      "Designed for real-world use",
+    ],
+  },
+
+  guarantee: {
+    eyebrow: "Clear Policy",
+    title: "Full refund after the first session",
+    description:
+      "Everything is clear from the start, so you can join with confidence and without unnecessary worry.",
+    cardTitle: "A fair and simple guarantee",
+    cardText:
+      "If you attend the first session and feel that the course is not the right fit for you, you can receive a full refund after the first session with no unnecessary hassle.",
+  },
+
+  bonuses: {
+    eyebrow: "End-of-course bonuses",
+    title: "Real bonuses that add strong value",
+    description:
+      "You will not leave with knowledge only. At the end of the course, you will also receive practical assets that help you start faster and work more professionally.",
+    items: [
+      {
+        icon: "fa-solid fa-gift",
+        title: "Additional valuable bonuses",
+        text: "There will be multiple bonuses at the end of the course to help you get stronger value and a better start.",
+        price: "",
+        links: [],
+      },
+      {
+        icon: "fa-solid fa-layer-group",
+        title: "2 Premium Shopify Themes",
+        text: "You will receive two premium Shopify themes: Kalles and Minimog.",
+        price: "Their combined value is $177, which is more than 8,500 EGP approximately.",
+        links: [
+          {
+            label: "Kalles Theme",
+            href: "https://themeforest.net/item/kalles-clean-versatile-shopify-theme/26320622",
+          },
+          {
+            label: "Minimog Theme",
+            href: "https://themeforest.net/item/minimog-the-high-converting-shopify-theme/33380968",
+          },
+        ],
+      },
+    ],
+  },
+
+  opportunities: {
+    eyebrow: "Opportunities for top performers",
+    title: "The best students may get stronger opportunities after the course",
+    description:
+      "Throughout the course, it becomes clear who is truly applying, improving, and taking the work seriously.",
+    cardTitle: "Not guaranteed for everyone — but available for the most committed",
+    cardText:
+      "The top participants may get priority for referrals, client opportunities, or selected collaboration with me on future projects based on their performance, commitment, and practical progress during the course.",
+  },
+
+  audience: {
+    title: "Who This Course Is Built For",
+    cards: [
+      {
+        title: "Beginners",
+        text: "Want a simple and practical way to start with Shopify without feeling lost.",
+      },
+      {
+        title: "Brand Owners",
+        text: "Want to build or understand their own store better and make smarter decisions.",
+      },
+      {
+        title: "Freelancers",
+        text: "Want to add Shopify as a real service they can confidently offer to clients.",
+      },
+    ],
+  },
+
+  instructor: {
+    title: "Learn From Real Experience",
+    name: "Ziad Emad",
+    role: "Web & Shopify Developer",
+    text: "This course is built from real Shopify implementation experience, with a focus on clarity, practical execution, and helping you reach a real result instead of just watching lessons.",
+    points: [
+      "Real Shopify implementation experience",
+      "Practical teaching style",
+      "Focused on clarity and actual outcomes",
+    ],
+    image: "/assets/me.jpg",
+    imageAlt: "Ziad Emad",
+  },
+
+  proof: {
+    title: "What You Can Build",
+    cards: [
+      {
+        title: "Fashion Store",
+        text: "A clean, premium layout built with conversion and clarity in mind.",
         image:
-          "https://cdn.shopify.com/b/shopify-brochure2-assets/49bbf17e5d43dcd0bd09ad39724ae7ac.png",
-        imageAlt: "Shopify Course Preview",
-        miniLabel: "shopify course",
-        language: "Arabic",
-        languageAriaLabel: "Course language",
+          "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop",
       },
-
-      highlights: [
-        { value: "Beginner", label: "Friendly" },
-        { value: "Live", label: "Course" },
-        { value: "3", label: "Practical Stores" },
-        { value: "Step by", label: "Step" },
-      ],
-
-      fit: {
-        title: "Is this for you?",
-        items: [
-          "Ready to start your online business",
-          "Want a clear step-by-step path",
-          "Want to build a professional store without coding",
-          "Want to launch faster with less confusion",
-          "Want to turn your skills into real income",
-          "Want to understand Shopify the practical way",
-        ],
+      {
+        title: "Beauty Store",
+        text: "A polished store experience designed for premium products and strong presentation.",
+        image:
+          "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
       },
-
-      achievements: {
-        title: "What You'll Achieve!",
-        items: [
-          "Launch a professional Shopify store",
-          "Build a store optimized for conversions",
-          "Manage your business with confidence",
-          "Understand store setup, products, and workflows",
-          "Create a strong foundation for long-term growth",
-        ],
+      {
+        title: "General Product Store",
+        text: "A flexible store structure that helps you understand real Shopify workflow.",
+        image:
+          "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop",
       },
+    ],
+  },
 
-      content: {
-        title: "Course Content",
-        modules: [
-          {
-            title: "Build a Professional Shopify Store from Scratch",
-            text: "Learn how Shopify works, how to set up your store the right way, and how to build a strong foundation from day one.",
-          },
-          {
-            title: "Product Management & Store Setup",
-            text: "Organize products, collections, and key store settings in a practical way that makes your store easier to manage and grow.",
-          },
-          {
-            title: "Store Design & User Experience Optimization",
-            text: "Create a cleaner layout, improve the shopping experience, and make your store feel more polished and more trustworthy.",
-          },
-          {
-            title: "Payment & Shipping Configuration",
-            text: "Set up the most important operational settings every real Shopify store needs before launch.",
-          },
-          {
-            title: "Sales & Marketing Strategies for Growth",
-            text: "Understand the basics that help your store build trust, improve performance, and prepare for long-term growth.",
-          },
-        ],
+  faq: {
+    title: "Frequently Asked Questions",
+    items: [
+      {
+        question: "Is this course beginner friendly?",
+        answer:
+          "Yes. The course is designed to be clear, practical, and suitable even if you are starting from zero.",
       },
+      {
+        question: "Do I need coding experience?",
+        answer:
+          "No. The course is built to help you work with Shopify without needing coding skills.",
+      },
+      {
+        question: "Will I build a real store during the course?",
+        answer:
+          "Yes. The course is designed around practical implementation, not passive watching.",
+      },
+      {
+        question: "Is this course useful for freelancers?",
+        answer:
+          "Yes. It helps freelancers understand Shopify workflow and build a service they can offer.",
+      },
+      {
+        question: "Can brand owners benefit from it too?",
+        answer:
+          "Absolutely. It is useful for anyone who wants to build or better understand a Shopify store.",
+      },
+    ],
+  },
 
-      difference: {
-        title: "Why This Course Is Different",
-        items: [
-          "Practical, not just theory",
-          "No-code and beginner friendly",
-          "Built around real store creation",
-          "Clear learning path without random confusion",
-          "Focused on execution, not information overload",
-          "Designed for real-world use",
-        ],
-      },
-
-      audience: {
-        title: "Who This Course Is Built For",
-        cards: [
-          {
-            title: "Beginners",
-            text: "Want a simple and practical way to start with Shopify without feeling lost.",
-          },
-          {
-            title: "Brand Owners",
-            text: "Want to build or understand their own store better and make smarter decisions.",
-          },
-          {
-            title: "Freelancers",
-            text: "Want to add Shopify as a real service they can confidently offer to clients.",
-          },
-        ],
-      },
-
-      instructor: {
-        title: "Learn From Real Experience",
-        name: "Ziad Emad",
-        role: "Web & Shopify Developer",
-        text: "This course is built from real Shopify implementation experience, with a focus on clarity, practical execution, and helping you reach a real result instead of just watching lessons.",
-        points: [
-          "Real Shopify implementation experience",
-          "Practical teaching style",
-          "Focused on clarity and actual outcomes",
-        ],
-        image: "/assets/me.jpg",
-        imageAlt: "Ziad Emad",
-      },
-
-      proof: {
-        title: "What You Can Build",
-        cards: [
-          {
-            title: "Fashion Store",
-            text: "A clean, premium layout built with conversion and clarity in mind.",
-            image:
-              "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop",
-          },
-          {
-            title: "Beauty Store",
-            text: "A polished store experience designed for premium products and strong presentation.",
-            image:
-              "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
-          },
-          {
-            title: "General Product Store",
-            text: "A flexible store structure that helps you understand real Shopify workflow.",
-            image:
-              "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop",
-          },
-        ],
-      },
-
-      faq: {
-        title: "Frequently Asked Questions",
-        items: [
-          {
-            question: "Is this course beginner friendly?",
-            answer:
-              "Yes. The course is designed to be clear, practical, and suitable even if you are starting from zero.",
-          },
-          {
-            question: "Do I need coding experience?",
-            answer:
-              "No. The course is built to help you work with Shopify without needing coding skills.",
-          },
-          {
-            question: "Will I build a real store during the course?",
-            answer:
-              "Yes. The course is designed around practical implementation, not passive watching.",
-          },
-          {
-            question: "Is this course useful for freelancers?",
-            answer:
-              "Yes. It helps freelancers understand Shopify workflow and build a service they can offer.",
-          },
-          {
-            question: "Can brand owners benefit from it too?",
-            answer:
-              "Absolutely. It is useful for anyone who wants to build or better understand a Shopify store.",
-          },
-        ],
-      },
-
-      cta: {
-        eyebrow: "First Round Offer",
-        title: "Ready to build your Shopify store the right way?",
-        description:
-          "Get the full course details, ask your questions, and join the first round with the launch price before it moves to 4000 EGP.",
-        currentPrice: "2300 EGP",
-        oldPrice: "4000 EGP",
-        primaryCtaLabel: "Join The Early Access Group",
-        secondaryCtaLabel: "Have a question? Chat on WhatsApp",
-      },
-    },
+  cta: {
+    eyebrow: "First Round Offer",
+    title: "Ready to build your Shopify store the right way?",
+    description:
+      "Get the full course details, ask your questions, and join the first round with the launch price before it moves to 4000 EGP.",
+    currentPrice: "2300 EGP",
+    oldPrice: "4000 EGP",
+    primaryCtaLabel: "Join The Early Access Group",
+    secondaryCtaLabel: "Have a question? Chat on WhatsApp",
+  },
+}
   },
 
   ar: {
@@ -520,191 +571,243 @@ const translations = {
       },
     },
 
-    coursePage: {
-      hero: {
-        eyebrow: "كورس Shopify / بدون كود / تطبيق عملي",
-        title: "ابنِ متجر Shopify احترافي من الصفر — بدون كود.",
-        description:
-          "كورس عملي يساعد المبتدئين، أصحاب البراندات، والفريلانسرز على بناء متاجر حقيقية خطوة بخطوة بشكل واضح ومرتب وبطريقة تقدر تطبقها فعليًا.",
-        tags: ["تصميم", "تطوير", "بدون كود"],
-        primaryCtaLabel: "انضم الآن وخُد أولوية الوصول",
-        secondaryCtaLabel: "عندك سؤال؟ كلمني على واتساب",
-        currentPrice: "2300 جنيه",
-        oldPrice: "4000 جنيه",
-        note: "أول دفعة فقط • سعر إطلاق محدود",
+coursePage: {
+  hero: {
+    eyebrow: "كورس Shopify / بدون كود / تطبيق عملي",
+    title: "ابنِ متجر Shopify احترافي من الصفر — بدون كود.",
+    description:
+      "كورس عملي يساعد المبتدئين، أصحاب البراندات، والفريلانسرز على بناء متاجر حقيقية خطوة بخطوة بشكل واضح ومرتب وبطريقة تقدر تطبقها فعليًا.",
+    tags: ["تصميم", "تطوير", "بدون كود"],
+    primaryCtaLabel: "انضم الآن وخُد أولوية الوصول",
+    secondaryCtaLabel: "عندك سؤال؟ كلمني على واتساب",
+    currentPrice: "2300 جنيه",
+    oldPrice: "4000 جنيه",
+    note: "أول دفعة فقط • سعر إطلاق محدود",
+    image:
+      "https://cdn.shopify.com/b/shopify-brochure2-assets/49bbf17e5d43dcd0bd09ad39724ae7ac.png",
+    imageAlt: "معاينة كورس Shopify",
+    miniLabel: "كورس شوبيفاي",
+    language: "العربية",
+    languageAriaLabel: "لغة الكورس",
+  },
+
+  highlights: [
+    { value: "مناسب", label: "للمبتدئين" },
+    { value: "لايف", label: "كورس" },
+    { value: "3", label: "متاجر عملية" },
+    { value: "خطوة", label: "بخطوة" },
+  ],
+
+  fit: {
+    title: "هل الكورس مناسب ليك؟",
+    items: [
+      "جاهز تبدأ مشروعك الأونلاين",
+      "عايز طريق واضح خطوة بخطوة",
+      "عايز تبني متجر احترافي بدون برمجة",
+      "عايز تطلق أسرع وبلخبطة أقل",
+      "عايز تحوّل مهارتك لدخل حقيقي",
+      "عايز تفهم Shopify بشكل عملي",
+    ],
+  },
+
+  achievements: {
+    title: "إيه اللي هتقدر تعمله بعد الكورس؟",
+    items: [
+      "تطلق متجر Shopify احترافي",
+      "تبني متجر مهيأ للبيع والتحويلات",
+      "تدير شغلك بثقة أكبر",
+      "تفهم إعدادات المتجر والمنتجات وطريقة الشغل",
+      "تبني أساس قوي للنمو على المدى الطويل",
+    ],
+  },
+
+  content: {
+    title: "محتوى الكورس",
+    modules: [
+      {
+        title: "بناء متجر Shopify احترافي من الصفر",
+        text: "هتتعلم Shopify شغال إزاي، وإزاي تضبط متجرك صح من البداية، وتبني أساس قوي من أول يوم.",
+      },
+      {
+        title: "إدارة المنتجات وتجهيز المتجر",
+        text: "هتنظم المنتجات والكوليكشنز وأهم إعدادات المتجر بطريقة عملية تخلي المتجر أسهل في الإدارة والنمو.",
+      },
+      {
+        title: "تصميم المتجر وتحسين تجربة المستخدم",
+        text: "هتتعلم إزاي تعمل Layout أنضف، وتحسن تجربة الشراء، وتخلي متجرك شكله أكثر احترافية وثقة.",
+      },
+      {
+        title: "إعدادات الدفع والشحن",
+        text: "هتضبط أهم الإعدادات التشغيلية اللي أي متجر Shopify حقيقي محتاجها قبل الإطلاق.",
+      },
+      {
+        title: "أساسيات البيع والتسويق للنمو",
+        text: "هتفهم الأساسيات اللي تساعد متجرك يبني ثقة، ويحسن الأداء، ويكون جاهز للنمو على المدى الطويل.",
+      },
+    ],
+  },
+
+  difference: {
+    title: "ليه الكورس ده مختلف؟",
+    items: [
+      "عملي مش نظري فقط",
+      "بدون كود ومناسب للمبتدئين",
+      "مبني على إنشاء متجر حقيقي",
+      "مسار واضح بدون عشوائية",
+      "مركز على التطبيق مش حشو معلومات",
+      "متصمم للاستخدام الحقيقي في السوق",
+    ],
+  },
+
+  guarantee: {
+    eyebrow: "ضمان واضح",
+    title: "استرداد كامل بعد أول محاضرة",
+    description:
+      "كل شيء واضح من البداية، علشان تدخل وأنت مطمئن ومن غير قلق أو تردد.",
+    cardTitle: "ضمان بسيط وعادل",
+    cardText:
+      "لو حضرت أول محاضرة وحسيت إن الكورس غير مناسب ليك، تقدر تسترد المبلغ كامل بعد المحاضرة الأولى بكل وضوح وبدون تعقيد.",
+  },
+
+  bonuses: {
+    eyebrow: "هدايا نهاية الكورس",
+    title: "هدايا حقيقية تزود قيمة الكورس",
+    description:
+      "أنت مش هتخرج من الكورس بالمعلومة فقط، لكن كمان بأدوات حقيقية تساعدك تبدأ أسرع وتشتغل بشكل أكثر احترافية.",
+    items: [
+      {
+        icon: "fa-solid fa-gift",
+        title: "هدايا إضافية قوية",
+        text: "في نهاية الكورس هيكون في أكثر من هدية تساعدك تاخد قيمة أكبر وتبدأ بشكل أقوى.",
+        price: "",
+        links: [],
+      },
+      {
+        icon: "fa-solid fa-layer-group",
+        title: "2 ثيم Shopify Premium",
+        text: "من ضمن الهدايا هتحصل على ثيمين برميم: Kalles و Minimog.",
+        price: "القيمة الإجمالية للثيمين 177 دولار، يعني أكتر من 8500 جنيه تقريبًا.",
+        links: [
+          {
+            label: "Kalles Theme",
+            href: "https://themeforest.net/item/kalles-clean-versatile-shopify-theme/26320622",
+          },
+          {
+            label: "Minimog Theme",
+            href: "https://themeforest.net/item/minimog-the-high-converting-shopify-theme/33380968",
+          },
+        ],
+      },
+    ],
+  },
+
+  opportunities: {
+    eyebrow: "فرص للمجتهدين",
+    title: "المتميزين في الكورس هيكون ليهم فرص أقوى بعده",
+    description:
+      "خلال الكورس هيكون واضح مين فعلًا بيطبق وبيجتهد وبيطور نفسه بشكل مستمر.",
+    cardTitle: "مش ضمان لكل الناس... لكنها فرصة حقيقية للمجتهدين",
+    cardText:
+      "أفضل المشاركين هيكون ليهم أولوية في الترشيح لعملاء أو فرص مناسبة، أو التعاون معايا في بعض المشاريع مستقبلًا، وده بناءً على مستواهم واجتهادهم والتزامهم العملي أثناء الكورس.",
+  },
+
+  audience: {
+    title: "مين الكورس ده معمول له؟",
+    cards: [
+      {
+        title: "المبتدئين",
+        text: "اللي عايزين طريقة بسيطة وعملية يبدأوا بيها Shopify بدون ما يحسوا بتوهان.",
+      },
+      {
+        title: "أصحاب البراندات",
+        text: "اللي عايزين يبنوا متجرهم بنفسهم أو يفهموه بشكل أعمق وياخدوا قرارات أذكى.",
+      },
+      {
+        title: "الفريلانسرز",
+        text: "اللي عايزين يضيفوا Shopify كخدمة حقيقية يقدروها بثقة للعملاء.",
+      },
+    ],
+  },
+
+  instructor: {
+    title: "اتعلم من خبرة حقيقية",
+    name: "Ziad Emad",
+    role: "مطور مواقع ومتاجر Shopify",
+    text: "الكورس ده مبني على خبرة حقيقية في تنفيذ متاجر Shopify، مع تركيز على الوضوح، التطبيق العملي، ومساعدتك توصل لنتيجة فعلية بدل مجرد مشاهدة الدروس.",
+    points: [
+      "خبرة حقيقية في تنفيذ متاجر Shopify",
+      "أسلوب شرح عملي وواضح",
+      "تركيز على النتيجة والتطبيق الحقيقي",
+    ],
+    image: "/assets/me.jpg",
+    imageAlt: "Ziad Emad",
+  },
+
+  proof: {
+    title: "أمثلة على اللي تقدر تبنيه",
+    cards: [
+      {
+        title: "متجر ملابس",
+        text: "تصميم نظيف واحترافي معمول بعناية علشان يوضح المنتجات ويحسن التحويلات.",
         image:
-          "https://cdn.shopify.com/b/shopify-brochure2-assets/49bbf17e5d43dcd0bd09ad39724ae7ac.png",
-        imageAlt: "معاينة كورس Shopify",
-        miniLabel: "كورس شوبيفاي",
-        language: "العربية",
-        languageAriaLabel: "لغة الكورس",
+          "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop",
       },
-
-      highlights: [
-        { value: "مناسب", label: "للمبتدئين" },
-        { value: "لايف", label: "كورس" },
-        { value: "3", label: "متاجر عملية" },
-        { value: "خطوة", label: "بخطوة" },
-      ],
-
-      fit: {
-        title: "هل الكورس مناسب ليك؟",
-        items: [
-          "جاهز تبدأ مشروعك الأونلاين",
-          "عايز طريق واضح خطوة بخطوة",
-          "عايز تبني متجر احترافي بدون برمجة",
-          "عايز تطلق أسرع وبلخبطة أقل",
-          "عايز تحوّل مهارتك لدخل حقيقي",
-          "عايز تفهم Shopify بشكل عملي",
-        ],
+      {
+        title: "متجر بيوتي",
+        text: "تجربة متجر مرتبة ومناسبة للمنتجات الـ premium وتقديم أقوى للبراند.",
+        image:
+          "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
       },
-
-      achievements: {
-        title: "إيه اللي هتقدر تعمله بعد الكورس؟",
-        items: [
-          "تطلق متجر Shopify احترافي",
-          "تبني متجر مهيأ للبيع والتحويلات",
-          "تدير شغلك بثقة أكبر",
-          "تفهم إعدادات المتجر والمنتجات وطريقة الشغل",
-          "تبني أساس قوي للنمو على المدى الطويل",
-        ],
+      {
+        title: "متجر منتجات عامة",
+        text: "هيكل مرن يساعدك تفهم طريقة شغل Shopify الحقيقية بشكل عملي.",
+        image:
+          "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop",
       },
+    ],
+  },
 
-      content: {
-        title: "محتوى الكورس",
-        modules: [
-          {
-            title: "بناء متجر Shopify احترافي من الصفر",
-            text: "هتتعلم Shopify شغال إزاي، وإزاي تضبط متجرك صح من البداية، وتبني أساس قوي من أول يوم.",
-          },
-          {
-            title: "إدارة المنتجات وتجهيز المتجر",
-            text: "هتنظم المنتجات والكوليكشنز وأهم إعدادات المتجر بطريقة عملية تخلي المتجر أسهل في الإدارة والنمو.",
-          },
-          {
-            title: "تصميم المتجر وتحسين تجربة المستخدم",
-            text: "هتتعلم إزاي تعمل Layout أنضف، وتحسن تجربة الشراء، وتخلي متجرك شكله أكثر احترافية وثقة.",
-          },
-          {
-            title: "إعدادات الدفع والشحن",
-            text: "هتضبط أهم الإعدادات التشغيلية اللي أي متجر Shopify حقيقي محتاجها قبل الإطلاق.",
-          },
-          {
-            title: "أساسيات البيع والتسويق للنمو",
-            text: "هتفهم الأساسيات اللي تساعد متجرك يبني ثقة، ويحسن الأداء، ويكون جاهز للنمو على المدى الطويل.",
-          },
-        ],
+  faq: {
+    title: "الأسئلة الشائعة",
+    items: [
+      {
+        question: "هل الكورس مناسب للمبتدئين؟",
+        answer:
+          "أيوه. الكورس معمول بشكل واضح وعملي ويناسبك حتى لو لسه بتبدأ من الصفر.",
       },
+      {
+        question: "هل لازم أكون بعرف كود؟",
+        answer:
+          "لا. الكورس معمول علشان تشتغل على Shopify بدون ما تحتاج خبرة برمجية.",
+      },
+      {
+        question: "هل هبني متجر حقيقي أثناء الكورس؟",
+        answer:
+          "أيوه. الكورس قائم على التطبيق العملي مش مجرد المشاهدة.",
+      },
+      {
+        question: "هل الكورس مفيد للفريلانسرز؟",
+        answer:
+          "أيوه. هيساعدك تفهم Workflow شوبيفاي وتبني خدمة تقدر تقدمها للعملاء.",
+      },
+      {
+        question: "هل أصحاب البراندات هيستفيدوا منه؟",
+        answer:
+          "أكيد. الكورس مفيد لأي حد عايز يبني متجر Shopify أو يفهمه بشكل أفضل.",
+      },
+    ],
+  },
 
-      difference: {
-        title: "ليه الكورس ده مختلف؟",
-        items: [
-          "عملي مش نظري فقط",
-          "بدون كود ومناسب للمبتدئين",
-          "مبني على إنشاء متجر حقيقي",
-          "مسار واضح بدون عشوائية",
-          "مركز على التطبيق مش حشو معلومات",
-          "متصمم للاستخدام الحقيقي في السوق",
-        ],
-      },
-
-      audience: {
-        title: "مين الكورس ده معمول له؟",
-        cards: [
-          {
-            title: "المبتدئين",
-            text: "اللي عايزين طريقة بسيطة وعملية يبدأوا بيها Shopify بدون ما يحسوا بتوهان.",
-          },
-          {
-            title: "أصحاب البراندات",
-            text: "اللي عايزين يبنوا متجرهم بنفسهم أو يفهموه بشكل أعمق وياخدوا قرارات أذكى.",
-          },
-          {
-            title: "الفريلانسرز",
-            text: "اللي عايزين يضيفوا Shopify كخدمة حقيقية يقدروها بثقة للعملاء.",
-          },
-        ],
-      },
-
-      instructor: {
-        title: "اتعلم من خبرة حقيقية",
-        name: "Ziad Emad",
-        role: "مطور مواقع ومتاجر Shopify",
-        text: "الكورس ده مبني على خبرة حقيقية في تنفيذ متاجر Shopify، مع تركيز على الوضوح، التطبيق العملي، ومساعدتك توصل لنتيجة فعلية بدل مجرد مشاهدة الدروس.",
-        points: [
-          "خبرة حقيقية في تنفيذ متاجر Shopify",
-          "أسلوب شرح عملي وواضح",
-          "تركيز على النتيجة والتطبيق الحقيقي",
-        ],
-        image: "/assets/me.jpg",
-        imageAlt: "Ziad Emad",
-      },
-
-      proof: {
-        title: "أمثلة على اللي تقدر تبنيه",
-        cards: [
-          {
-            title: "متجر ملابس",
-            text: "تصميم نظيف واحترافي معمول بعناية علشان يوضح المنتجات ويحسن التحويلات.",
-            image:
-              "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop",
-          },
-          {
-            title: "متجر بيوتي",
-            text: "تجربة متجر مرتبة ومناسبة للمنتجات الـ premium وتقديم أقوى للبراند.",
-            image:
-              "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
-          },
-          {
-            title: "متجر منتجات عامة",
-            text: "هيكل مرن يساعدك تفهم طريقة شغل Shopify الحقيقية بشكل عملي.",
-            image:
-              "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop",
-          },
-        ],
-      },
-
-      faq: {
-        title: "الأسئلة الشائعة",
-        items: [
-          {
-            question: "هل الكورس مناسب للمبتدئين؟",
-            answer:
-              "أيوه. الكورس معمول بشكل واضح وعملي ويناسبك حتى لو لسه بتبدأ من الصفر.",
-          },
-          {
-            question: "هل لازم أكون بعرف كود؟",
-            answer:
-              "لا. الكورس معمول علشان تشتغل على Shopify بدون ما تحتاج خبرة برمجية.",
-          },
-          {
-            question: "هل هبني متجر حقيقي أثناء الكورس؟",
-            answer:
-              "أيوه. الكورس قائم على التطبيق العملي مش مجرد المشاهدة.",
-          },
-          {
-            question: "هل الكورس مفيد للفريلانسرز؟",
-            answer:
-              "أيوه. هيساعدك تفهم Workflow شوبيفاي وتبني خدمة تقدر تقدمها للعملاء.",
-          },
-          {
-            question: "هل أصحاب البراندات هيستفيدوا منه؟",
-            answer:
-              "أكيد. الكورس مفيد لأي حد عايز يبني متجر Shopify أو يفهمه بشكل أفضل.",
-          },
-        ],
-      },
-
-      cta: {
-        eyebrow: "عرض أول دفعة",
-        title: "جاهز تبني متجر Shopify بالطريقة الصح؟",
-        description:
-          "خد تفاصيل الكورس كاملة، اسأل كل أسئلتك، وانضم لأول دفعة بسعر الإطلاق قبل ما السعر ينتقل لـ 4000 جنيه.",
-        currentPrice: "2300 جنيه",
-        oldPrice: "4000 جنيه",
-        primaryCtaLabel: "انضم لجروب أولوية الوصول",
-        secondaryCtaLabel: "عندك سؤال؟ كلمني على واتساب",
-      },
-    },
+  cta: {
+    eyebrow: "عرض أول دفعة",
+    title: "جاهز تبني متجر Shopify بالطريقة الصح؟",
+    description:
+      "خد تفاصيل الكورس كاملة، اسأل كل أسئلتك، وانضم لأول دفعة بسعر الإطلاق قبل ما السعر ينتقل لـ 4000 جنيه.",
+    currentPrice: "2300 جنيه",
+    oldPrice: "4000 جنيه",
+    primaryCtaLabel: "انضم لجروب أولوية الوصول",
+    secondaryCtaLabel: "عندك سؤال؟ كلمني على واتساب",
+  },
+}
   },
 };

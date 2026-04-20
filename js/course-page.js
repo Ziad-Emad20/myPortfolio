@@ -199,6 +199,103 @@ function renderDifferenceSection() {
   `;
 }
 
+function renderGuaranteeSection() {
+  const container = document.getElementById("course-guarantee-container");
+  if (!container) return;
+
+  const data = getCoursePageData().guarantee;
+
+  container.innerHTML = `
+    ${createSectionHead(data.title, data.description, data.eyebrow)}
+
+    <div class="course-guarantee-card">
+      <div class="course-guarantee-card__icon">
+        <i class="fa-solid fa-shield-heart"></i>
+      </div>
+
+      <div class="course-guarantee-card__content">
+        <h3 class="course-guarantee-card__title">${data.cardTitle}</h3>
+        <p class="course-guarantee-card__text">${data.cardText}</p>
+      </div>
+    </div>
+  `;
+}
+
+function renderBonusesSection() {
+  const container = document.getElementById("course-bonuses-container");
+  if (!container) return;
+
+  const data = getCoursePageData().bonuses;
+
+  container.innerHTML = `
+    ${createSectionHead(data.title, data.description, data.eyebrow)}
+
+    <div class="course-bonuses-grid">
+      ${data.items
+        .map(
+          (item) => `
+            <article class="course-bonus-card">
+              <div class="course-bonus-card__icon">
+                <i class="${item.icon}"></i>
+              </div>
+
+              <div class="course-bonus-card__content">
+                <h3 class="course-bonus-card__title">${item.title}</h3>
+                <p class="course-bonus-card__text">${item.text}</p>
+                ${
+                  item.price
+                    ? `<p class="course-bonus-card__price">${item.price}</p>`
+                    : ""
+                }
+
+                ${
+                  Array.isArray(item.links) && item.links.length
+                    ? `
+                  <div class="course-bonus-card__links">
+                    ${item.links
+                      .map(
+                        (link) => `
+                          <a href="${link.href}" target="_blank" rel="noopener noreferrer" class="course-bonus-link">
+                            ${link.label}
+                          </a>
+                        `
+                      )
+                      .join("")}
+                  </div>
+                `
+                    : ""
+                }
+              </div>
+            </article>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function renderOpportunitiesSection() {
+  const container = document.getElementById("course-opportunities-container");
+  if (!container) return;
+
+  const data = getCoursePageData().opportunities;
+
+  container.innerHTML = `
+    ${createSectionHead(data.title, data.description, data.eyebrow)}
+
+    <div class="course-opportunities-card">
+      <div class="course-opportunities-card__icon">
+        <i class="fa-solid fa-user-group"></i>
+      </div>
+
+      <div class="course-opportunities-card__content">
+        <h3 class="course-opportunities-card__title">${data.cardTitle}</h3>
+        <p class="course-opportunities-card__text">${data.cardText}</p>
+      </div>
+    </div>
+  `;
+}
+
 function renderAudienceSection() {
   const container = document.getElementById("course-audience-container");
   if (!container) return;
@@ -377,6 +474,9 @@ function renderCoursePage() {
   renderAchievementsSection();
   renderCourseContent();
   renderDifferenceSection();
+  renderGuaranteeSection();
+  renderBonusesSection();
+  renderOpportunitiesSection();
   renderAudienceSection();
   renderInstructorSection();
   renderProofSection();
@@ -387,7 +487,6 @@ function renderCoursePage() {
 
 /* =========================
    Course Animations
-   Same style as home/contact
    ========================= */
 
 window.addEventListener("load", () => {
@@ -751,6 +850,174 @@ window.addEventListener("load", () => {
     });
   }
 
+  function animateGuarantee() {
+    const section = $(".course-guarantee");
+    const card = $(".course-guarantee-card");
+
+    if (!section || !card) return;
+
+    const icon = $(".course-guarantee-card__icon", card);
+    const title = $(".course-guarantee-card__title", card);
+    const text = $(".course-guarantee-card__text", card);
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 84%",
+        once: true,
+      },
+    });
+
+    tl.from(card, {
+      yPercent: 8,
+      opacity: 0,
+      filter: "blur(8px)",
+      duration: 0.8,
+      ease: "expo.out",
+      clearProps: "opacity,filter",
+    });
+
+    if (icon) {
+      tl.from(
+        icon,
+        {
+          yPercent: 10,
+          opacity: 0,
+          duration: 0.4,
+          ease: "power3.out",
+          clearProps: "opacity",
+        },
+        "-=0.45"
+      );
+    }
+
+    if (title) {
+      tl.from(
+        title,
+        {
+          yPercent: 12,
+          opacity: 0,
+          filter: "blur(6px)",
+          duration: 0.55,
+          ease: "expo.out",
+          clearProps: "opacity,filter",
+        },
+        "-=0.2"
+      );
+    }
+
+    if (text) {
+      tl.from(
+        text,
+        {
+          yPercent: 10,
+          opacity: 0,
+          filter: "blur(6px)",
+          duration: 0.6,
+          ease: "expo.out",
+          clearProps: "opacity,filter",
+        },
+        "-=0.25"
+      );
+    }
+  }
+
+  function animateBonuses() {
+    const section = $(".course-bonuses");
+    const cards = $$(".course-bonus-card");
+
+    if (!section || !cards.length) return;
+
+    revealTitle(".course-bonuses", ".course-bonuses .section-title");
+
+    gsap.from(cards, {
+      scrollTrigger: {
+        trigger: section,
+        start: "top 84%",
+        once: true,
+      },
+      yPercent: 12,
+      opacity: 0,
+      filter: "blur(6px)",
+      duration: 0.62,
+      stagger: 0.08,
+      ease: "expo.out",
+      clearProps: "opacity,filter",
+    });
+  }
+
+  function animateOpportunities() {
+    const section = $(".course-opportunities");
+    const card = $(".course-opportunities-card");
+
+    if (!section || !card) return;
+
+    const icon = $(".course-opportunities-card__icon", card);
+    const title = $(".course-opportunities-card__title", card);
+    const text = $(".course-opportunities-card__text", card);
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 84%",
+        once: true,
+      },
+    });
+
+    tl.from(card, {
+      yPercent: 8,
+      opacity: 0,
+      filter: "blur(8px)",
+      duration: 0.8,
+      ease: "expo.out",
+      clearProps: "opacity,filter",
+    });
+
+    if (icon) {
+      tl.from(
+        icon,
+        {
+          yPercent: 10,
+          opacity: 0,
+          duration: 0.4,
+          ease: "power3.out",
+          clearProps: "opacity",
+        },
+        "-=0.45"
+      );
+    }
+
+    if (title) {
+      tl.from(
+        title,
+        {
+          yPercent: 12,
+          opacity: 0,
+          filter: "blur(6px)",
+          duration: 0.55,
+          ease: "expo.out",
+          clearProps: "opacity,filter",
+        },
+        "-=0.2"
+      );
+    }
+
+    if (text) {
+      tl.from(
+        text,
+        {
+          yPercent: 10,
+          opacity: 0,
+          filter: "blur(6px)",
+          duration: 0.6,
+          ease: "expo.out",
+          clearProps: "opacity,filter",
+        },
+        "-=0.25"
+      );
+    }
+  }
+
   function animateAudience() {
     const section = $(".course-audience");
     const cards = $$(".course-audience-card");
@@ -1095,6 +1362,9 @@ window.addEventListener("load", () => {
   animateListSection(".course-achievements");
   animateListSection(".course-content");
   animateDifference();
+  animateGuarantee();
+  animateBonuses();
+  animateOpportunities();
   animateAudience();
   animateInstructor();
   animateProof();
