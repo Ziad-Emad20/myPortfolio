@@ -1,8 +1,8 @@
 const WHATSAPP_CHAT_LINK =
-  "https://wa.me/201225699265?text=Hi%20Ziad%2C%20I%20want%20to%20know%20more%20about%20the%20Shopify%20course.";
+  "https://wa.me/201225699265?text=أهلاً%20زياد،%20عندي%20استفسار%20بخصوص%20كورس%20Shopify.";
 
 const WHATSAPP_GROUP_LINK =
-  "https://chat.whatsapp.com/L8e7j2zvEVE8gBgEk25bbv";
+  "https://wa.me/201225699265?text=أهلاً%20زياد،%20حابب%20أنضم%20لكورس%20Shopify،%20ممكن%20تعرفني%20تفاصيل%20الانضمام؟";
 
 function getCoursePageData() {
   const lang =
