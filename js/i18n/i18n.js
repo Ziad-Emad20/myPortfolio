@@ -8,6 +8,7 @@ function getNestedValue(obj, path) {
 
 function applyLanguage(lang) {
   const dict = translations[lang];
+
   if (!dict) return;
 
   document.documentElement.lang = lang;
@@ -18,19 +19,31 @@ function applyLanguage(lang) {
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.dataset.i18n;
     const value = getNestedValue(dict, key);
-    if (value) el.textContent = value;
+
+    if (value) {
+      el.textContent = value;
+    }
   });
 
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.dataset.i18nPlaceholder;
     const value = getNestedValue(dict, key);
-    if (value) el.setAttribute("placeholder", value);
+
+    if (value) {
+      el.setAttribute("placeholder", value);
+    }
   });
 }
 
 function setLanguage(lang) {
   localStorage.setItem("lang", lang);
+
   applyLanguage(lang);
+
+  // Re-render dynamic Student Feedback section
+  if (typeof initStudentFeedbackSection === "function") {
+    initStudentFeedbackSection();
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {

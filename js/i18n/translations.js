@@ -217,6 +217,9 @@ const translations = {
         ],
       },
 
+
+
+
       content: {
         title: "Course Content",
         modules: [
@@ -243,6 +246,39 @@ const translations = {
         ],
       },
 
+
+
+
+studentFeedback: {
+  title: "What Our Students Say",
+  subtitle: "Real feedback from students who joined the course.",
+  ariaLabel: "Student feedback slider",
+  items: [
+    {
+      image: "/assets/CourseFeed/fa1.png",
+      alt: "Student feedback screenshot 1",
+    },
+    {
+      image: "/assets/CourseFeed/fa2.png",
+      alt: "Student feedback screenshot 2",
+    },
+    {
+      image: "/assets/CourseFeed/1.png",
+      alt: "Student feedback screenshot 3",
+    },
+    {
+      image: "/assets/CourseFeed/3.jpeg",
+      alt: "Student feedback screenshot 4",
+    },
+    {
+      image: "/assets/CourseFeed/2.png",
+      alt: "Student feedback screenshot 5",
+    },
+  ],
+},
+
+
+
       difference: {
         title: "Why This Course Is Different",
         items: [
@@ -254,6 +290,12 @@ const translations = {
           "Designed for real-world use",
         ],
       },
+
+
+
+
+
+
 
       guarantee: {
         eyebrow: "Clear Policy",
@@ -650,6 +692,36 @@ const translations = {
         ],
       },
 
+studentFeedback: {
+  title: "آراء الطلاب",
+  subtitle: "شوف بنفسك آراء الطلاب اللي انضموا للكورس.",
+  ariaLabel: "سلايدر آراء الطلاب",
+  items: [
+    {
+      image: "/assets/CourseFeed/fa1.png",
+      alt: "سكرين شوت من رأي طالب 1",
+    },
+    {
+      image: "/assets/CourseFeed/fa2.png",
+      alt: "سكرين شوت من رأي طالب 2",
+    },
+    {
+      image: "/assets/CourseFeed/1.png",
+      alt: "سكرين شوت من رأي طالب 3",
+    },
+    {
+      image: "/assets/CourseFeed/3.jpeg",
+      alt: "سكرين شوت من رأي طالب 4",
+    },
+    {
+      image: "/assets/CourseFeed/2.png",
+      alt: "سكرين شوت من رأي طالب 5",
+    },
+  ],
+},
+
+
+
       difference: {
         title: "ليه الكورس ده مختلف؟",
         items: [
@@ -660,6 +732,10 @@ const translations = {
           "مركز على التطبيق مش حشو معلومات",
           "متصمم للاستخدام الحقيقي في السوق",
         ],
+
+
+
+
       },
 
       guarantee: {

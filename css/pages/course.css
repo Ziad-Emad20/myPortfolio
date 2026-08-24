@@ -1957,3 +1957,193 @@ body.rtl .course-opportunities-card {
         width: 100%;
     }
 }
+
+
+
+
+
+/* =========================
+   Student Feedback Section
+   ========================= */
+
+.student-feedback-section {
+    padding: 0 0 var(--section-space-lg);
+    overflow: hidden;
+}
+
+.student-feedback-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+/* =========================
+   Header
+   ========================= */
+
+.student-feedback-head {
+    margin-bottom: var(--section-title-gap);
+}
+
+.student-feedback-title {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.3rem);
+    line-height: 1.1;
+    font-weight: 500;
+    color: #ffffff;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.student-feedback-subtitle {
+    margin: 12px 0 0;
+    max-width: 620px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(228, 232, 245, 0.68);
+}
+
+
+/* =========================
+   Swiper
+   ========================= */
+
+.student-feedback-swiper {
+    overflow: hidden;
+    touch-action: pan-y;
+    padding: 8px 4px 8px;
+}
+
+.student-feedback-swiper .swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+.student-feedback-swiper .swiper-slide {
+    height: auto;
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   Card
+   ========================= */
+
+.student-feedback-card {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    border-radius: var(--card-radius-md);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(8, 10, 32, 0.96),
+            rgba(5, 7, 24, 0.98)
+        );
+
+    border: 1px solid rgba(93, 108, 255, 0.12);
+
+    box-shadow:
+        0 16px 24px rgba(0, 0, 0, 0.42),
+        0 24px 40px rgba(0, 0, 0, 0.18),
+        0 0 22px rgba(0, 68, 255, 0.06);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.student-feedback-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(118, 132, 255, 0.22);
+
+    box-shadow:
+        0 22px 32px rgba(0, 0, 0, 0.48),
+        0 30px 46px rgba(0, 0, 0, 0.22),
+        0 0 28px rgba(68, 98, 255, 0.09);
+}
+
+
+/* =========================
+   Image
+   ========================= */
+
+.student-feedback-card__image-wrapper {
+    width: 100%;
+    background: #080a20;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.student-feedback-card__image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    max-height: 620px;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   Pagination
+   ========================= */
+
+.student-feedback-pagination {
+    margin-top: 18px;
+
+    display: flex;
+    justify-content: center;
+
+    gap: 8px;
+}
+
+.student-feedback-pagination
+.swiper-pagination-bullet {
+    width: 7px;
+    height: 7px;
+
+    background: rgba(255, 255, 255, 0.22);
+
+    opacity: 1;
+
+    border-radius: 999px;
+
+    transition: all 0.3s ease;
+}
+
+.student-feedback-pagination
+.swiper-pagination-bullet-active {
+    width: 22px;
+
+    background: #ffffff;
+}
+
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 575px) {
+
+    .student-feedback-section .container {
+        padding: 0 16px;
+    }
+
+    .student-feedback-card {
+        border-radius: 16px;
+    }
+
+    .student-feedback-card__image {
+        max-height: 560px;
+    }
+
+}
