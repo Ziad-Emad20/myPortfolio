@@ -128,11 +128,11 @@ function initStudentFeedbackSwiper() {
 
       slidesPerView: 1.08,
 
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
+      // autoplay: {
+      //   delay: 3000,
+      //   disableOnInteraction: false,
+      //   pauseOnMouseEnter: true,
+      // },
 
       pagination: {
         el: ".student-feedback-pagination",
