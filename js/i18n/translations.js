@@ -174,10 +174,14 @@ const translations = {
         description:
           "A practical Shopify course that helps beginners, brand owners, and freelancers build real stores step by step with clarity, confidence, and a workflow they can actually apply.",
         tags: ["Design", "Development", "No Code"],
-        primaryCtaLabel: "Join Now",
-        secondaryCtaLabel: "Have a question? Chat on WhatsApp",
-        currentPrice: "2900 EGP",
-        oldPrice: "4000 EGP",
+        
+        primaryCtaLabel: "Reserve Your Seat — 1450 EGP",
+        secondaryCtaLabel: "Chat with me on WhatsApp",
+         currentPrice: "2900 EGP",
+  oldPrice: "4000 EGP",
+
+  reservationText: "Reserve your seat with only 1450 EGP",
+  remainingText: "Pay the remaining 1450 EGP after the first session.",
         note: "Second live round • This may be the last live round for a long time. Future versions of the course will be recorded only.",
         image:
           "https://cdn.shopify.com/b/shopify-brochure2-assets/49bbf17e5d43dcd0bd09ad39724ae7ac.png",
@@ -253,6 +257,10 @@ studentFeedback: {
   title: "What Our Students Say",
   subtitle: "Real feedback from students who joined the course.",
   ariaLabel: "Student feedback slider",
+
+    ctaTitle: "Ready to join Round 2?",
+  ctaText: "Reserve your seat with only 1450 EGP.",
+  ctaButton: "Reserve My Seat",
   items: [
     {
       image: "/assets/CourseFeed/fa1.png",
@@ -446,8 +454,8 @@ studentFeedback: {
           "Get the full course details, ask your questions, and join the second round.",
         currentPrice: "2900 EGP",
         oldPrice: "4000 EGP",
-        primaryCtaLabel: "Join Now",
-        secondaryCtaLabel: "Have a question? Chat with me on WhatsApp",
+        primaryCtaLabel: "Reserve Your Seat — 1450 EGP",
+        secondaryCtaLabel: "Chat with me on WhatsApp",
       },
     },
   },
@@ -623,10 +631,14 @@ studentFeedback: {
         description:
           "كورس عملي يساعد المبتدئين، أصحاب البراندات، والفريلانسرز على بناء متاجر حقيقية خطوة بخطوة بشكل واضح ومرتب وبطريقة تقدر تطبقها فعليًا.",
         tags: ["تصميم", "تطوير", "بدون كود"],
-        primaryCtaLabel: "احجز مكانك دلوقتي",
-        secondaryCtaLabel: "عندك سؤال؟ كلمني على واتساب",
-        currentPrice: "2900 جنيه",
-        oldPrice: "4000 جنيه",
+        primaryCtaLabel: "احجز مكانك — 1450 جنيه",
+        secondaryCtaLabel: "تواصل معايا على واتساب",
+    currentPrice: "2900 جنيه",
+  oldPrice: "4000 جنيه",
+
+  reservationText: "احجز مكانك بدفع 1450 جنيه فقط",
+  remainingText: "والباقي 1450 جنيه بعد أول محاضرة.",
+
         note: "ثاني دفعة لايف • ممكن تكون اخر دفعة لايف الكورس بعدها هيكون مسجل فقط لفترة كبيرة",
         image:
           "https://cdn.shopify.com/b/shopify-brochure2-assets/49bbf17e5d43dcd0bd09ad39724ae7ac.png",
@@ -696,6 +708,11 @@ studentFeedback: {
   title: "آراء الطلاب",
   subtitle: "شوف بنفسك آراء الطلاب اللي انضموا للكورس.",
   ariaLabel: "سلايدر آراء الطلاب",
+
+
+  ctaTitle: "جاهز تنضم للـRound 2؟",
+  ctaText: "احجز مكانك بدفع 1450 جنيه فقط.",
+  ctaButton: "احجز مكاني",
   items: [
     {
       image: "/assets/CourseFeed/fa1.png",
@@ -884,8 +901,8 @@ studentFeedback: {
           "راجع تفاصيل الكورس كاملة، اسأل كل أسئلتك، وانضم لثاني دفعة.",
         currentPrice: "2900 جنيه",
         oldPrice: "4000 جنيه",
-        primaryCtaLabel: "احجز مكانك دلوقتي",
-        secondaryCtaLabel: "عندك سؤال؟ كلمني على واتساب",
+        primaryCtaLabel: "احجز مكانك — 1450 جنيه",
+        secondaryCtaLabel: "تواصل معايا على واتساب",
       },
     },
   },

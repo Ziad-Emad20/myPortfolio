@@ -85,6 +85,27 @@ function renderStudentFeedbackSection() {
       </div>
 
       <div class="student-feedback-pagination"></div>
+
+<div class="student-feedback-cta">
+  <h3 class="student-feedback-cta__title">
+    ${section.ctaTitle}
+  </h3>
+
+  <p class="student-feedback-cta__text">
+    ${section.ctaText}
+  </p>
+
+  <a
+    href="${WHATSAPP_GROUP_LINK}"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="course-main-btn student-feedback-cta__button"
+  >
+    ${section.ctaButton}
+  </a>
+</div>
+
+
     </div>
   `;
 

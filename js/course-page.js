@@ -1,9 +1,8 @@
 const WHATSAPP_CHAT_LINK =
-  "https://wa.me/201225699265?text=أهلاً%20زياد،%20عندي%20استفسار%20بخصوص%20كورس%20Shopify.";
+  "https://wa.me/201225699265?text=أهلاً%20زياد،%20عندي%20استفسار%20بخصوص%20Shopify%20Round%202.";
 
 const WHATSAPP_GROUP_LINK =
-  "https://wa.me/201225699265?text=أهلاً%20زياد،%20حابب%20أنضم%20لكورس%20Shopify،%20ممكن%20تعرفني%20تفاصيل%20الانضمام؟";
-
+  "https://wa.me/201225699265?text=أهلاً%20زياد،%20حابب%20أحجز%20مكاني%20في%20Shopify%20Round%202%20وبدفع%201450%20جنيه.";
 function getCoursePageData() {
   const lang =
     typeof getCurrentLanguage === "function" ? getCurrentLanguage() : "en";
@@ -59,16 +58,20 @@ function renderHero() {
             .join("")}
         </div>
 
-        <div class="course-hero-card__pricing">
-          <div class="course-price-meta">
-            <span class="course-price-meta__old">${hero.oldPrice}</span>
-            <span class="course-price-meta__new">${hero.currentPrice}</span>
-          </div>
+      <div class="course-hero-card__pricing">
+  <div class="course-price-meta">
+    <span class="course-price-meta__old">${hero.oldPrice}</span>
+    <span class="course-price-meta__new">${hero.currentPrice}</span>
+  </div>
 
-          <a href="${WHATSAPP_GROUP_LINK}" target="_blank" rel="noopener noreferrer" class="course-price-button">
-            ${hero.primaryCtaLabel}
-          </a>
-        </div>
+  <p class="course-price-reservation">
+    ${hero.reservationText} <br />
+        ${hero.remainingText}
+  </p>
+  <a href="${WHATSAPP_GROUP_LINK}" target="_blank" rel="noopener noreferrer" class="course-price-button">
+    ${hero.primaryCtaLabel}
+  </a>
+</div>
 
         <div class="course-hero-card__actions">
           <a href="${WHATSAPP_CHAT_LINK}" target="_blank" rel="noopener noreferrer" class="course-secondary-link">
@@ -467,6 +470,26 @@ function initFaq() {
   });
 }
 
+
+function initBackToTop() {
+  const button = document.getElementById("backToTop");
+
+  if (!button) return;
+
+  window.addEventListener("scroll", () => {
+    button.classList.toggle("is-visible", window.scrollY > 500);
+  });
+
+  button.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}
+
+
+
 function renderCoursePage() {
   renderHero();
   renderHighlights();
@@ -483,6 +506,7 @@ function renderCoursePage() {
   renderFaqSection();
   renderCtaSection();
   initFaq();
+    initBackToTop();
 }
 
 /* =========================
@@ -532,6 +556,7 @@ window.addEventListener("load", () => {
     const title = $(".course-hero-card__title");
     const description = $(".course-hero-card__description");
     const tags = $$(".course-tag");
+    const reservationText = $(".course-price-reservation");
     const priceMeta = $(".course-price-meta");
     const primaryBtn = $(".course-price-button");
     const secondaryBtn = $(".course-secondary-link");
@@ -651,6 +676,22 @@ window.addEventListener("load", () => {
       );
     }
 
+
+    if (reservationText) {
+  tl.from(
+    reservationText,
+    {
+      yPercent: 14,
+      opacity: 0,
+      filter: "blur(6px)",
+      duration: 0.75,
+      ease: "expo.out",
+      clearProps: "opacity,filter",
+    },
+    "-=0.25"
+  );
+}
+
     if (primaryBtn) {
       tl.from(
         primaryBtn,
@@ -703,6 +744,7 @@ window.addEventListener("load", () => {
       });
     }
   }
+
 
   function animateHighlights() {
     const section = $(".course-highlights");
@@ -1254,6 +1296,117 @@ window.addEventListener("load", () => {
     });
   }
 
+
+
+
+function animateStudentFeedback() {
+  const section = $(".student-feedback-section");
+  const head = $(".student-feedback-head");
+  const swiper = $(".student-feedback-swiper");
+  const cta = $(".student-feedback-cta");
+  const title = $(".student-feedback-cta__title");
+  const text = $(".student-feedback-cta__text");
+  const button = $(".student-feedback-cta__button");
+
+  if (!section) return;
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      start: "top 84%",
+      once: true,
+    },
+  });
+
+  if (head) {
+    tl.from(head, {
+      yPercent: 12,
+      opacity: 0,
+      filter: "blur(6px)",
+      duration: 0.65,
+      ease: "expo.out",
+      clearProps: "opacity,filter",
+    });
+  }
+
+  if (swiper) {
+    tl.from(
+      swiper,
+      {
+        yPercent: 8,
+        opacity: 0,
+        filter: "blur(8px)",
+        duration: 0.75,
+        ease: "expo.out",
+        clearProps: "opacity,filter",
+      },
+      "-=0.35"
+    );
+  }
+
+  if (cta) {
+    tl.from(
+      cta,
+      {
+        yPercent: 8,
+        opacity: 0,
+        filter: "blur(8px)",
+        duration: 0.75,
+        ease: "expo.out",
+        clearProps: "opacity,filter",
+      },
+      "-=0.35"
+    );
+  }
+
+  if (title) {
+    tl.from(
+      title,
+      {
+        yPercent: 12,
+        opacity: 0,
+        filter: "blur(6px)",
+        duration: 0.55,
+        ease: "expo.out",
+        clearProps: "opacity,filter",
+      },
+      "-=0.4"
+    );
+  }
+
+  if (text) {
+    tl.from(
+      text,
+      {
+        yPercent: 10,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power3.out",
+        clearProps: "opacity",
+      },
+      "-=0.3"
+    );
+  }
+
+  if (button) {
+    tl.from(
+      button,
+      {
+        yPercent: 10,
+        opacity: 0,
+        duration: 0.45,
+        ease: "power3.out",
+        clearProps: "opacity",
+      },
+      "-=0.2"
+    );
+  }
+}
+
+
+
+
+
   function animateCta() {
     const section = $(".course-cta");
     const card = $(".course-cta-card");
@@ -1261,7 +1414,7 @@ window.addEventListener("load", () => {
     const title = $(".course-cta .section-title");
     const description = $(".course-cta .section-description");
     const price = $(".course-cta-card__price");
-    const buttons = $$(".course-main-btn, .course-ghost-btn");
+  const buttons = $$(".course-cta .course-main-btn, .course-cta .course-ghost-btn");
 
     if (!section || !card) return;
 
@@ -1356,18 +1509,19 @@ window.addEventListener("load", () => {
     }
   }
 
-  animateHero();
-  animateHighlights();
-  animateListSection(".course-fit");
-  animateListSection(".course-achievements");
-  animateListSection(".course-content");
-  animateDifference();
-  animateGuarantee();
-  animateBonuses();
-  animateOpportunities();
-  animateAudience();
-  animateInstructor();
-  animateProof();
-  animateFaq();
-  animateCta();
+animateHero();
+animateHighlights();
+animateListSection(".course-fit");
+animateListSection(".course-achievements");
+animateListSection(".course-content");
+animateDifference();
+animateGuarantee();
+animateBonuses();
+animateOpportunities();
+animateAudience();
+animateInstructor();
+animateProof();
+animateStudentFeedback();
+animateFaq();
+animateCta();
 });

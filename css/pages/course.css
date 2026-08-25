@@ -2147,3 +2147,129 @@ body.rtl .course-opportunities-card {
     }
 
 }
+
+
+
+
+/* =========================
+   Student Feedback CTA
+   ========================= */
+
+.student-feedback-cta {
+    margin-top: 34px;
+    padding: 28px 24px;
+    text-align: center;
+
+    border-radius: var(--card-radius-md);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(8, 10, 32, 0.96),
+            rgba(5, 7, 24, 0.98)
+        );
+
+    border: 1px solid rgba(93, 108, 255, 0.12);
+
+    box-shadow:
+        0 16px 24px rgba(0, 0, 0, 0.32),
+        0 0 22px rgba(0, 68, 255, 0.05);
+}
+
+.student-feedback-cta__title {
+    margin: 0;
+
+    font-size: clamp(1.35rem, 3vw, 1.8rem);
+    line-height: 1.2;
+    font-weight: 600;
+
+    color: #ffffff;
+}
+
+.student-feedback-cta__text {
+    margin: 10px auto 0;
+
+    max-width: 520px;
+
+    font-size: 0.95rem;
+    line-height: 1.65;
+
+    color: rgba(228, 232, 245, 0.68);
+}
+
+.student-feedback-cta__button {
+    display: inline-flex;
+    margin-top: 20px;
+    width: auto;
+}
+
+@media (max-width: 575px) {
+    .student-feedback-cta {
+        margin-top: 28px;
+        padding: 24px 18px;
+    }
+
+    .student-feedback-cta__button {
+        width: 100%;
+    }
+}
+
+
+
+/* =========================
+   Back To Top
+   ========================= */
+
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+
+  background: rgba(8, 10, 32, 0.92);
+  color: #ffffff;
+
+  font-size: 0.95rem;
+
+  cursor: pointer;
+  z-index: 999;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background: rgba(20, 24, 60, 0.98);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 575px) {
+  .back-to-top {
+    right: 16px;
+    bottom: 16px;
+    width: 42px;
+    height: 42px;
+  }
+}
