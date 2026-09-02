@@ -151,7 +151,6 @@ function renderAchievementsSection() {
     "fa-solid fa-rocket"
   );
 }
-
 function renderCourseContent() {
   const container = document.getElementById("course-content-container");
   if (!container) return;
@@ -159,21 +158,118 @@ function renderCourseContent() {
   const data = getCoursePageData().content;
 
   container.innerHTML = `
-    ${createSectionHead(data.title)}
+    ${createSectionHead(data.title, data.description)}
 
-    <div class="course-list-card course-list-card--modules">
-      ${data.modules
+    <div class="course-roadmap">
+      ${data.stages
         .map(
-          (module) => `
-            <article class="course-module-item">
-              <h3 class="course-module-item__title">${module.title}</h3>
-              <p class="course-module-item__text">${module.text}</p>
+          (stage, index) => `
+            <article
+              class="course-stage ${index === 0 ? "is-open" : ""}"
+            >
+              <button
+                class="course-stage__header"
+                type="button"
+                aria-expanded="${index === 0 ? "true" : "false"}"
+              >
+                <div class="course-stage__left">
+                  <span class="course-stage__number">
+                    ${stage.number}
+                  </span>
+
+                  <div class="course-stage__icon">
+                    <i class="${stage.icon}"></i>
+                  </div>
+
+                  <div class="course-stage__heading">
+                    <span class="course-stage__label">
+                      ${stage.label}
+                    </span>
+
+                    <h3 class="course-stage__title">
+                      ${stage.title}
+                    </h3>
+
+                    <p class="course-stage__subtitle">
+                      ${stage.subtitle}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="course-stage__right">
+                  <span class="course-stage__count">
+                    ${stage.sessionsCount}
+                  </span>
+
+                  <span class="course-stage__toggle">
+                    <i class="fa-solid fa-plus"></i>
+                  </span>
+                </div>
+              </button>
+
+              <div class="course-stage__body">
+                <div class="course-stage__sessions">
+                  ${stage.sessions
+                    .map(
+                      (session) => `
+                        <article class="course-session">
+                          <div class="course-session__number">
+                            ${session.number}
+                          </div>
+
+                          <div class="course-session__content">
+                            <h4 class="course-session__title">
+                              ${session.title}
+                            </h4>
+
+                            <p class="course-session__text">
+                              ${session.text}
+                            </p>
+                          </div>
+                        </article>
+                      `
+                    )
+                    .join("")}
+                </div>
+              </div>
             </article>
           `
         )
         .join("")}
     </div>
   `;
+
+  initCourseRoadmap();
+}
+
+
+
+function initCourseRoadmap() {
+  const stages = document.querySelectorAll(".course-stage");
+
+  stages.forEach((stage) => {
+    const button = stage.querySelector(".course-stage__header");
+    if (!button) return;
+
+    button.addEventListener("click", () => {
+      const isOpen = stage.classList.contains("is-open");
+
+      stages.forEach((item) => {
+        item.classList.remove("is-open");
+
+        const itemButton = item.querySelector(".course-stage__header");
+
+        if (itemButton) {
+          itemButton.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      if (!isOpen) {
+        stage.classList.add("is-open");
+        button.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
 }
 
 function renderDifferenceSection() {
@@ -546,7 +642,132 @@ window.addEventListener("load", () => {
       clearProps: "opacity,filter",
     });
   }
+function animateCourseRoadmap() {
+  const section = $(".course-content");
+  if (!section) return;
 
+  const title = $(".section-title", section);
+  const description = $(".section-description", section);
+  const stages = $$(".course-stage", section);
+
+  if (!stages.length) return;
+
+  const headTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: section,
+      start: "top 84%",
+      once: true,
+    },
+  });
+
+  if (title) {
+    headTl.from(title, {
+      yPercent: 20,
+      opacity: 0,
+      filter: "blur(8px)",
+      duration: 0.8,
+      ease: "expo.out",
+      clearProps: "opacity,filter",
+    });
+  }
+
+  if (description) {
+    headTl.from(
+      description,
+      {
+        yPercent: 12,
+        opacity: 0,
+        filter: "blur(6px)",
+        duration: 0.7,
+        ease: "expo.out",
+        clearProps: "opacity,filter",
+      },
+      "-=0.45"
+    );
+  }
+
+  stages.forEach((stage, index) => {
+    const header = $(".course-stage__header", stage);
+    const number = $(".course-stage__number", stage);
+    const icon = $(".course-stage__icon", stage);
+    const heading = $(".course-stage__heading", stage);
+    const right = $(".course-stage__right", stage);
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: stage,
+        start: "top 88%",
+        once: true,
+      },
+      delay: index * 0.05,
+    });
+
+    tl.from(stage, {
+      yPercent: 10,
+      opacity: 0,
+      filter: "blur(6px)",
+      duration: 0.7,
+      ease: "expo.out",
+      clearProps: "opacity,filter",
+    });
+
+    if (number) {
+      tl.from(
+        number,
+        {
+          scale: 0.8,
+          opacity: 0,
+          duration: 0.45,
+          ease: "back.out(1.4)",
+          clearProps: "opacity,transform",
+        },
+        "-=0.4"
+      );
+    }
+
+    if (icon) {
+      tl.from(
+        icon,
+        {
+          scale: 0.82,
+          opacity: 0,
+          duration: 0.45,
+          ease: "back.out(1.4)",
+          clearProps: "opacity,transform",
+        },
+        "-=0.32"
+      );
+    }
+
+    if (heading) {
+      tl.from(
+        heading,
+        {
+          xPercent: 5,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power3.out",
+          clearProps: "opacity,transform",
+        },
+        "-=0.3"
+      );
+    }
+
+    if (right) {
+      tl.from(
+        right,
+        {
+          xPercent: -5,
+          opacity: 0,
+          duration: 0.45,
+          ease: "power3.out",
+          clearProps: "opacity,transform",
+        },
+        "-=0.35"
+      );
+    }
+  });
+}
   function animateHero() {
     const card = $(".course-hero-card");
     const media = $(".course-hero-card__media");
@@ -1513,7 +1734,7 @@ animateHero();
 animateHighlights();
 animateListSection(".course-fit");
 animateListSection(".course-achievements");
-animateListSection(".course-content");
+animateCourseRoadmap();
 animateDifference();
 animateGuarantee();
 animateBonuses();

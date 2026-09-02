@@ -198,58 +198,134 @@ const translations = {
         { value: "Step by", label: "Step" },
       ],
 
-      fit: {
-        title: "Is this for you?",
-        items: [
-          "Ready to start your online business",
-          "Want a clear step-by-step path",
-          "Want to build a professional store without coding",
-          "Want to launch faster with less confusion",
-          "Want to turn your skills into real income",
-          "Want to understand Shopify the practical way",
-        ],
-      },
+     fit: {
+  title: "Is This Course Right for You?",
+  items: [
+    "You want to start your journey as a Shopify Developer from scratch",
+    "You want to learn how to build professional Shopify Stores",
+    "You're a Freelancer or Web Developer looking to enter Shopify Development",
+    "You want to build 3 real Shopify Stores and create a strong portfolio",
+    "You want to learn an in-demand skill and work toward turning it into income",
+  ],
+},
 
-      achievements: {
-        title: "What You'll Achieve!",
-        items: [
-          "Launch a professional Shopify store",
-          "Build a store optimized for conversions",
-          "Manage your business with confidence",
-          "Understand store setup, products, and workflows",
-          "Create a strong foundation for long-term growth",
-        ],
-      },
-
+    achievements: {
+  title: "What You'll Achieve!",
+  items: [
+    "Build 3 Shopify stores from start to finish",
+    "Customize themes and create custom sections with AI",
+    "Build a portfolio with real Shopify projects",
+    "Learn how to find clients and start freelancing with Shopify",
+    "Develop the ability to research and solve problems independently",
+  ],
+},
 
 
 
-      content: {
-        title: "Course Content",
-        modules: [
-          {
-            title: "Build a Professional Shopify Store from Scratch",
-            text: "Learn how Shopify works, how to set up your store the right way, and how to build a strong foundation from day one.",
-          },
-          {
-            title: "Product Management & Store Setup",
-            text: "Organize products, collections, and key store settings in a practical way that makes your store easier to manage and grow.",
-          },
-          {
-            title: "Store Design & User Experience Optimization",
-            text: "Create a cleaner layout, improve the shopping experience, and make your store feel more polished and more trustworthy.",
-          },
-          {
-            title: "Payment & Shipping Configuration",
-            text: "Set up the most important operational settings every real Shopify store needs before launch.",
-          },
-          {
-            title: "Sales & Marketing Strategies for Growth",
-            text: "Understand the basics that help your store build trust, improve performance, and prepare for long-term growth.",
-          },
-        ],
-      },
+content: {
+  title: "Course Roadmap",
+  description:
+    "13 practical sessions across 3 stages, taking you from zero to becoming a Shopify Developer capable of building real stores on your own and starting to work toward turning this skill into a source of income.",
+  stages: [
+    {
+      number: "01",
+      label: "Stage 1",
+      title: "Store 01",
+      subtitle: "Learn → Build",
+      sessionsCount: "6 Sessions",
+      icon: "fa-solid fa-store",
+      sessions: [
+        {
+          number: "01",
+          title: "Welcome to Shopify & Professional Setup",
+          text: "Understand how Shopify works and set up your store correctly from the beginning."
+        },
+        {
+          number: "02",
+          title: "Shopify Admin, Products & Collections",
+          text: "Learn how to use Shopify Admin, manage products, and organize collections properly."
+        },
+        {
+          number: "03",
+          title: "Building Store 01",
+          text: "Build your first Shopify store step by step and apply everything you learn."
+        },
+        {
+          number: "04",
+          title: "Store Structure & Navigation",
+          text: "Create a clear store structure, navigation, and the essential pages every store needs."
+        },
+        {
+          number: "05",
+          title: "Product Page & Shopping Experience",
+          text: "Build better product pages and improve the overall customer shopping experience."
+        },
+        {
+          number: "06",
+          title: "Payments, Shipping, Domains & Store Settings",
+          text: "Configure payments, shipping, domains, and the essential settings your store needs before launch."
+        }
+      ]
+    },
 
+    {
+      number: "02",
+      label: "Stage 2",
+      title: "Store 02",
+      subtitle: "Understand → Decide → Build → Improve",
+      sessionsCount: "4 Sessions",
+      icon: "fa-solid fa-rocket",
+      sessions: [
+        {
+          number: "07",
+          title: "Store Planning & Professional Workflow",
+          text: "Plan your store, make better decisions, and build a professional workflow before execution."
+        },
+        {
+          number: "08",
+          title: "Building Store 02",
+          text: "Build your second Shopify store with stronger structure, better decisions, and improved execution."
+        },
+        {
+          number: "09",
+          title: "Premium Theme Customization & Store Experience",
+          text: "Customize your theme and create a more polished, premium, and professional store experience."
+        },
+        {
+          number: "10",
+          title: "Store Finalization & Shopify Ecosystem",
+          text: "Finalize your store and explore Shopify apps, tools, and the wider Shopify ecosystem."
+        }
+      ]
+    },
+
+    {
+      number: "03",
+      label: "Stage 3",
+      title: "Career & Advanced Development",
+      subtitle: "Apply → Grow → Earn",
+      sessionsCount: "3 Sessions",
+      icon: "fa-solid fa-briefcase",
+      sessions: [
+        {
+          number: "11",
+          title: "Freelancing & Getting Your First Client",
+          text: "Learn how to offer Shopify services, find clients, price your work, and close your first deals."
+        },
+        {
+          number: "12",
+          title: "Advanced Shopify & Introduction to Code",
+          text: "Understand Shopify themes, Liquid, HTML, CSS, and JavaScript to start customizing with code."
+        },
+        {
+          number: "13",
+          title: "Graduation Project — Store 03",
+          text: "Plan, build, and launch your own complete Shopify store with guidance throughout the project."
+        }
+      ]
+    }
+  ]
+},
 
 
 
@@ -315,38 +391,37 @@ studentFeedback: {
           "If you attend the first session and feel that the course is not the right fit for you, you can receive a full refund after the first session with no unnecessary hassle.",
       },
 
-      bonuses: {
-        eyebrow: "End-of-course bonuses",
-        title: "Real bonuses that add strong value",
-        description:
-          "You will not leave with knowledge only. At the end of the course, you will also receive practical assets that help you start faster and work more professionally.",
-        items: [
-          {
-            icon: "fa-solid fa-gift",
-            title: "Additional valuable bonuses",
-            text: "There will be multiple bonuses at the end of the course to help you get stronger value and a better start.",
-            price: "",
-            links: [],
-          },
-          {
-            icon: "fa-solid fa-layer-group",
-            title: "2 Premium Shopify Themes",
-            text: "You will receive two premium Shopify themes: Kalles and Minimog.",
-            price:
-              "Their combined value is $177, which is more than 8,500 EGP approximately.",
-            links: [
-              {
-                label: "Kalles Theme",
-                href: "https://themeforest.net/item/kalles-clean-versatile-shopify-theme/26320622",
-              },
-              {
-                label: "Minimog Theme",
-                href: "https://themeforest.net/item/minimog-the-high-converting-shopify-theme/33380968",
-              },
-            ],
-          },
-        ],
-      },
+    bonuses: {
+  eyebrow: "Course Bonuses",
+  title: "Tools & Resources Included",
+  description:
+    "You’ll also get useful tools and resources to help you start faster and work more professionally.",
+  items: [
+    {
+      icon: "fa-solid fa-toolbox",
+      title: "Additional Tools & Resources",
+      text: "A collection of useful tools and resources to help you get started faster and work more efficiently.",
+      price: "",
+      links: [],
+    },
+    {
+      icon: "fa-solid fa-layer-group",
+      title: "2 Premium Shopify Themes",
+      text: "Get two premium Shopify themes: Kalles and Minimog.",
+      price: "Combined value: $177",
+      links: [
+        {
+          label: "Kalles Theme",
+          href: "https://themeforest.net/item/kalles-clean-versatile-shopify-theme/26320622",
+        },
+        {
+          label: "Minimog Theme",
+          href: "https://themeforest.net/item/minimog-the-high-converting-shopify-theme/33380968",
+        },
+      ],
+    },
+  ],
+},
 
       opportunities: {
         eyebrow: "Opportunities for top performers",
@@ -378,19 +453,19 @@ studentFeedback: {
         ],
       },
 
-      instructor: {
-        title: "Learn From Real Experience",
-        name: "Ziad Emad",
-        role: "Web & Shopify Developer",
-        text: "This course is built from real Shopify implementation experience, with a focus on clarity, practical execution, and helping you reach a real result instead of just watching lessons.",
-        points: [
-          "Real Shopify implementation experience",
-          "Practical teaching style",
-          "Focused on clarity and actual outcomes",
-        ],
-        image: "/assets/me.jpg",
-        imageAlt: "Ziad Emad",
-      },
+   instructor: {
+  title: "Learn From Real Experience",
+  name: "Ziad Emad",
+  role: "Web & Shopify Developer",
+  text: "This course is built from my real Shopify implementation experience, having worked with 60+ clients, with a focus on clarity, practical execution, and helping you reach a real result instead of just watching lessons.",
+  points: [
+    "Real Shopify implementation experience",
+    "Practical teaching style",
+    "Focused on clarity and actual outcomes",
+  ],
+  image: "/assets/me.jpg",
+  imageAlt: "Ziad Emad",
+},
 
       proof: {
         title: "What You Can Build",
@@ -433,16 +508,6 @@ studentFeedback: {
             question: "Will I build a real store during the course?",
             answer:
               "Yes. The course is designed around practical implementation, not passive watching.",
-          },
-          {
-            question: "Is this course useful for freelancers?",
-            answer:
-              "Yes. It helps freelancers understand Shopify workflow and build a service they can offer.",
-          },
-          {
-            question: "Can brand owners benefit from it too?",
-            answer:
-              "Absolutely. It is useful for anyone who wants to build or better understand a Shopify store.",
           },
         ],
       },
@@ -655,54 +720,132 @@ studentFeedback: {
         { value: "خطوة", label: "بخطوة" },
       ],
 
-      fit: {
-        title: "هل الكورس مناسب ليك؟",
-        items: [
-          "جاهز تبدأ مشروعك الأونلاين",
-          "عايز طريق واضح خطوة بخطوة",
-          "عايز تبني متجر احترافي بدون برمجة",
-          "عايز تطلق أسرع وبلخبطة أقل",
-          "عايز تحوّل مهارتك لدخل حقيقي",
-          "عايز تفهم Shopify بشكل عملي",
-        ],
-      },
+     fit: {
+  title: "هل الكورس مناسب ليك؟",
+  items: [
+    "عايز تبدأ طريقك كـ Shopify Developer من الصفر",
+    "عايز تتعلم تبني Shopify Stores احترافية بنفسك",
+    "Freelancer أو Web Developer وعايز تدخل مجال Shopify Development",
+    "عايز تبني 3 Stores حقيقية وتعمل Portfolio قوي",
+    "عايز تتعلم Skill مطلوبة وتسعى تحولها لمصدر دخل",
+  ],
+},
 
-      achievements: {
-        title: "إيه اللي هتقدر تعمله بعد الكورس؟",
-        items: [
-          "تطلق متجر Shopify احترافي",
-          "تبني متجر مهيأ للبيع والتحويلات",
-          "تدير شغلك بثقة أكبر",
-          "تفهم إعدادات المتجر والمنتجات وطريقة الشغل",
-          "تبني أساس قوي للنمو على المدى الطويل",
-        ],
-      },
+    achievements: {
+  title:"إيه اللي هتحققه من خلال الكورس؟",
+  items: [
+    "هتبني 3 متاجر Shopify من البداية للنهاية",
+    "تخصص الـThemes وتضيف Custom Sections باستخدام الـAI",
+    "تخرج بـPortfolio فيه مشاريع Shopify حقيقية",
+    "تتعلم إزاي تدور على Clients وتبدأ رحلتك ك Freelancer",
+    "تطور قدرتك على البحث وحل المشاكل بنفسك",
+  ],
+},
 
-      content: {
-        title: "محتوى الكورس",
-        modules: [
-          {
-            title: "بناء متجر Shopify احترافي من الصفر",
-            text: "هتتعلم Shopify شغال إزاي، وإزاي تضبط متجرك صح من البداية، وتبني أساس قوي من أول يوم.",
-          },
-          {
-            title: "إدارة المنتجات وتجهيز المتجر",
-            text: "هتنظم المنتجات والكوليكشنز وأهم إعدادات المتجر بطريقة عملية تخلي المتجر أسهل في الإدارة والنمو.",
-          },
-          {
-            title: "تصميم المتجر وتحسين تجربة المستخدم",
-            text: "هتتعلم إزاي تعمل Layout أنضف، وتحسن تجربة الشراء، وتخلي متجرك شكله أكثر احترافية وثقة.",
-          },
-          {
-            title: "إعدادات الدفع والشحن",
-            text: "هتضبط أهم الإعدادات التشغيلية اللي أي متجر Shopify حقيقي محتاجها قبل الإطلاق.",
-          },
-          {
-            title: "أساسيات البيع والتسويق للنمو",
-            text: "هتفهم الأساسيات اللي تساعد متجرك يبني ثقة، ويحسن الأداء، ويكون جاهز للنمو على المدى الطويل.",
-          },
-        ],
-      },
+    content: {
+  title: "Roadmap الكورس",
+  description:
+    "13 محاضرة عملية على 3 مراحل، هتنقلك من الصفر لحد ما تكون Shopify Developer قادر تبني متاجر حقيقية بنفسك، وتبدأ تسعى لتحويل المهارة دي لمصدر دخل.",
+  stages: [
+    {
+      number: "01",
+      label: "المرحلة الأولى",
+      title: "Store 01",
+      subtitle: "تعلّم → ابنِ",
+      sessionsCount: "6 محاضرات",
+      icon: "fa-solid fa-store",
+      sessions: [
+        {
+          number: "01",
+          title: "Welcome to Shopify & Professional Setup",
+          text: "هتفهم Shopify شغال إزاي وتجهز متجرك بالطريقة الصح من البداية."
+        },
+        {
+          number: "02",
+          title: "Shopify Admin, Products & Collections",
+          text: "هتتعلم تستخدم Shopify Admin وتدير المنتجات وتنظم الـCollections بشكل احترافي."
+        },
+        {
+          number: "03",
+          title: "Building Store 01",
+          text: "هتبني أول Shopify Store خطوة بخطوة وتطبق كل اللي اتعلمته عمليًا."
+        },
+        {
+          number: "04",
+          title: "Store Structure & Navigation",
+          text: "هتعمل هيكل واضح للمتجر وتظبط الـNavigation والصفحات الأساسية."
+        },
+        {
+          number: "05",
+          title: "Product Page & Shopping Experience",
+          text: "هتحسن صفحات المنتجات وتجربة الشراء وتخلي المتجر أكثر احترافية."
+        },
+        {
+          number: "06",
+          title: "Payments, Shipping, Domains & Store Settings",
+          text: "هتضبط الدفع والشحن والدومين وأهم إعدادات المتجر قبل الإطلاق."
+        }
+      ]
+    },
+
+    {
+      number: "02",
+      label: "المرحلة الثانية",
+      title: "Store 02",
+      subtitle: "افهم → قرر → ابنِ → طوّر",
+      sessionsCount: "4 محاضرات",
+      icon: "fa-solid fa-rocket",
+      sessions: [
+        {
+          number: "07",
+          title: "Store Planning & Professional Workflow",
+          text: "هتتعلم تخطط للمتجر وتاخد قرارات أفضل وتبني Workflow احترافي قبل التنفيذ."
+        },
+        {
+          number: "08",
+          title: "Building Store 02",
+          text: "هتبني تاني Shopify Store بهيكل أقوى وتنفيذ أفضل وقرارات أكثر احترافية."
+        },
+        {
+          number: "09",
+          title: "Premium Theme Customization & Store Experience",
+          text: "هتخصص الـTheme وتحسن تجربة المتجر وتخليه يظهر بشكل Premium واحترافي."
+        },
+        {
+          number: "10",
+          title: "Store Finalization & Shopify Ecosystem",
+          text: "هتجهز المتجر بشكل نهائي وتتعرف على Apps وأدوات ومنظومة Shopify بشكل أوسع."
+        }
+      ]
+    },
+
+    {
+      number: "03",
+      label: "المرحلة الثالثة",
+      title: "Career & Advanced Development",
+      subtitle: "طبّق → طوّر → اكسب",
+      sessionsCount: "3 محاضرات",
+      icon: "fa-solid fa-briefcase",
+      sessions: [
+        {
+          number: "11",
+          title: "Freelancing & Getting Your First Client",
+          text: "هتتعلم تقدم خدمات Shopify، تدور على Clients، تسعّر شغلك، وتقفل أول Deals ليك."
+        },
+        {
+          number: "12",
+          title: "Advanced Shopify & Introduction to Code",
+          text: "هتفهم Themes وLiquid وHTML وCSS وJavaScript وتبدأ تعمل Customization بالكود."
+        },
+        {
+          number: "13",
+          title: "Graduation Project — Store 03",
+          text: "هتخطط وتبني وتطلق Shopify Store كامل بنفسك مع توجيه ومتابعة أثناء المشروع."
+        }
+      ]
+    }
+  ]
+},
 
 studentFeedback: {
   title: "آراء الطلاب",
@@ -765,38 +908,37 @@ studentFeedback: {
           "لو حضرت أول محاضرة وحسيت إن الكورس غير مناسب ليك، تقدر تسترد المبلغ كامل بعد المحاضرة الأولى بكل وضوح وبدون تعقيد.",
       },
 
-      bonuses: {
-        eyebrow: "هدايا نهاية الكورس",
-        title: "هدايا حقيقية تزود قيمة الكورس",
-        description:
-          "أنت مش هتخرج من الكورس بالمعلومة فقط، لكن كمان بأدوات حقيقية تساعدك تبدأ أسرع وتشتغل بشكل أكثر احترافية.",
-        items: [
-          {
-            icon: "fa-solid fa-gift",
-            title: "هدايا إضافية قوية",
-            text: "في نهاية الكورس هيكون في أكثر من هدية تساعدك تاخد قيمة أكبر وتبدأ بشكل أقوى.",
-            price: "",
-            links: [],
-          },
-          {
-            icon: "fa-solid fa-layer-group",
-            title: "2 ثيم Shopify Premium",
-            text: "من ضمن الهدايا هتحصل على ثيمين برميم: Kalles و Minimog.",
-            price:
-              "القيمة الإجمالية للثيمين 177 دولار، يعني أكتر من 8500 جنيه تقريبًا.",
-            links: [
-              {
-                label: "Kalles Theme",
-                href: "https://themeforest.net/item/kalles-clean-versatile-shopify-theme/26320622",
-              },
-              {
-                label: "Minimog Theme",
-                href: "https://themeforest.net/item/minimog-the-high-converting-shopify-theme/33380968",
-              },
-            ],
-          },
-        ],
-      },
+  bonuses: {
+  eyebrow: "هدايا الكورس",
+  title: "أدوات وموارد",
+  description:
+    "مش هتخرج من الكورس بالمعلومة بس، لكن كمان هتاخد أدوات وموارد تساعدك تبدأ وتشتغل بشكل أفضل.",
+  items: [
+    {
+      icon: "fa-solid fa-toolbox",
+      title: "أدوات وموارد إضافية",
+      text: "مجموعة من الأدوات والموارد المفيدة اللي هتساعدك تبدأ أسرع وتشتغل بكفاءة أكبر.",
+      price: "",
+      links: [],
+    },
+    {
+      icon: "fa-solid fa-layer-group",
+      title: "2 Premium Shopify Themes",
+      text: "هتاخد ثيمين Premium لـ Shopify: Kalles و Minimog.",
+      price: "القيمة الإجمالية: $177",
+      links: [
+        {
+          label: "Kalles Theme",
+          href: "https://themeforest.net/item/kalles-clean-versatile-shopify-theme/26320622",
+        },
+        {
+          label: "Minimog Theme",
+          href: "https://themeforest.net/item/minimog-the-high-converting-shopify-theme/33380968",
+        },
+      ],
+    },
+  ],
+},
 
       opportunities: {
         eyebrow: "فرص للمجتهدين",
@@ -826,19 +968,19 @@ studentFeedback: {
         ],
       },
 
-      instructor: {
-        title: "اتعلم من خبرة حقيقية",
-        name: "Ziad Emad",
-        role: "مطور مواقع ومتاجر Shopify",
-        text: "الكورس ده مبني على خبرة حقيقية في تنفيذ متاجر Shopify، مع تركيز على الوضوح، التطبيق العملي، ومساعدتك توصل لنتيجة فعلية بدل مجرد مشاهدة الدروس.",
-        points: [
-          "خبرة حقيقية في تنفيذ متاجر Shopify",
-          "أسلوب شرح عملي وواضح",
-          "تركيز على النتيجة والتطبيق الحقيقي",
-        ],
-        image: "/assets/me.jpg",
-        imageAlt: "Ziad Emad",
-      },
+   instructor: {
+  title: "اتعلم من خبرة حقيقية",
+  name: "Ziad Emad",
+  role: "Web & Shopify Developer",
+  text: "الكورس ده مبني على خبرتي الحقيقية في تنفيذ متاجر Shopify، بعد ما اشتغلت مع أكتر من 60 عميل، مع التركيز على الوضوح والتطبيق العملي، ومساعدتك توصل لنتيجة فعلية.",
+  points: [
+    "خبرة حقيقية في تنفيذ متاجر Shopify",
+    "أسلوب شرح عملي وواضح",
+    "تركيز على النتيجة والتطبيق الحقيقي",
+  ],
+  image: "/assets/me.jpg",
+  imageAlt: "Ziad Emad",
+},
 
       proof: {
         title: "أمثلة على اللي تقدر تبنيه",
@@ -881,16 +1023,7 @@ studentFeedback: {
             question: "هل هبني متجر حقيقي أثناء الكورس؟",
             answer: "أيوه. الكورس قائم على التطبيق العملي مش مجرد المشاهدة.",
           },
-          {
-            question: "هل الكورس مفيد للفريلانسرز؟",
-            answer:
-              "أيوه. هيساعدك تفهم Workflow شوبيفاي وتبني خدمة تقدر تقدمها للعملاء.",
-          },
-          {
-            question: "هل أصحاب البراندات هيستفيدوا منه؟",
-            answer:
-              "أكيد. الكورس مفيد لأي حد عايز يبني متجر Shopify أو يفهمه بشكل أفضل.",
-          },
+
         ],
       },
 
