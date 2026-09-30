@@ -42,7 +42,7 @@ const translations = {
           subtitle: "Ideas, design & storytelling",
           description:
             "Strategic content that helps brands stand out and grow.",
-          count: 12,
+          count: 14,
           label: "brands",
           image:
             "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
@@ -566,7 +566,7 @@ studentFeedback: {
           title: "صناعة المحتوى",
           subtitle: "أفكار، تصميم وحكي",
           description: "محتوى يساعد البراند يبان بشكل أقوى وينمو.",
-          count: 12,
+          count: 14,
           label: "براند",
           image:
             "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
