@@ -1,5 +1,5 @@
 const statsData = [
-  { value: 45, prefix: "+", suffix: "", labelKey: "stats.clients", fallback: "Clients" },
+  { value: 60, prefix: "+", suffix: "", labelKey: "stats.clients", fallback: "Clients" },
   { value: 10, prefix: "+", suffix: "", labelKey: "stats.countries", fallback: "Countries" },
   { value: 5, prefix: "+", suffix: "M", labelKey: "stats.reach", fallback: "Reach" },
 ];
