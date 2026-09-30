@@ -31,7 +31,7 @@ const translations = {
           subtitle: "Design & development",
           description:
             "Premium Shopify stores built for performance and conversions.",
-          count: 18,
+          count: 42,
           label: "clients",
           image:
             "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
@@ -42,7 +42,7 @@ const translations = {
           subtitle: "Ideas, design & storytelling",
           description:
             "Strategic content that helps brands stand out and grow.",
-          count: 11,
+          count: 12,
           label: "brands",
           image:
             "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
@@ -556,7 +556,7 @@ studentFeedback: {
           title: "شوبيفاي",
           subtitle: "تصميم وتطوير",
           description: "متاجر Shopify احترافية مبنية للأداء والتحويلات.",
-          count: 18,
+          count: 42,
           label: "عميل",
           image:
             "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
@@ -566,7 +566,7 @@ studentFeedback: {
           title: "صناعة المحتوى",
           subtitle: "أفكار، تصميم وحكي",
           description: "محتوى يساعد البراند يبان بشكل أقوى وينمو.",
-          count: 11,
+          count: 12,
           label: "براند",
           image:
             "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
