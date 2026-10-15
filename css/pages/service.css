@@ -477,10 +477,35 @@ body.rtl .svc-work-nav i {
 
 /* Info */
 .svc-project__body {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+        "logo name stars"
+        "logo type type";
     align-items: center;
-    gap: 14px;
+    column-gap: 14px;
+    row-gap: 4px;
     padding: 4px 24px 0;
+}
+
+.svc-project__info {
+    display: contents;
+}
+
+.svc-project__logo {
+    grid-area: logo;
+}
+
+.svc-project__info h3 {
+    grid-area: name;
+}
+
+.svc-project__info p {
+    grid-area: type;
+}
+
+.svc-project__body > .svc-project__stars {
+    grid-area: stars;
 }
 
 .svc-project__logo {
@@ -492,13 +517,10 @@ body.rtl .svc-work-nav i {
     border: 1px solid rgba(124, 151, 255, 0.2);
 }
 
-.svc-project__info {
-    flex: 1;
-    min-width: 0;
-}
 
 .svc-project__info h3 {
-    margin: 0 0 4px;
+    margin: 0;
+    min-width: 0;
     font-size: 1.08rem;
     font-weight: 600;
     color: #ffffff;
@@ -528,10 +550,6 @@ body.rtl .svc-work-nav i {
     font-size: 0.92rem;
     line-height: 1.7;
     color: rgba(230, 236, 255, 0.8);
-}
-
-.svc-project__stars--mobile {
-    display: none;
 }
 
 .svc-project__quote p::before {
@@ -899,11 +917,7 @@ body.rtl .svc-laptop {
     margin-left: auto;
 }
 
-body.rtl .svc-project__stars--mobile {
-    display: none;
-}
-
-.svc-project__quote p::before {
+body.rtl .svc-project__quote p::before {
     content: "” ";
 }
 
@@ -985,21 +999,20 @@ body.rtl .svc-project__stars--mobile {
     }
 
     .svc-project__info h3 {
-        font-size: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .svc-project__stars {
+        font-size: 0.72rem;
+        letter-spacing: 1px;
+    }
+
+    .svc-project__body {
+        column-gap: 12px;
     }
 
     .svc-project__info p {
         font-size: 0.68rem;
-    }
-
-    /* Stars move above the quote so the name + type get the full width */
-    .svc-project__body > .svc-project__stars {
-        display: none;
-    }
-
-    .svc-project__stars--mobile {
-        display: block;
-        margin-bottom: 8px;
     }
 
     .svc-grid,

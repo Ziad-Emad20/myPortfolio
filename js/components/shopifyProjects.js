@@ -64,7 +64,6 @@ function getShopifyProjectTemplate(p) {
       ${
         p.quoteKey
           ? `<div class="svc-project__quote">
-              ${p.rating ? `<span class="svc-project__stars svc-project__stars--mobile" aria-hidden="true">${renderShopifyStars(p.rating)}</span>` : ""}
               <p data-i18n="shopifyPage.${p.quoteKey}"></p>
             </div>`
           : ""
