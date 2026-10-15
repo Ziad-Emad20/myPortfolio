@@ -13,6 +13,7 @@ const shopifyProjects = [
     typeKey: "work.oneandall",
     desktop: "/assets/projects/oneandall-desktop.webp",
     mobile: "/assets/projects/oneandall-mobile.webp",
+    mobileBar: "/assets/projects/oneandall-mobile-bar.webp", // sticky bottom toolbar, stays fixed while the page scrolls
     rating: 5,
     quoteKey: "testimonials.oneandall",
     featured: true, // shown in the hero
@@ -42,7 +43,9 @@ function getShopifyMockupTemplate(p) {
         <div class="svc-laptop__base"></div>
       </div>
       <div class="svc-phone">
-        <div class="svc-screen svc-screen--mobile" style="background-image:url('${p.mobile}')"></div>
+        <div class="svc-screen svc-screen--mobile" style="background-image:url('${p.mobile}')">
+          ${p.mobileBar ? `<img class="svc-screen__bar" src="${p.mobileBar}" alt="" loading="lazy">` : ""}
+        </div>
       </div>
     </div>`;
 }

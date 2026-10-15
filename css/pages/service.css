@@ -455,9 +455,21 @@ body.rtl .svc-work-nav i {
     animation-play-state: paused;
 }
 
+/* Phone and laptop scroll together at the same pace */
 .svc-screen--mobile {
-    animation-duration: 15s;
-    animation-delay: -3s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fixed bottom toolbar of a store (stays put while the page scrolls) */
+.svc-screen__bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .svc-mockup.is-playing .svc-screen {
