@@ -1938,3 +1938,9 @@ body.rtl .svc-project__quote p::before {
         padding: 3px 8px;
     }
 }
+
+@media (max-width: 400px) {
+    .svc-project__info h3 {
+        font-size: 0.86rem;
+    }
+}

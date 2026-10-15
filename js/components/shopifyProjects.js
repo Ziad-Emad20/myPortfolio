@@ -80,6 +80,15 @@ const shopifyProjects = [
     featured: true, // shown in the hero
   },,
   {
+    name: "LAIL COLLECTIVE",
+    logo: "/assets/lail.jpg",
+    typeKey: "work.lail",
+    desktop: "/assets/projects/lail-desktop.webp",
+    mobile: "/assets/projects/lail-mobile.webp",
+    rating: 5,
+    quoteKey: "testimonials.lail",
+  },
+  {
     name: "NSG",
     logo: "/assets/nsg.jpg",
     typeKey: "work.nsg",
