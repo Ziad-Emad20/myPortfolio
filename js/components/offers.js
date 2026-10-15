@@ -60,9 +60,16 @@ function createOfferCard(item) {
             <span class="offer-card__label">${item.label}</span>
           </div>
 
-          <a href="${item.link}" class="offer-card__arrow" aria-label="${openText} ${item.title}">
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
+          ${
+            item.cta
+              ? `<a href="${item.link}" class="offer-card__cta">
+                  <span>${item.cta}</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>`
+              : `<a href="${item.link}" class="offer-card__arrow" aria-label="${openText} ${item.title}">
+                  <i class="fa-solid fa-arrow-right"></i>
+                </a>`
+          }
         </div>
       </div>
     </article>

@@ -37,6 +37,7 @@ const translations = {
           image:
             "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
           link: "/pages/shopify",
+          cta: "View my work",
         },
         {
           title: "content creator",
@@ -563,6 +564,7 @@ studentFeedback: {
           image:
             "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
           link: "/pages/shopify",
+          cta: "شوف أعمالي",
         },
         {
           title: "صناعة المحتوى",

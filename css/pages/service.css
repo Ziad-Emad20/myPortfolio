@@ -521,12 +521,20 @@ body.rtl .svc-work-nav i {
     margin: 16px 24px 0;
     padding-top: 16px;
     border-top: 1px solid rgba(124, 151, 255, 0.12);
+}
+
+.svc-project__quote p {
+    margin: 0;
     font-size: 0.92rem;
     line-height: 1.7;
     color: rgba(230, 236, 255, 0.8);
 }
 
-.svc-project__quote::before {
+.svc-project__stars--mobile {
+    display: none;
+}
+
+.svc-project__quote p::before {
     content: "“ ";
     color: #89b7ff;
     font-weight: 700;
@@ -891,7 +899,11 @@ body.rtl .svc-laptop {
     margin-left: auto;
 }
 
-body.rtl .svc-project__quote::before {
+body.rtl .svc-project__stars--mobile {
+    display: none;
+}
+
+.svc-project__quote p::before {
     content: "” ";
 }
 
@@ -951,8 +963,43 @@ body.rtl .svc-project__quote::before {
         padding: 16px 8px;
     }
 
+    .svc-stat {
+        padding: 14px 4px;
+    }
+
     .svc-stat strong {
         font-size: 1.45rem;
+    }
+
+    .svc-stat span {
+        margin-top: 6px;
+        font-size: 0.62rem;
+        white-space: nowrap;
+    }
+
+    .svc-project__info h3,
+    .svc-project__info p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .svc-project__info h3 {
+        font-size: 1rem;
+    }
+
+    .svc-project__info p {
+        font-size: 0.68rem;
+    }
+
+    /* Stars move above the quote so the name + type get the full width */
+    .svc-project__body > .svc-project__stars {
+        display: none;
+    }
+
+    .svc-project__stars--mobile {
+        display: block;
+        margin-bottom: 8px;
     }
 
     .svc-grid,
@@ -991,5 +1038,25 @@ body.rtl .svc-project__quote::before {
 
     .svc-cta {
         padding: 44px 22px;
+    }
+}
+
+@media (max-width: 380px) {
+    .svc-project__body {
+        gap: 10px;
+        padding: 4px 18px 0;
+    }
+
+    .svc-project__logo {
+        width: 42px;
+        height: 42px;
+    }
+
+    .svc-project__info p {
+        font-size: 0.64rem;
+    }
+
+    .svc-stat span {
+        font-size: 0.58rem;
     }
 }
