@@ -78,7 +78,17 @@ const shopifyProjects = [
     rating: 5,
     quoteKey: "testimonials.oneandall",
     featured: true, // shown in the hero
-  },
+  },,
+  {
+    name: "NSG",
+    logo: "/assets/nsg.jpg",
+    typeKey: "work.nsg",
+    desktop: "/assets/projects/nsg-desktop.webp",
+    mobile: "/assets/projects/nsg-mobile.webp",
+    floatIcon: "/assets/projects/nsg-chat.svg",
+    rating: 5,
+    quoteKey: "testimonials.nsg",
+  }
 ];
 
 // Small helper for text that is built on the fly (modal, aria labels)
