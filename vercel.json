@@ -5,6 +5,7 @@
     { "source": "/home", "destination": "/", "permanent": true },
     { "source": "/services", "destination": "/#services", "permanent": true },
     { "source": "/contact", "destination": "/pages/contact", "permanent": true },
-    { "source": "/course", "destination": "/pages/course", "permanent": true }
+    { "source": "/course", "destination": "/pages/course", "permanent": true },
+    { "source": "/shopify", "destination": "/pages/shopify", "permanent": true }
   ]
 }
