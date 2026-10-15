@@ -41,15 +41,14 @@ const shopifyProjects = [
     quoteKey: "testimonials.sis",
   },
   {
-    name: "One&All",
-    logo: "/assets/oneandall.jpg",
-    typeKey: "work.oneandall",
-    desktop: "/assets/projects/oneandall-desktop.webp",
-    mobile: "/assets/projects/oneandall-mobile.webp",
-    mobileBar: "/assets/projects/oneandall-mobile-bar.webp", // sticky bottom toolbar, stays fixed while the page scrolls
+    name: "CHANCE",
+    logo: "/assets/chance.jpg",
+    typeKey: "work.chance",
+    desktop: "/assets/projects/chance-desktop.webp",
+    mobile: "/assets/projects/chance-mobile.webp",
+    floatIcon: "/assets/projects/chance-chat.svg",
     rating: 5,
-    quoteKey: "testimonials.oneandall",
-    featured: true, // shown in the hero
+    quoteKey: "testimonials.chance",
   },
   {
     name: "Scrubio",
@@ -70,14 +69,15 @@ const shopifyProjects = [
     },
   },
   {
-    name: "CHANCE",
-    logo: "/assets/chance.jpg",
-    typeKey: "work.chance",
-    desktop: "/assets/projects/chance-desktop.webp",
-    mobile: "/assets/projects/chance-mobile.webp",
-    floatIcon: "/assets/projects/chance-chat.svg",
+    name: "One&All",
+    logo: "/assets/oneandall.jpg",
+    typeKey: "work.oneandall",
+    desktop: "/assets/projects/oneandall-desktop.webp",
+    mobile: "/assets/projects/oneandall-mobile.webp",
+    mobileBar: "/assets/projects/oneandall-mobile-bar.webp", // sticky bottom toolbar, stays fixed while the page scrolls
     rating: 5,
-    quoteKey: "testimonials.chance",
+    quoteKey: "testimonials.oneandall",
+    featured: true, // shown in the hero
   },
 ];
 
