@@ -74,19 +74,44 @@ function getShopifyProjectTemplate(p) {
     </article>`;
 }
 
-// Play the scroll animation only while a mockup is on screen
+// A mockup plays only when it is on screen AND its reveal animation has finished
+// (the CSS adds a 1s delay before the scroll starts).
+function updateMockupPlayback(m) {
+  m.classList.toggle("is-playing", m.dataset.inView === "true" && m.dataset.revealed === "true");
+}
+
+// Called by service-animations.js when a block has finished animating in
+window.svcRevealMockups = function (scope) {
+  if (!scope) return;
+  const mockups = scope.matches && scope.matches(".svc-mockup") ? [scope] : scope.querySelectorAll(".svc-mockup");
+  mockups.forEach((m) => {
+    m.dataset.revealed = "true";
+    updateMockupPlayback(m);
+  });
+};
+
 function observeShopifyMockups(root) {
   const mockups = root.querySelectorAll(".svc-mockup");
 
+  // If the page isn't running entrance animations, mockups count as revealed right away
+  const waitForReveal = document.documentElement.classList.contains("svc-anim-pending");
+  mockups.forEach((m) => {
+    m.dataset.revealed = waitForReveal ? "false" : "true";
+  });
+
   if (!("IntersectionObserver" in window)) {
-    mockups.forEach((m) => m.classList.add("is-playing"));
+    mockups.forEach((m) => {
+      m.dataset.inView = "true";
+      updateMockupPlayback(m);
+    });
     return;
   }
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        entry.target.classList.toggle("is-playing", entry.isIntersecting);
+        entry.target.dataset.inView = String(entry.isIntersecting);
+        updateMockupPlayback(entry.target);
       });
     },
     { threshold: 0.5 }

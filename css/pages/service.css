@@ -107,6 +107,20 @@
     border-color: rgba(145, 171, 255, 0.32);
 }
 
+/* Entrance animation guard (see js/service-animations.js) */
+.svc-anim-pending .svc-hero__card,
+.svc-anim-pending .svc-head > *,
+.svc-anim-pending .svc-cta,
+.svc-anim-pending .svc-feature,
+.svc-anim-pending .svc-step,
+.svc-anim-pending .svc-package,
+.svc-anim-pending .svc-faq__item,
+.svc-anim-pending .svc-work,
+.svc-anim-pending .svc-included,
+.svc-anim-pending .svc-note {
+    opacity: 0;
+}
+
 /* =========================
    Hero
    ========================= */

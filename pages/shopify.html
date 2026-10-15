@@ -28,6 +28,20 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+  <script>
+    // Hide animated content until the entrance animations are set up (prevents a flash + replay)
+    (function () {
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var d = document.documentElement;
+      d.classList.add("svc-anim-pending");
+      setTimeout(function () {
+        if (!d.classList.contains("svc-anim-pending")) return;
+        d.classList.remove("svc-anim-pending");
+        if (window.svcRevealMockups) window.svcRevealMockups(document);
+      }, 3000);
+    })();
+  </script>
+
   <link rel="stylesheet" href="/css/base/variables.css">
   <link rel="stylesheet" href="/css/base/global.css">
   <link rel="stylesheet" href="/css/layout/header.css">
