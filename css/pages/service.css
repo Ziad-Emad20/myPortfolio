@@ -270,8 +270,14 @@ body.rtl .svc-hero__mockup .svc-phone {
     bottom: 46px;
 }
 
+/* phone always sits above the laptop */
+.svc-mockup .svc-phone {
+    z-index: 3;
+}
+
 .svc-mockup .svc-screen--stack,
 .svc-mockup.is-active .svc-screen--stack {
+    isolation: isolate;
     position: relative;
     overflow: hidden;
     animation: none;
