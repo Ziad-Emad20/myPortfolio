@@ -2,6 +2,7 @@ const translations = {
   en: {
     nav: {
       services: "Services",
+      shopifyWork: "Shopify Work",
       courses: "Courses",
       contact: "Contact",
       freeConsultation: "Free Consultation",
@@ -35,7 +36,7 @@ const translations = {
           label: "clients",
           image:
             "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
-          link: "#",
+          link: "/pages/shopify",
         },
         {
           title: "content creator",
@@ -528,6 +529,7 @@ studentFeedback: {
   ar: {
     nav: {
       services: "الخدمات",
+      shopifyWork: "أعمال شوبيفاي",
       courses: "الكورسات",
       contact: "تواصل",
       freeConsultation: "استشارة مجانية",
@@ -560,7 +562,7 @@ studentFeedback: {
           label: "عميل",
           image:
             "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200&auto=format&fit=crop",
-          link: "#",
+          link: "/pages/shopify",
         },
         {
           title: "صناعة المحتوى",

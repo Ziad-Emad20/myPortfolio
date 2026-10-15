@@ -21,9 +21,11 @@
 
   <link rel="icon" href="/assets/me.jpg" type="image/x-icon">
 
+  <link rel="preload" as="image" href="/assets/projects/oneandall-desktop.webp" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <link rel="stylesheet" href="/css/base/variables.css">
@@ -63,9 +65,7 @@
               <div class="svc-stat"><strong>10+</strong><span data-i18n="shopifyPage.hero.stat2">Countries</span></div>
               <div class="svc-stat"><strong>AR/EN</strong><span data-i18n="shopifyPage.hero.stat3">Bilingual stores</span></div>
             </div>
-            <div class="svc-hero__shot">
-              <div class="svc-placeholder"><i class="fa-regular fa-image"></i><span data-i18n="shopifyPage.hero.shot">Featured store screenshot</span></div>
-            </div>
+            <div class="svc-hero__mockup" id="shopify-hero-mockup"></div>
           </div>
         </div>
       </div>
@@ -134,7 +134,16 @@
           <p class="svc-description" data-i18n="shopifyPage.work.description">A few of the brands I've designed and developed Shopify stores for.</p>
         </div>
 
-        <div class="svc-work" id="shopify-projects"></div>
+        <div class="svc-work">
+          <div class="swiper svc-work-slider">
+            <div class="swiper-wrapper" id="shopify-projects"></div>
+          </div>
+          <div class="svc-work-controls">
+            <button class="svc-work-nav svc-work-prev" type="button" aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></button>
+            <div class="svc-work-pagination"></div>
+            <button class="svc-work-nav svc-work-next" type="button" aria-label="Next"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -304,6 +313,7 @@
 
   <footer id="footer-container"></footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="/js/i18n/translations.js" defer></script>
   <script src="/js/i18n/pages/shopify.js" defer></script>
   <script src="/js/i18n/i18n.js" defer></script>

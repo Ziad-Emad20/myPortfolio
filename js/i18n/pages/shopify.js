@@ -13,7 +13,6 @@
       stat1: "Stores launched",
       stat2: "Countries",
       stat3: "Bilingual stores",
-      shot: "Featured store screenshot",
     },
     features: {
       eyebrow: "What you get",
@@ -35,9 +34,8 @@
       title: "Stores I've built",
       description: "A few of the brands I've designed and developed Shopify stores for.",
       shot: "Store screenshot",
-      p1: "Sportswear · Design & development",
-      p2: "Menswear · Design & development",
-      p3: "E-commerce · Ongoing store management",
+      sis: "Sportswear · Design & development",
+      oneandall: "Toys & stationery · 25,000+ products",
     },
     process: {
       eyebrow: "How it works",
@@ -100,9 +98,8 @@
     testimonials: {
       eyebrow: "Client feedback",
       title: "What store owners say",
-      q1: "Great job Ziad, really impressive work. If anyone I know needs a store, I’ll definitely recommend you.",
-      q2: "Great work Ziad, really clean and well done. Looking forward to working together consistently.",
-      q3: "Outstanding work with top-level quality. You’re handling the store professionally, and I’m always happy to keep working with you long-term.",
+      sis: "Great work Ziad, really clean and well done. Looking forward to working together consistently.",
+      oneandall: "Mashallah Ziad, truly professional work — using all 7 brand identity colors and organizing more than 25,000 products. This is world-class work.",
     },
     faq: {
       eyebrow: "FAQ",
@@ -138,7 +135,6 @@
       stat1: "متجر اتسلّم",
       stat2: "دولة",
       stat3: "متاجر بلغتين",
-      shot: "صورة متجر مميز",
     },
     features: {
       eyebrow: "هتاخد إيه",
@@ -160,9 +156,8 @@
       title: "متاجر عملتها",
       description: "بعض البراندات اللي صمّمت وطوّرت متاجرها على شوبيفاي.",
       shot: "صورة المتجر",
-      p1: "ملابس رياضية · تصميم وتطوير",
-      p2: "ملابس رجالي · تصميم وتطوير",
-      p3: "تجارة إلكترونية · إدارة مستمرة للمتجر",
+      sis: "ملابس رياضية · تصميم وتطوير",
+      oneandall: "ألعاب وأدوات مكتبية · أكتر من 25 ألف منتج",
     },
     process: {
       eyebrow: "إزاي بنشتغل",
@@ -225,9 +220,8 @@
     testimonials: {
       eyebrow: "آراء العملاء",
       title: "أصحاب المتاجر قالوا إيه",
-      q1: "شغل عظيم يا زياد، بجد شغل مبهر. لو حد أعرفه محتاج متجر أكيد هرشّحك.",
-      q2: "شغل جميل يا زياد، نضيف ومتظبط. مستني نكمّل شغل مع بعض على طول.",
-      q3: "شغل ممتاز وجودة عالية جداً. بتدير المتجر باحترافية، ودايماً مبسوط إني أكمّل معاك على المدى الطويل.",
+      sis: "شغل جميل يا زياد، نضيف ومتظبط. مستني نكمّل شغل مع بعض على طول.",
+      oneandall: "ما شاء الله يا زياد، شغل احترافي إنك تعرف تستخدم الـ 7 ألوان الخاصين بالهوية وتنظّم أكتر من 25 ألف منتج. ده شغل عالمي والله، ما شاء الله.",
     },
     faq: {
       eyebrow: "أسئلة شائعة",

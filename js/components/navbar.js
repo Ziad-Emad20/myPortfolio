@@ -1,5 +1,12 @@
 const navLinks = [
-  { labelKey: "nav.services", fallback: "Services", href: "/#services" },
+  {
+    labelKey: "nav.services",
+    fallback: "Services",
+    href: "/#services",
+    children: [
+      { labelKey: "nav.shopifyWork", fallback: "Shopify Work", href: "/pages/shopify", icon: "fa-brands fa-shopify" },
+    ],
+  },
   { labelKey: "nav.courses", fallback: "Courses", href: "/pages/course" },
   { labelKey: "nav.contact", fallback: "Contact", href: "/pages/contact" },
 ];
@@ -64,10 +71,39 @@ function getLanguageToggleLabel(lang) {
 // =========================
 
 function generateLinks(className, dict) {
+  const isMobile = className === "mobile-menu-link";
+
   return navLinks
     .map((link) => {
       const label = getTranslatedText(dict, link.labelKey, link.fallback);
-      return `<a href="${link.href}" class="${className}">${label}</a>`;
+
+      if (!link.children || !link.children.length) {
+        return `<a href="${link.href}" class="${className}">${label}</a>`;
+      }
+
+      const children = link.children
+        .map((child) => {
+          const childLabel = getTranslatedText(dict, child.labelKey, child.fallback);
+          const icon = child.icon ? `<i class="${child.icon}"></i>` : "";
+
+          return isMobile
+            ? `<a href="${child.href}" class="mobile-menu-link mobile-menu-sublink">${icon}<span>${childLabel}</span></a>`
+            : `<a href="${child.href}" class="nav-dropdown__link">${icon}<span>${childLabel}</span></a>`;
+        })
+        .join("");
+
+      if (isMobile) {
+        return `<a href="${link.href}" class="${className}">${label}</a>${children}`;
+      }
+
+      return `
+        <div class="nav-dropdown">
+          <a href="${link.href}" class="${className} nav-dropdown__toggle">
+            ${label}
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </a>
+          <div class="nav-dropdown__menu">${children}</div>
+        </div>`;
     })
     .join("");
 }
