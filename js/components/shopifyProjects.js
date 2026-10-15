@@ -54,7 +54,28 @@ const shopifyProjects = [
       desktop: "/assets/projects/scrubio-product-desktop.webp",
       before: "/assets/projects/scrubio-product-before.webp",
       after: "/assets/projects/scrubio-product-after.webp",
+      mobileRatio: "430 / 786",
       changesKey: "work.scrubioChanges",
+      changesCount: 5,
+    },
+  },
+  {
+    name: "Ottomani",
+    logo: "/assets/ottomani.jpg",
+    typeKey: "work.ottomani",
+    desktop: "/assets/projects/ottomani-desktop.webp",
+    mobile: "/assets/projects/ottomani-mobile.webp",
+    mobileBar: "/assets/projects/ottomani-mobile-bar.webp",
+    rating: 5,
+    quoteKey: "testimonials.ottomani",
+    beforeAfter: {
+      // full redesign: both screens compare before vs after
+      desktopBefore: "/assets/projects/ottomani-home-desktop-before.webp",
+      desktopAfter: "/assets/projects/ottomani-home-desktop-after.webp",
+      before: "/assets/projects/ottomani-home-mobile-before.webp",
+      after: "/assets/projects/ottomani-home-mobile-after.webp",
+      mobileRatio: "430 / 758",
+      changesKey: "work.ottomaniChanges",
       changesCount: 5,
     },
   },
@@ -92,15 +113,15 @@ function getShopifyMockupTemplate(p) {
     </div>`;
 }
 
-function getCompareTemplate(ba, extraClass = "") {
+function getCompareTemplate(before, after, ratio, extraClass = "") {
   return `
-    <div class="svc-compare swiper-no-swiping ${extraClass}" dir="ltr" style="--pos:50%">
-      <img class="svc-compare__img" src="${ba.after}" alt="" loading="lazy" draggable="false">
+    <div class="svc-compare swiper-no-swiping ${extraClass}" dir="ltr" style="--pos:50%;--ratio:${ratio}">
+      <img class="svc-compare__img" src="${after}" alt="" loading="lazy" draggable="false">
       <div class="svc-compare__before">
-        <img class="svc-compare__img" src="${ba.before}" alt="" loading="lazy" draggable="false">
+        <img class="svc-compare__img" src="${before}" alt="" loading="lazy" draggable="false">
       </div>
-      <span class="svc-compare__tag svc-compare__tag--before" data-i18n="shopifyPage.work.before">Before</span>
-      <span class="svc-compare__tag svc-compare__tag--after" data-i18n="shopifyPage.work.after">After</span>
+      <span class="svc-compare__tag svc-compare__tag--before" data-i18n="shopifyPage.work.before">${shopifyText("work.before", "Before")}</span>
+      <span class="svc-compare__tag svc-compare__tag--after" data-i18n="shopifyPage.work.after">${shopifyText("work.after", "After")}</span>
       <div class="svc-compare__line" aria-hidden="true">
         <span class="svc-compare__knob"><i class="fa-solid fa-left-right"></i></span>
       </div>
@@ -108,18 +129,25 @@ function getCompareTemplate(ba, extraClass = "") {
     </div>`;
 }
 
+const mobileCompare = (ba, cls = "") => getCompareTemplate(ba.before, ba.after, ba.mobileRatio || "430 / 786", cls);
+const desktopCompare = (ba, cls = "") => getCompareTemplate(ba.desktopBefore, ba.desktopAfter, ba.desktopRatio || "1200 / 702", cls);
+
 function getBeforeAfterMockupTemplate(p) {
   const ba = p.beforeAfter;
   return `
     <div class="svc-mockup svc-mockup--ba">
-      <div class="svc-laptop" aria-hidden="true">
+      <div class="svc-laptop">
         <div class="svc-laptop__screen">
-          <div class="svc-screen svc-screen--static" style="background-image:url('${ba.desktop}')"></div>
+          ${
+            ba.desktopBefore
+              ? desktopCompare(ba, "svc-compare--laptop")
+              : `<div class="svc-screen svc-screen--static" style="background-image:url('${ba.desktop}')"></div>`
+          }
         </div>
         <div class="svc-laptop__base"></div>
       </div>
       <div class="svc-phone svc-phone--compare">
-        ${getCompareTemplate(ba)}
+        ${mobileCompare(ba)}
         <button class="svc-compare__expand swiper-no-swiping" type="button" data-project="${p.name}">
           <i class="fa-solid fa-expand"></i>
           <span data-i18n="shopifyPage.work.expand">Compare</span>
@@ -256,7 +284,7 @@ function runCompareSweep(time) {
     if (compare.classList.contains("is-touched")) return;
     const start = Number(compare.dataset.sweepStart || time);
     if (!compare.dataset.sweepStart) compare.dataset.sweepStart = time;
-    const t = (time - start) / 1000;
+    const t = (time - start) / 1000 + Number(compare.dataset.phase || 0);
     // starts in the middle, sweeps between ~15% and ~85%
     setComparePos(compare, 50 + 35 * Math.sin(t * 0.9));
   });
@@ -277,9 +305,8 @@ function setCompareAuto(compare, on) {
 function bindProjectCard(card) {
   const tabs = card.querySelectorAll(".svc-tab");
   const views = card.querySelectorAll(".svc-view");
-  const compare = card.querySelector(".svc-view[data-view='ba'] .svc-compare");
-
-  if (compare) bindCompare(compare);
+  const compares = card.querySelectorAll(".svc-view[data-view='ba'] .svc-compare");
+  compares.forEach(bindCompare);
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
@@ -298,10 +325,12 @@ function bindProjectCard(card) {
       if (quote) quote.setAttribute("aria-hidden", String(view === "ba"));
       if (changesEl) changesEl.setAttribute("aria-hidden", String(view !== "ba"));
 
-      if (compare) {
-        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        setCompareAuto(compare, view === "ba" && !reduce && !compare.classList.contains("is-touched"));
-      }
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      compares.forEach((c, i) => {
+        // the two screens sweep slightly out of step so it doesn't look mechanical
+        if (view === "ba") c.dataset.phase = String(i * 1.2);
+        setCompareAuto(c, view === "ba" && !reduce && !c.classList.contains("is-touched"));
+      });
     });
   });
 
@@ -318,9 +347,12 @@ function bindProjectCard(card) {
 
 function openCompareModal(project) {
   if (!project || !project.beforeAfter) return;
+  const ba = project.beforeAfter;
+  const hasDesktop = Boolean(ba.desktopBefore);
+  const startDesktop = hasDesktop && window.matchMedia("(min-width: 768px)").matches;
 
   const modal = document.createElement("div");
-  modal.className = "svc-modal";
+  modal.className = "svc-modal" + (startDesktop ? " is-desktop" : "");
   modal.setAttribute("role", "dialog");
   modal.setAttribute("aria-modal", "true");
   modal.innerHTML = `
@@ -330,27 +362,41 @@ function openCompareModal(project) {
         <img src="${project.logo}" alt="">
         <div>
           <strong>${project.name}</strong>
-          <span>${shopifyText(project.beforeAfter.changesKey + ".title", "Product page redesign")}</span>
+          <span>${shopifyText(ba.changesKey + ".title", "Redesign")}</span>
         </div>
         <button class="svc-modal__close" type="button" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div class="svc-modal__phone">
-        ${getCompareTemplate(project.beforeAfter, "svc-compare--big")}
+      ${
+        hasDesktop
+          ? `<div class="svc-modal__devices" role="tablist">
+              <button type="button" data-device="desktop" class="${startDesktop ? "is-active" : ""}"><i class="fa-solid fa-desktop"></i>${shopifyText("work.desktop", "Desktop")}</button>
+              <button type="button" data-device="mobile" class="${startDesktop ? "" : "is-active"}"><i class="fa-solid fa-mobile-screen"></i>${shopifyText("work.mobile", "Mobile")}</button>
+            </div>`
+          : ""
+      }
+      <div class="svc-modal__stage">
+        ${hasDesktop ? `<div class="svc-modal__laptop">${desktopCompare(ba, "svc-compare--big")}</div>` : ""}
+        <div class="svc-modal__phone">${mobileCompare(ba, "svc-compare--big")}</div>
       </div>
       <p class="svc-modal__hint"><i class="fa-solid fa-hand-pointer"></i> ${shopifyText("work.dragHint", "Drag to compare")}</p>
     </div>`;
 
-  modal.querySelectorAll(".svc-compare__tag--before").forEach((el) => (el.textContent = shopifyText("work.before", "Before")));
-  modal.querySelectorAll(".svc-compare__tag--after").forEach((el) => (el.textContent = shopifyText("work.after", "After")));
-
   document.body.appendChild(modal);
   document.body.classList.add("svc-modal-open");
 
-  const compare = modal.querySelector(".svc-compare");
-  bindCompare(compare);
+  const compares = modal.querySelectorAll(".svc-compare");
+  compares.forEach(bindCompare);
+
+  modal.querySelectorAll(".svc-modal__devices button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const desktop = btn.dataset.device === "desktop";
+      modal.classList.toggle("is-desktop", desktop);
+      modal.querySelectorAll(".svc-modal__devices button").forEach((b) => b.classList.toggle("is-active", b === btn));
+    });
+  });
 
   const close = () => {
-    setCompareAuto(compare, false);
+    compares.forEach((c) => setCompareAuto(c, false));
     modal.classList.remove("is-open");
     document.body.classList.remove("svc-modal-open");
     document.removeEventListener("keydown", onKey);
