@@ -770,23 +770,25 @@ body.rtl .svc-work-nav i {
     background: rgba(20, 140, 70, 0.92);
 }
 
-/* invisible range on top = drag anywhere, keyboard & touch friendly */
-.svc-compare__range {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    opacity: 0;
+/* The whole compare area is draggable (pointer events in JS);
+   the range input stays only for keyboard users */
+.svc-compare {
     cursor: ew-resize;
-    -webkit-appearance: none;
-    appearance: none;
 }
 
-.svc-compare__range::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 44px;
-    height: 100%;
+.svc-compare.is-dragging .svc-compare__knob {
+    transform: translate(-50%, -50%) scale(1.12);
+}
+
+.svc-compare__range {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+    bottom: 0;
+    left: 0;
 }
 
 .svc-compare__range:focus-visible ~ .svc-compare__line .svc-compare__knob,

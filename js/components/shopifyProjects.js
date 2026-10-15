@@ -192,16 +192,49 @@ function setComparePos(compare, value) {
 
 function bindCompare(compare) {
   const range = compare.querySelector(".svc-compare__range");
-  if (!range) return;
+  let dragging = false;
 
   const stopAuto = () => compare.classList.add("is-touched");
 
-  range.addEventListener("input", () => {
+  const setFromX = (clientX) => {
+    const rect = compare.getBoundingClientRect();
+    if (!rect.width) return;
+    setComparePos(compare, ((clientX - rect.left) / rect.width) * 100);
+  };
+
+  // Pointer events cover mouse, touch and pen. touch-action: pan-y in CSS keeps
+  // vertical page scrolling working while horizontal drags move the line.
+  compare.addEventListener("pointerdown", (e) => {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    dragging = true;
     stopAuto();
-    compare.style.setProperty("--pos", range.value + "%");
+    compare.classList.add("is-dragging");
+    try {
+      compare.setPointerCapture(e.pointerId);
+    } catch (err) {}
+    setFromX(e.clientX);
   });
-  range.addEventListener("pointerdown", stopAuto);
-  range.addEventListener("keydown", stopAuto);
+
+  compare.addEventListener("pointermove", (e) => {
+    if (!dragging) return;
+    e.preventDefault();
+    setFromX(e.clientX);
+  });
+
+  const endDrag = () => {
+    dragging = false;
+    compare.classList.remove("is-dragging");
+  };
+  ["pointerup", "pointercancel", "lostpointercapture"].forEach((type) => compare.addEventListener(type, endDrag));
+
+  // Keyboard support through the (visually hidden) range input
+  if (range) {
+    range.addEventListener("input", () => {
+      stopAuto();
+      compare.style.setProperty("--pos", range.value + "%");
+    });
+    range.addEventListener("keydown", stopAuto);
+  }
 }
 
 // Gentle automatic sweep so visitors see the difference without touching anything
