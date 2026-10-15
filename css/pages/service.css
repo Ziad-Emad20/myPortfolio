@@ -611,16 +611,23 @@ body.rtl .svc-work-nav i {
    ========================= */
 
 .svc-tabs {
+    position: absolute;
+    bottom: 16px;
+    inset-inline-end: 18px;
     display: flex;
     gap: 4px;
-    width: fit-content;
-    margin: 16px auto 0;
     padding: 4px;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(124, 151, 255, 0.16);
-    position: relative;
     z-index: 2;
+}
+
+/* every project card reserves the same space for the tabs row,
+   so cards with and without tabs keep identical layouts */
+.svc-work .svc-project {
+    position: relative;
+    padding-bottom: 66px;
 }
 
 .svc-tab {
@@ -670,10 +677,6 @@ body.rtl .svc-work-nav i {
     opacity: 1;
     visibility: visible;
     transform: none;
-}
-
-.svc-project.has-ba .svc-mockup {
-    padding-top: 22px;
 }
 
 /* static screen (no scroll) */
@@ -801,9 +804,8 @@ body.rtl .svc-work-nav i {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    margin-top: 9px;
     padding: 6px 12px;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     border-radius: 999px;
     font: inherit;
     font-size: 0.72rem;
@@ -816,14 +818,6 @@ body.rtl .svc-work-nav i {
     cursor: pointer;
     transition: box-shadow 0.25s ease, filter 0.25s ease;
     z-index: 3;
-}
-
-.svc-mockup--ba {
-    padding-bottom: 58px;
-}
-
-.svc-mockup--ba .svc-phone {
-    bottom: 50px;
 }
 
 .svc-mockup--ba .svc-laptop {
@@ -1606,7 +1600,12 @@ body.rtl .svc-project__quote p::before {
 
 @media (max-width: 640px) {
     .svc-tabs {
-        margin-top: 12px;
+        bottom: 14px;
+        inset-inline-end: 14px;
+    }
+
+    .svc-work .svc-project {
+        padding-bottom: 60px;
     }
 
     .svc-tab {
@@ -1631,17 +1630,8 @@ body.rtl .svc-project__quote p::before {
     }
 
     .svc-compare__expand {
-        margin-top: 7px;
-        padding: 5px 10px;
-        font-size: 0.66rem;
-    }
-
-    .svc-mockup--ba {
-        padding-bottom: 48px;
-    }
-
-    .svc-mockup--ba .svc-phone {
-        bottom: 42px;
+        padding: 5px 9px;
+        font-size: 0.64rem;
     }
 
     .svc-project__changes {

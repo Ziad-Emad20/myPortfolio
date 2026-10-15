@@ -129,19 +129,6 @@ function getShopifyProjectTemplate(p) {
 
   return `
     <article class="swiper-slide svc-card svc-project${ba ? " has-ba" : ""}">
-      ${
-        ba
-          ? `<div class="svc-tabs swiper-no-swiping" role="tablist">
-              <button class="svc-tab is-active" type="button" role="tab" aria-selected="true" data-view="store">
-                <i class="fa-solid fa-store"></i><span data-i18n="shopifyPage.work.tabStore">Full store</span>
-              </button>
-              <button class="svc-tab" type="button" role="tab" aria-selected="false" data-view="ba">
-                <i class="fa-solid fa-wand-magic-sparkles"></i><span data-i18n="shopifyPage.work.tabBA">Before &amp; After</span>
-              </button>
-            </div>`
-          : ""
-      }
-
       <div class="svc-views">
         <div class="svc-view is-active" data-view="store">
           ${getShopifyMockupTemplate(p)}
@@ -171,6 +158,19 @@ function getShopifyProjectTemplate(p) {
           ? `<div class="svc-project__changes">
               <span class="svc-project__changes-title" data-i18n="shopifyPage.${ba.changesKey}.title"></span>
               <ul>${changes}</ul>
+            </div>`
+          : ""
+      }
+
+      ${
+        ba
+          ? `<div class="svc-tabs swiper-no-swiping" role="tablist">
+              <button class="svc-tab is-active" type="button" role="tab" aria-selected="true" data-view="store">
+                <i class="fa-solid fa-store"></i><span data-i18n="shopifyPage.work.tabStore">Full store</span>
+              </button>
+              <button class="svc-tab" type="button" role="tab" aria-selected="false" data-view="ba">
+                <i class="fa-solid fa-wand-magic-sparkles"></i><span data-i18n="shopifyPage.work.tabBA">Before &amp; After</span>
+              </button>
             </div>`
           : ""
       }
@@ -382,7 +382,7 @@ function initShopifySlider() {
   el.setAttribute("dir", document.documentElement.dir || "ltr");
 
   shopifySwiper = new Swiper(el, {
-    slidesPerView: 1.08,
+    slidesPerView: 1.1,
     spaceBetween: 14,
     grabCursor: true,
     watchOverflow: true,
@@ -395,8 +395,9 @@ function initShopifySlider() {
       prevEl: ".svc-work-prev",
     },
     breakpoints: {
-      641: { slidesPerView: 1.4, spaceBetween: 20 },
-      900: { slidesPerView: 2, spaceBetween: 24 },
+      641: { slidesPerView: 1.45, spaceBetween: 20 },
+      900: { slidesPerView: 2.1, spaceBetween: 22 },
+      1100: { slidesPerView: 2.35, spaceBetween: 22 },
     },
   });
 }
