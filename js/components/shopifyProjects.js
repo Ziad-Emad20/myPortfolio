@@ -452,6 +452,8 @@ function focusActiveSlide(swiper) {
 // Called by service-animations.js when a block has finished animating in
 window.svcRevealMockups = function (scope) {
   if (!scope) return;
+  const rotator = scope.matches && scope.matches(".svc-rotator") ? scope : scope.querySelector && scope.querySelector(".svc-rotator");
+  if (rotator && rotator._rotator) rotator._rotator.reveal();
   const mockups = scope.matches && scope.matches(".svc-mockup") ? [scope] : scope.querySelectorAll(".svc-mockup");
   mockups.forEach((m) => {
     m.dataset.revealed = "true";
@@ -528,14 +530,167 @@ function initShopifySlider() {
   });
 }
 
+// =========================
+// Hero rotator: shows every store in turn.
+// First store waits 1s, then scrolls; every few seconds it crossfades to the
+// next store, which starts scrolling right away. Pauses when off screen.
+// =========================
+
+const HERO_DWELL = 3000; // ms each store stays on screen (after the first wait)
+const HERO_FIRST_WAIT = 1000;
+const HERO_FADE = 800;
+
+function heroLayer(p, kind) {
+  const src = kind === "desktop" ? p.desktop : p.mobile;
+  const bar = kind === "mobile" && p.mobileBar ? `<img class="svc-screen__bar" src="${p.mobileBar}" alt="">` : "";
+  const float = p.floatIcon ? `<img class="svc-screen__float" src="${p.floatIcon}" alt="">` : "";
+  return `<div class="svc-layer" data-src="${src}">${bar}${float}</div>`;
+}
+
+function initHeroRotator(hero, featured) {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const list = [featured, ...shopifyProjects.filter((p) => p !== featured)];
+
+  hero.innerHTML = `
+    <div class="svc-mockup svc-rotator" aria-hidden="true">
+      <div class="svc-laptop">
+        <div class="svc-laptop__screen">
+          <div class="svc-screen svc-screen--stack">${list.map((p) => heroLayer(p, "desktop")).join("")}</div>
+        </div>
+        <div class="svc-laptop__base"></div>
+      </div>
+      <div class="svc-phone">
+        <div class="svc-screen svc-screen--mobile svc-screen--stack">${list.map((p) => heroLayer(p, "mobile")).join("")}</div>
+      </div>
+      <div class="svc-rotator__label">
+        <span class="svc-rotator__logos">${list
+          .map((p, i) => `<img src="${p.logo}" alt="" class="${i === 0 ? "is-current" : ""}">`)
+          .join("")}</span>
+        <span class="svc-rotator__names">${list
+          .map((p, i) => `<span class="${i === 0 ? "is-current" : ""}">${p.name}</span>`)
+          .join("")}</span>
+        <span class="svc-rotator__progress"><i></i></span>
+      </div>
+    </div>`;
+
+  const root = hero.querySelector(".svc-rotator");
+  const desk = root.querySelectorAll(".svc-laptop .svc-layer");
+  const mob = root.querySelectorAll(".svc-phone .svc-layer");
+  const logos = root.querySelectorAll(".svc-rotator__logos img");
+  const names = root.querySelectorAll(".svc-rotator__names span");
+  const bar = root.querySelector(".svc-rotator__progress i");
+
+  const load = (i) => {
+    [desk[i], mob[i]].forEach((l) => {
+      if (l && !l.style.backgroundImage) l.style.backgroundImage = `url('${l.dataset.src}')`;
+    });
+  };
+
+  let index = 0;
+  let timer = null;
+  let revealed = false;
+  let inView = true;
+  let first = true;
+
+  const setCurrent = (i, delay) => {
+    [desk, mob].forEach((layers) => {
+      layers.forEach((l, j) => {
+        if (j === i) {
+          l.style.setProperty("--delay", delay + "ms");
+          l.classList.remove("is-leaving");
+          l.classList.add("is-current");
+          // restart scroll from the top
+          l.classList.remove("is-scrolling");
+          void l.offsetWidth;
+          l.classList.add("is-scrolling");
+        } else if (l.classList.contains("is-current")) {
+          l.classList.remove("is-current");
+          l.classList.add("is-leaving"); // freezes where it was while fading out
+          setTimeout(() => {
+            if (!l.classList.contains("is-current")) l.classList.remove("is-leaving", "is-scrolling");
+          }, HERO_FADE + 50);
+        }
+      });
+    });
+    logos.forEach((el, j) => el.classList.toggle("is-current", j === i));
+    names.forEach((el, j) => el.classList.toggle("is-current", j === i));
+    load((i + 1) % list.length); // preload next
+  };
+
+  const runProgress = (ms) => {
+    bar.style.transition = "none";
+    bar.style.transform = "scaleX(0)";
+    void bar.offsetWidth;
+    bar.style.transition = `transform ${ms}ms linear`;
+    bar.style.transform = "scaleX(1)";
+  };
+
+  const schedule = () => {
+    clearTimeout(timer);
+    if (!revealed || !inView || document.hidden || reduce || list.length < 2) return;
+    const wait = first ? HERO_FIRST_WAIT + HERO_DWELL : HERO_DWELL;
+    runProgress(wait);
+    timer = setTimeout(() => {
+      first = false;
+      index = (index + 1) % list.length;
+      setCurrent(index, 0);
+      schedule();
+    }, wait);
+  };
+
+  const pause = () => {
+    clearTimeout(timer);
+    root.classList.add("is-paused");
+    bar.style.transition = "none";
+  };
+
+  const resume = () => {
+    if (!revealed) return;
+    root.classList.remove("is-paused");
+    schedule();
+  };
+
+  load(0);
+  load(1);
+
+  root._rotator = {
+    reveal() {
+      if (revealed) return;
+      revealed = true;
+      root.classList.add("is-live");
+      setCurrent(0, reduce ? 0 : HERO_FIRST_WAIT);
+      if (reduce) root.classList.add("is-paused");
+      schedule();
+    },
+  };
+
+  // Static fallback until revealed: show the first store at the top
+  desk[0].classList.add("is-current");
+  mob[0].classList.add("is-current");
+
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(
+      ([entry]) => {
+        inView = entry.isIntersecting;
+        inView ? resume() : pause();
+      },
+      { threshold: 0.3 }
+    ).observe(root);
+  }
+
+  document.addEventListener("visibilitychange", () => (document.hidden ? pause() : resume()));
+
+  // Without the entrance animation guard, start right away
+  if (!document.documentElement.classList.contains("svc-anim-pending")) root._rotator.reveal();
+}
+
 function renderShopifyProjects() {
   // Hero mockup
   const hero = document.getElementById("shopify-hero-mockup");
   const featured = shopifyProjects.find((p) => p.featured) || shopifyProjects[0];
 
   if (hero && featured) {
-    hero.innerHTML = getShopifyMockupTemplate(featured);
-    observeShopifyMockups(hero);
+    initHeroRotator(hero, featured);
   }
 
   // Projects slider

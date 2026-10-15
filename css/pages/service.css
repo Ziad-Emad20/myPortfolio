@@ -252,6 +252,214 @@ body.rtl .svc-hero__mockup .svc-phone {
     left: 18px;
 }
 
+
+/* =========================
+   Hero rotator (cycles through the stores)
+   ========================= */
+
+.svc-rotator {
+    position: relative;
+}
+
+/* room under the devices for the store label */
+.svc-hero__mockup .svc-mockup.svc-rotator {
+    padding-bottom: 50px;
+}
+
+.svc-hero__mockup .svc-rotator .svc-phone {
+    bottom: 46px;
+}
+
+.svc-mockup .svc-screen--stack,
+.svc-mockup.is-active .svc-screen--stack {
+    position: relative;
+    overflow: hidden;
+    animation: none;
+    background: #ffffff;
+}
+
+.svc-layer {
+    position: absolute;
+    inset: 0;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: 50% 0;
+    opacity: 0;
+    transform: scale(1.06);
+    filter: blur(8px);
+    transition:
+        opacity 0.8s ease,
+        transform 1s cubic-bezier(0.2, 0.7, 0.2, 1),
+        filter 0.8s ease;
+}
+
+.svc-layer.is-current {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    z-index: 2;
+}
+
+.svc-layer.is-leaving {
+    z-index: 1;
+}
+
+.svc-layer.is-scrolling {
+    animation: svc-scroll 14s linear var(--delay, 0ms) forwards;
+}
+
+/* leaving layer and paused rotator freeze in place */
+.svc-layer.is-leaving,
+.svc-rotator.is-paused .svc-layer {
+    animation-play-state: paused;
+}
+
+/* phone screen switches a beat after the laptop */
+.svc-phone .svc-layer {
+    transition-delay: 0.12s;
+}
+
+/* store label */
+.svc-rotator__label {
+    position: absolute;
+    left: 18px;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 5px 12px 5px 5px;
+    border-radius: 999px;
+    background: rgba(8, 12, 30, 0.78);
+    border: 1px solid rgba(124, 151, 255, 0.22);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 4;
+    overflow: hidden;
+}
+
+.svc-rotator.is-live .svc-rotator__label {
+    opacity: 1;
+    transform: none;
+}
+
+body.rtl .svc-rotator__label {
+    left: auto;
+    right: 18px;
+    padding: 5px 5px 5px 12px;
+}
+
+.svc-rotator__logos {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.svc-rotator__logos img,
+.svc-rotator__names span {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.svc-rotator__logos img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(0.6);
+}
+
+.svc-rotator__logos img.is-current {
+    opacity: 1;
+    transform: none;
+}
+
+.svc-rotator__names {
+    display: grid;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: #ffffff;
+    white-space: nowrap;
+}
+
+.svc-rotator__names span {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+.svc-rotator__names span.is-current {
+    opacity: 1;
+    transform: none;
+}
+
+.svc-rotator__progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.svc-rotator__progress i {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #3d7bff, #89b7ff);
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+body.rtl .svc-rotator__progress i {
+    transform-origin: right;
+}
+
+@media (max-width: 640px) {
+    .svc-hero__mockup .svc-mockup.svc-rotator {
+        padding-bottom: 42px;
+    }
+
+    .svc-hero__mockup .svc-rotator .svc-phone {
+        bottom: 38px;
+    }
+
+    .svc-rotator__label {
+        left: 14px;
+        bottom: 8px;
+        gap: 7px;
+    }
+
+    body.rtl .svc-rotator__label {
+        right: 14px;
+    }
+
+    .svc-rotator__logos {
+        width: 20px;
+        height: 20px;
+    }
+
+    .svc-rotator__names {
+        font-size: 0.66rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .svc-layer {
+        transition: none;
+    }
+
+    .svc-layer.is-scrolling {
+        animation: none;
+    }
+}
+
 /* =========================
    What I do
    ========================= */
