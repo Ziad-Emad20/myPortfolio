@@ -506,9 +506,19 @@ body.rtl .svc-work-nav i {
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.08);
 }
 
-/* Starts exactly 1s after the mockup comes into view; restarts from the top on every visit */
-.svc-mockup.is-playing .svc-screen {
+/* Starts 1s after the mockup is revealed; pauses in place when not playing */
+.svc-mockup.is-active .svc-screen {
     animation: svc-scroll 18s linear 1s infinite alternate;
+    animation-play-state: paused;
+}
+
+.svc-mockup.is-active.is-playing .svc-screen {
+    animation-play-state: running;
+}
+
+/* project cards react to hover / active slide, so a short delay feels right */
+.svc-work .svc-mockup.is-active .svc-screen {
+    animation-delay: 0.3s;
 }
 
 @keyframes svc-scroll {
@@ -679,7 +689,7 @@ body.rtl .svc-work-nav i {
 
 /* static screen (no scroll) */
 .svc-mockup .svc-screen--static,
-.svc-mockup.is-playing .svc-screen--static {
+.svc-mockup.is-active .svc-screen--static {
     animation: none;
     background-size: cover;
     background-position: 50% 0;

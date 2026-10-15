@@ -372,8 +372,35 @@ function openCompareModal(project) {
 
 // A mockup plays only when it is on screen AND its reveal animation has finished
 // (the CSS adds a 1s delay before the scroll starts).
+// Hero mockup: plays whenever it's on screen.
+// Project cards (data-needs-focus): only the card the visitor is on plays —
+// hover on desktop, the active slide on touch screens. Leaving pauses it in place.
 function updateMockupPlayback(m) {
-  m.classList.toggle("is-playing", m.dataset.inView === "true" && m.dataset.revealed === "true");
+  const ready = m.dataset.revealed === "true" && m.dataset.inView === "true";
+
+  if (m.dataset.needsFocus !== "true") {
+    m.classList.toggle("is-active", ready);
+    m.classList.toggle("is-playing", ready);
+    return;
+  }
+
+  if (ready) m.classList.add("is-active");
+  m.classList.toggle("is-playing", ready && m.dataset.focus === "true");
+}
+
+const svcCanHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+function setCardFocus(card, on) {
+  card.querySelectorAll(".svc-mockup").forEach((m) => {
+    m.dataset.focus = String(on);
+    updateMockupPlayback(m);
+  });
+}
+
+// Touch screens: the active slide is the one being viewed
+function focusActiveSlide(swiper) {
+  if (svcCanHover || !swiper) return;
+  swiper.slides.forEach((slide, i) => setCardFocus(slide, i === swiper.activeIndex));
 }
 
 // Called by service-animations.js when a block has finished animating in
@@ -443,6 +470,10 @@ function initShopifySlider() {
       nextEl: ".svc-work-next",
       prevEl: ".svc-work-prev",
     },
+    on: {
+      init: (sw) => focusActiveSlide(sw),
+      slideChange: (sw) => focusActiveSlide(sw),
+    },
     breakpoints: {
       641: { slidesPerView: 1.45, spaceBetween: 20 },
       900: { slidesPerView: 2.1, spaceBetween: 22 },
@@ -466,7 +497,14 @@ function renderShopifyProjects() {
   if (!container) return;
 
   container.innerHTML = shopifyProjects.map(getShopifyProjectTemplate).join("");
-  container.querySelectorAll(".svc-project").forEach(bindProjectCard);
+  container.querySelectorAll(".svc-mockup").forEach((m) => (m.dataset.needsFocus = "true"));
+  container.querySelectorAll(".svc-project").forEach((card) => {
+    bindProjectCard(card);
+    if (svcCanHover) {
+      card.addEventListener("mouseenter", () => setCardFocus(card, true));
+      card.addEventListener("mouseleave", () => setCardFocus(card, false));
+    }
+  });
   observeShopifyMockups(container);
 }
 
