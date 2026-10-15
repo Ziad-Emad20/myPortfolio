@@ -592,26 +592,50 @@ function initHeroRotator(hero, featured) {
   let inView = true;
   let first = true;
 
+  // Scroll is driven from JS (requestAnimationFrame) so it behaves the same in
+  // every browser, including iOS Safari.
+  const HERO_SCROLL_MS = 14000;
+  let scrollStart = 0; // timestamp when the current layer starts moving
+  let pausedAt = 0;
+  let raf = null;
+
+  const tick = (now) => {
+    const t = Math.max(0, now - scrollStart);
+    const pos = Math.min(100, (t / HERO_SCROLL_MS) * 100);
+    [desk[index], mob[index]].forEach((l) => {
+      if (l) l.style.backgroundPosition = `50% ${pos}%`;
+    });
+    raf = requestAnimationFrame(tick);
+  };
+
+  const startScroll = () => {
+    if (reduce || raf) return;
+    raf = requestAnimationFrame(tick);
+  };
+
+  const stopScroll = () => {
+    if (raf) cancelAnimationFrame(raf);
+    raf = null;
+  };
+
   const setCurrent = (i, delay) => {
     [desk, mob].forEach((layers) => {
       layers.forEach((l, j) => {
         if (j === i) {
-          l.style.setProperty("--delay", delay + "ms");
+          l.style.backgroundPosition = "50% 0%";
           l.classList.remove("is-leaving");
           l.classList.add("is-current");
-          // restart scroll from the top
-          l.classList.remove("is-scrolling");
-          void l.offsetWidth;
-          l.classList.add("is-scrolling");
         } else if (l.classList.contains("is-current")) {
+          // leaving layer keeps its last position while it fades out
           l.classList.remove("is-current");
-          l.classList.add("is-leaving"); // freezes where it was while fading out
+          l.classList.add("is-leaving");
           setTimeout(() => {
-            if (!l.classList.contains("is-current")) l.classList.remove("is-leaving", "is-scrolling");
+            if (!l.classList.contains("is-current")) l.classList.remove("is-leaving");
           }, HERO_FADE + 50);
         }
       });
     });
+    scrollStart = performance.now() + delay;
     logos.forEach((el, j) => el.classList.toggle("is-current", j === i));
     names.forEach((el, j) => el.classList.toggle("is-current", j === i));
     load((i + 1) % list.length); // preload next
@@ -640,13 +664,20 @@ function initHeroRotator(hero, featured) {
 
   const pause = () => {
     clearTimeout(timer);
+    stopScroll();
+    pausedAt = pausedAt || performance.now();
     root.classList.add("is-paused");
     bar.style.transition = "none";
   };
 
   const resume = () => {
     if (!revealed) return;
+    if (pausedAt) {
+      scrollStart += performance.now() - pausedAt; // continue where it stopped
+      pausedAt = 0;
+    }
     root.classList.remove("is-paused");
+    startScroll();
     schedule();
   };
 
@@ -660,6 +691,7 @@ function initHeroRotator(hero, featured) {
       root.classList.add("is-live");
       setCurrent(0, reduce ? 0 : HERO_FIRST_WAIT);
       if (reduce) root.classList.add("is-paused");
+      if (inView && !document.hidden) startScroll();
       schedule();
     },
   };

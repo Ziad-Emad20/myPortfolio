@@ -311,16 +311,6 @@ body.rtl .svc-hero__mockup .svc-phone {
     z-index: 1;
 }
 
-.svc-layer.is-scrolling {
-    animation: svc-scroll 14s linear var(--delay, 0ms) forwards;
-}
-
-/* leaving layer and paused rotator freeze in place */
-.svc-layer.is-leaving,
-.svc-rotator.is-paused .svc-layer {
-    animation-play-state: paused;
-}
-
 /* phone screen switches a beat after the laptop */
 .svc-phone .svc-layer {
     transition-delay: 0.12s;
@@ -461,9 +451,6 @@ body.rtl .svc-rotator__progress i {
         transition: none;
     }
 
-    .svc-layer.is-scrolling {
-        animation: none;
-    }
 }
 
 /* =========================
