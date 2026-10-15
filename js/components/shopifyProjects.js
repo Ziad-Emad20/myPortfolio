@@ -12,15 +12,24 @@
 
 const shopifyProjects = [
   {
-    name: "One&All",
-    logo: "/assets/oneandall.jpg",
-    typeKey: "work.oneandall",
-    desktop: "/assets/projects/oneandall-desktop.webp",
-    mobile: "/assets/projects/oneandall-mobile.webp",
-    mobileBar: "/assets/projects/oneandall-mobile-bar.webp", // sticky bottom toolbar, stays fixed while the page scrolls
+    name: "Ottomani",
+    logo: "/assets/ottomani.jpg",
+    typeKey: "work.ottomani",
+    desktop: "/assets/projects/ottomani-desktop.webp",
+    mobile: "/assets/projects/ottomani-mobile.webp",
+    mobileBar: "/assets/projects/ottomani-mobile-bar.webp",
     rating: 5,
-    quoteKey: "testimonials.oneandall",
-    featured: true, // shown in the hero
+    quoteKey: "testimonials.ottomani",
+    beforeAfter: {
+      // full redesign: both screens compare before vs after
+      desktopBefore: "/assets/projects/ottomani-home-desktop-before.webp",
+      desktopAfter: "/assets/projects/ottomani-home-desktop-after.webp",
+      before: "/assets/projects/ottomani-home-mobile-before.webp",
+      after: "/assets/projects/ottomani-home-mobile-after.webp",
+      mobileRatio: "430 / 758",
+      changesKey: "work.ottomaniChanges",
+      changesCount: 5,
+    },
   },
   {
     name: "sis.sportswear",
@@ -32,14 +41,15 @@ const shopifyProjects = [
     quoteKey: "testimonials.sis",
   },
   {
-    name: "CHANCE",
-    logo: "/assets/chance.jpg",
-    typeKey: "work.chance",
-    desktop: "/assets/projects/chance-desktop.webp",
-    mobile: "/assets/projects/chance-mobile.webp",
-    floatIcon: "/assets/projects/chance-chat.svg",
+    name: "One&All",
+    logo: "/assets/oneandall.jpg",
+    typeKey: "work.oneandall",
+    desktop: "/assets/projects/oneandall-desktop.webp",
+    mobile: "/assets/projects/oneandall-mobile.webp",
+    mobileBar: "/assets/projects/oneandall-mobile-bar.webp", // sticky bottom toolbar, stays fixed while the page scrolls
     rating: 5,
-    quoteKey: "testimonials.chance",
+    quoteKey: "testimonials.oneandall",
+    featured: true, // shown in the hero
   },
   {
     name: "Scrubio",
@@ -60,24 +70,14 @@ const shopifyProjects = [
     },
   },
   {
-    name: "Ottomani",
-    logo: "/assets/ottomani.jpg",
-    typeKey: "work.ottomani",
-    desktop: "/assets/projects/ottomani-desktop.webp",
-    mobile: "/assets/projects/ottomani-mobile.webp",
-    mobileBar: "/assets/projects/ottomani-mobile-bar.webp",
+    name: "CHANCE",
+    logo: "/assets/chance.jpg",
+    typeKey: "work.chance",
+    desktop: "/assets/projects/chance-desktop.webp",
+    mobile: "/assets/projects/chance-mobile.webp",
+    floatIcon: "/assets/projects/chance-chat.svg",
     rating: 5,
-    quoteKey: "testimonials.ottomani",
-    beforeAfter: {
-      // full redesign: both screens compare before vs after
-      desktopBefore: "/assets/projects/ottomani-home-desktop-before.webp",
-      desktopAfter: "/assets/projects/ottomani-home-desktop-after.webp",
-      before: "/assets/projects/ottomani-home-mobile-before.webp",
-      after: "/assets/projects/ottomani-home-mobile-after.webp",
-      mobileRatio: "430 / 758",
-      changesKey: "work.ottomaniChanges",
-      changesCount: 5,
-    },
+    quoteKey: "testimonials.chance",
   },
 ];
 
