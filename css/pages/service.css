@@ -451,8 +451,7 @@ body.rtl .svc-work-nav i {
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: 50% 0;
-    animation: svc-scroll 18s ease-in-out infinite alternate;
-    animation-play-state: paused;
+    animation: none;
 }
 
 /* Phone and laptop scroll together at the same pace */
@@ -472,12 +471,13 @@ body.rtl .svc-work-nav i {
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.08);
 }
 
+/* Starts exactly 1s after the mockup comes into view; restarts from the top on every visit */
 .svc-mockup.is-playing .svc-screen {
-    animation-play-state: running;
+    animation: svc-scroll 18s linear 1s infinite alternate;
 }
 
 @keyframes svc-scroll {
-    0%, 12% { background-position: 50% 0; }
+    0% { background-position: 50% 0; }
     88%, 100% { background-position: 50% 100%; }
 }
 

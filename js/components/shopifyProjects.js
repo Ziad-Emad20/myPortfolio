@@ -89,7 +89,7 @@ function observeShopifyMockups(root) {
         entry.target.classList.toggle("is-playing", entry.isIntersecting);
       });
     },
-    { threshold: 0.3 }
+    { threshold: 0.5 }
   );
 
   mockups.forEach((m) => observer.observe(m));
