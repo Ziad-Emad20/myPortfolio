@@ -229,7 +229,8 @@
 .svc-stat span {
     display: block;
     margin-top: 8px;
-    font-size: 0.82rem;
+    font-size: 0.74rem;
+    white-space: nowrap;
     color: rgba(224, 232, 255, 0.66);
 }
 
@@ -1942,5 +1943,19 @@ body.rtl .svc-project__quote p::before {
 @media (max-width: 400px) {
     .svc-project__info h3 {
         font-size: 0.86rem;
+    }
+}
+
+/* number and globe icon share the same height so labels line up */
+.svc-stat strong {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.9rem;
+}
+
+@media (max-width: 640px) {
+    .svc-stat strong {
+        height: 1.45rem;
     }
 }
