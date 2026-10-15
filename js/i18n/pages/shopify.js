@@ -115,6 +115,7 @@
       eyebrow: "Client feedback",
       title: "What store owners say",
       sis: "Great work Ziad, really clean and well done. Looking forward to working together consistently.",
+      scrubio: "Mashallah, engineer — the result is beyond what we expected. Great work, you deserve an Oscar for best Shopify developer.",
       oneandall: "Mashallah Ziad, truly professional work — using all 7 brand identity colors and organizing more than 25,000 products. This is world-class work.",
     },
     faq: {
@@ -253,6 +254,7 @@
       eyebrow: "آراء العملاء",
       title: "أصحاب المتاجر قالوا إيه",
       sis: "شغل جميل يا زياد، نضيف ومتظبط. مستني نكمّل شغل مع بعض على طول.",
+      scrubio: "ما شاء الله يا بشمهندس، نتيجة فوق المتوقعة والله. ما شاء الله، تسلم إيدك، تاخد أوسكار أفضل شوبيفاي ديفلوبر.",
       oneandall: "ما شاء الله يا زياد، شغل احترافي إنك تعرف تستخدم الـ 7 ألوان الخاصين بالهوية وتنظّم أكتر من 25 ألف منتج. ده شغل عالمي والله، ما شاء الله.",
     },
     faq: {

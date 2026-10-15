@@ -37,6 +37,9 @@ const shopifyProjects = [
     typeKey: "work.scrubio",
     desktop: "/assets/projects/scrubio-desktop.webp",
     mobile: "/assets/projects/scrubio-mobile.webp",
+    floatIcon: "/assets/projects/scrubio-chat.svg", // floating chat button, stays fixed while the page scrolls
+    rating: 5,
+    quoteKey: "testimonials.scrubio",
     beforeAfter: {
       desktop: "/assets/projects/scrubio-product-desktop.webp",
       before: "/assets/projects/scrubio-product-before.webp",
@@ -64,13 +67,16 @@ function getShopifyMockupTemplate(p) {
     <div class="svc-mockup" aria-hidden="true">
       <div class="svc-laptop">
         <div class="svc-laptop__screen">
-          <div class="svc-screen" style="background-image:url('${p.desktop}')"></div>
+          <div class="svc-screen" style="background-image:url('${p.desktop}')">
+            ${p.floatIcon ? `<img class="svc-screen__float" src="${p.floatIcon}" alt="" loading="lazy">` : ""}
+          </div>
         </div>
         <div class="svc-laptop__base"></div>
       </div>
       <div class="svc-phone">
         <div class="svc-screen svc-screen--mobile" style="background-image:url('${p.mobile}')">
           ${p.mobileBar ? `<img class="svc-screen__bar" src="${p.mobileBar}" alt="" loading="lazy">` : ""}
+          ${p.floatIcon ? `<img class="svc-screen__float" src="${p.floatIcon}" alt="" loading="lazy">` : ""}
         </div>
       </div>
     </div>`;
@@ -161,7 +167,7 @@ function getShopifyProjectTemplate(p) {
       }
 
       ${
-        ba && !p.quoteKey
+        ba
           ? `<div class="svc-project__changes">
               <span class="svc-project__changes-title" data-i18n="shopifyPage.${ba.changesKey}.title"></span>
               <ul>${changes}</ul>
@@ -241,6 +247,7 @@ function bindProjectCard(card) {
       });
 
       views.forEach((v) => v.classList.toggle("is-active", v.dataset.view === view));
+      card.classList.toggle("is-ba", view === "ba");
 
       if (compare) {
         const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

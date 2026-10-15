@@ -474,6 +474,27 @@ body.rtl .svc-work-nav i {
     overflow: hidden;
 }
 
+.svc-screen {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Floating chat/WhatsApp button of a store (stays fixed while the page scrolls) */
+.svc-screen__float {
+    position: absolute;
+    right: 3%;
+    bottom: 5%;
+    width: 3.6%;
+    height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+.svc-screen--mobile .svc-screen__float {
+    right: 5%;
+    bottom: 3.5%;
+    width: 13%;
+}
+
 /* Fixed bottom toolbar of a store (stays put while the page scrolls) */
 .svc-screen__bar {
     position: absolute;
@@ -812,6 +833,26 @@ body.rtl .svc-work-nav i {
 .svc-compare__expand:hover {
     filter: brightness(1.1);
     box-shadow: 0 10px 22px rgba(0, 68, 255, 0.38);
+}
+
+/* Quote by default, "what changed" list on the Before & After tab */
+.svc-project.has-ba .svc-project__changes,
+.svc-project.has-ba.is-ba .svc-project__quote {
+    display: none;
+}
+
+.svc-project.has-ba.is-ba .svc-project__changes {
+    display: block;
+    animation: svc-fade-in 0.35s ease;
+}
+
+.svc-project.has-ba .svc-project__quote {
+    animation: svc-fade-in 0.35s ease;
+}
+
+@keyframes svc-fade-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: none; }
 }
 
 /* "What changed" list */
