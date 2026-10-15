@@ -587,9 +587,7 @@ body.rtl .svc-work-nav i {
 }
 
 .svc-project__quote {
-    margin: 16px 24px 0;
-    padding-top: 16px;
-    border-top: 1px solid rgba(124, 151, 255, 0.12);
+    min-width: 0;
 }
 
 .svc-project__quote p {
@@ -829,37 +827,45 @@ body.rtl .svc-work-nav i {
     box-shadow: 0 10px 22px rgba(0, 68, 255, 0.38);
 }
 
-/* Quote by default, "what changed" list on the Before & After tab */
-.svc-project.has-ba .svc-project__changes,
-.svc-project.has-ba.is-ba .svc-project__quote {
-    display: none;
-}
-
-.svc-project.has-ba.is-ba .svc-project__changes {
-    display: block;
-    animation: svc-fade-in 0.35s ease;
-}
-
-.svc-project.has-ba .svc-project__quote {
-    animation: svc-fade-in 0.35s ease;
-}
-
-@keyframes svc-fade-in {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: none; }
-}
-
-/* "What changed" list */
-.svc-project__changes {
-    margin: 14px 22px 0;
+/* Quote and "what changed" share one slot: both are stacked in the same grid cell,
+   so the card keeps exactly the same height when switching tabs */
+.svc-project__extra {
+    display: grid;
+    margin: 16px 22px 0;
     padding-top: 14px;
     border-top: 1px solid rgba(124, 151, 255, 0.12);
 }
 
+.svc-project__extra > * {
+    grid-area: 1 / 1;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.svc-project.has-ba .svc-project__changes,
+.svc-project.has-ba.is-ba .svc-project__quote {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+}
+
+.svc-project.has-ba.is-ba .svc-project__changes {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+
+/* "What changed" list */
+.svc-project__changes {
+    min-width: 0;
+}
+
 .svc-project__changes-title {
     display: block;
-    margin-bottom: 10px;
-    font-size: 0.8rem;
+    margin-bottom: 8px;
+    font-size: 0.78rem;
     font-weight: 600;
     color: #89b7ff;
 }
@@ -867,7 +873,7 @@ body.rtl .svc-work-nav i {
 .svc-project__changes ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 7px;
+    gap: 5px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -876,10 +882,11 @@ body.rtl .svc-work-nav i {
 .svc-project__changes li {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 5px 10px;
+    gap: 5px;
+    padding: 3px 9px;
     border-radius: 999px;
-    font-size: 0.74rem;
+    font-size: 0.7rem;
+    line-height: 1.45;
     color: rgba(230, 236, 255, 0.86);
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(124, 151, 255, 0.14);
@@ -1634,12 +1641,12 @@ body.rtl .svc-project__quote p::before {
         font-size: 0.64rem;
     }
 
-    .svc-project__changes {
+    .svc-project__extra {
         margin: 12px 18px 0;
     }
 
     .svc-project__changes li {
-        font-size: 0.68rem;
-        padding: 4px 9px;
+        font-size: 0.64rem;
+        padding: 3px 8px;
     }
 }

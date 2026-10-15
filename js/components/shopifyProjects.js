@@ -145,22 +145,24 @@ function getShopifyProjectTemplate(p) {
         ${p.rating ? `<span class="svc-project__stars" aria-label="${p.rating}/5">${renderShopifyStars(p.rating)}</span>` : ""}
       </div>
 
-      ${
-        p.quoteKey
-          ? `<div class="svc-project__quote">
-              <p data-i18n="shopifyPage.${p.quoteKey}"></p>
-            </div>`
-          : ""
-      }
+      <div class="svc-project__extra">
+        ${
+          p.quoteKey
+            ? `<div class="svc-project__quote">
+                <p data-i18n="shopifyPage.${p.quoteKey}"></p>
+              </div>`
+            : ""
+        }
 
-      ${
-        ba
-          ? `<div class="svc-project__changes">
-              <span class="svc-project__changes-title" data-i18n="shopifyPage.${ba.changesKey}.title"></span>
-              <ul>${changes}</ul>
-            </div>`
-          : ""
-      }
+        ${
+          ba
+            ? `<div class="svc-project__changes" aria-hidden="true">
+                <span class="svc-project__changes-title" data-i18n="shopifyPage.${ba.changesKey}.title"></span>
+                <ul>${changes}</ul>
+              </div>`
+            : ""
+        }
+      </div>
 
       ${
         ba
@@ -248,6 +250,10 @@ function bindProjectCard(card) {
 
       views.forEach((v) => v.classList.toggle("is-active", v.dataset.view === view));
       card.classList.toggle("is-ba", view === "ba");
+      const quote = card.querySelector(".svc-project__quote");
+      const changesEl = card.querySelector(".svc-project__changes");
+      if (quote) quote.setAttribute("aria-hidden", String(view === "ba"));
+      if (changesEl) changesEl.setAttribute("aria-hidden", String(view !== "ba"));
 
       if (compare) {
         const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
