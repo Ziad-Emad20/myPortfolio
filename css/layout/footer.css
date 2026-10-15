@@ -2,7 +2,7 @@
 
 #footer-container {
     margin-top: 28px;
-    padding-bottom: 30px;
+    padding-bottom: 24px;
 }
 
 .site-footer {
@@ -31,7 +31,7 @@
     width: 100%;
     max-width: 1240px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 16px;
 }
 
 .footer-content {
@@ -61,7 +61,7 @@
     margin: 0 auto 22px;
     color: rgba(228, 232, 245, 0.62);
     font-size: 1rem;
-    line-height: 1.7;
+    line-height: 1.55;
 }
 
 .footer-socials {
@@ -118,7 +118,7 @@
 @media (max-width: 991px) {
     #footer-container {
         margin-top: 20px;
-        padding-bottom: 26px;
+        padding-bottom: 21px;
     }
 
     .site-footer::before {
@@ -139,7 +139,7 @@
 @media (max-width: 767px) {
     #footer-container {
         margin-top: 12px;
-        padding-bottom: 22px;
+        padding-bottom: 18px;
     }
 
     .site-footer::before {
@@ -158,7 +158,7 @@
     .footer-text {
         margin-bottom: 18px;
         font-size: 0.88rem;
-        line-height: 1.65;
+        line-height: 1.52;
     }
 
     .footer-socials {

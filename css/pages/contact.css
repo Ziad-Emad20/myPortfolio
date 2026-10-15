@@ -10,7 +10,7 @@
 .contact-section .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 16px;
 }
 
 .contact-wrapper {
@@ -39,7 +39,7 @@
     max-width: 720px;
     margin: 0 auto;
     font-size: 0.98rem;
-    line-height: 1.75;
+    line-height: 1.58;
     color: rgba(224, 232, 255, 0.78);
 }
 
@@ -50,7 +50,7 @@
 .contact-card {
     position: relative;
     overflow: hidden;
-    padding: 28px;
+    padding: 22px;
     border-radius: var(--card-radius-lg);
     background: var(--card-bg);
     border: 1px solid var(--card-border);
@@ -91,7 +91,7 @@
     z-index: 1;
     display: flex;
     align-items: stretch;
-    gap: 24px;
+    gap: 19px;
 }
 
 .contact-form {
@@ -185,7 +185,7 @@
     min-width: 142px;
     height: 48px;
     margin-top: 6px;
-    padding: 0 28px;
+    padding: 0 22px;
     border: 1px solid rgba(105, 158, 255, 0.28);
     border-radius: 999px;
     background: linear-gradient(180deg, rgba(12, 18, 36, 0.98), rgba(7, 10, 22, 0.98));
@@ -219,7 +219,7 @@
 .contact-side-card {
     position: relative;
     overflow: hidden;
-    padding: 24px;
+    padding: 19px;
     border-radius: var(--card-radius-md);
     background: linear-gradient(180deg, rgba(8, 10, 32, 0.96), rgba(5, 7, 24, 0.98));
     border: 1px solid rgba(93, 108, 255, 0.12);
@@ -272,7 +272,7 @@
 .side-text {
     margin: 0 0 20px;
     font-size: 0.98rem;
-    line-height: 1.7;
+    line-height: 1.55;
     color: rgba(224, 232, 255, 0.8);
 }
 
@@ -422,7 +422,7 @@
     }
 
     .contact-card {
-        padding: 24px;
+        padding: 19px;
         border-radius: var(--card-radius-md);
     }
 
@@ -468,7 +468,7 @@
 
     .contact-header p {
         font-size: 0.9rem;
-        line-height: 1.65;
+        line-height: 1.52;
     }
 
     .contact-card {

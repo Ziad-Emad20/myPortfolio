@@ -23,12 +23,12 @@
    ========================= */
 
 :root {
-    --section-space-lg: 56px;
-    --section-space-md: 44px;
-    --section-space-sm: 32px;
+    --section-space-lg: 44px;
+    --section-space-md: 36px;
+    --section-space-sm: 26px;
 
-    --section-title-gap: 28px;
-    --section-title-gap-mobile: 18px;
+    --section-title-gap: 22px;
+    --section-title-gap-mobile: 14px;
 
     --card-radius-lg: 34px;
     --card-radius-md: 28px;

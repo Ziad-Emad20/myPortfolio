@@ -50,7 +50,7 @@
     max-width: 680px;
     margin: 14px 0 0;
     font-size: 1rem;
-    line-height: 1.75;
+    line-height: 1.58;
     color: rgba(224, 232, 255, 0.72);
 }
 
@@ -71,7 +71,7 @@
     justify-content: center;
     gap: 10px;
     min-height: 52px;
-    padding: 0 24px;
+    padding: 0 19px;
     border-radius: 999px;
     font-size: 0.95rem;
     font-weight: 600;
@@ -118,9 +118,9 @@
 .svc-hero__card {
     display: grid;
     grid-template-columns: 1.15fr 0.85fr;
-    gap: 40px;
+    gap: 32px;
     align-items: center;
-    padding: 56px;
+    padding: 45px;
     border-radius: var(--card-radius-lg);
 }
 
@@ -179,7 +179,7 @@
     max-width: 540px;
     margin: 20px 0 0;
     font-size: 1.05rem;
-    line-height: 1.75;
+    line-height: 1.58;
     color: rgba(224, 232, 255, 0.78);
 }
 
@@ -197,7 +197,7 @@
 }
 
 .svc-stat {
-    padding: 22px 18px;
+    padding: 18px 18px;
     border-radius: var(--card-radius-sm);
     text-align: center;
     background: rgba(255, 255, 255, 0.025);
@@ -224,7 +224,7 @@
 }
 
 .svc-hero__mockup .svc-mockup {
-    padding: 26px 22px 20px;
+    padding: 21px 18px 16px;
     border-radius: var(--card-radius-sm);
     border: 1px solid rgba(124, 151, 255, 0.12);
 }
@@ -249,7 +249,7 @@ body.rtl .svc-hero__mockup .svc-phone {
 }
 
 .svc-feature {
-    padding: 28px 24px;
+    padding: 22px 19px;
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
@@ -282,7 +282,7 @@ body.rtl .svc-hero__mockup .svc-phone {
 .svc-feature p {
     margin: 0;
     font-size: 0.9rem;
-    line-height: 1.65;
+    line-height: 1.52;
     color: rgba(224, 232, 255, 0.66);
 }
 
@@ -367,7 +367,7 @@ body.rtl .svc-work-nav i {
 .svc-project {
     display: flex;
     flex-direction: column;
-    padding: 0 0 24px;
+    padding: 0 0 19px;
     transition: transform 0.35s ease, border-color 0.35s ease;
 }
 
@@ -378,7 +378,7 @@ body.rtl .svc-work-nav i {
 
 .svc-mockup {
     position: relative;
-    padding: 34px 34px 26px;
+    padding: 27px 27px 21px;
     background:
         radial-gradient(circle at 50% 40%, rgba(0, 81, 255, 0.22), transparent 60%),
         linear-gradient(180deg, rgba(14, 24, 60, 0.6), rgba(4, 8, 24, 0));
@@ -497,7 +497,7 @@ body.rtl .svc-work-nav i {
     align-items: center;
     column-gap: 14px;
     row-gap: 4px;
-    padding: 4px 24px 0;
+    padding: 4px 19px 0;
 }
 
 .svc-project__info {
@@ -560,7 +560,7 @@ body.rtl .svc-work-nav i {
 .svc-project__quote p {
     margin: 0;
     font-size: 0.92rem;
-    line-height: 1.7;
+    line-height: 1.55;
     color: rgba(230, 236, 255, 0.8);
 }
 
@@ -582,7 +582,7 @@ body.rtl .svc-work-nav i {
 }
 
 .svc-step {
-    padding: 28px 24px;
+    padding: 22px 19px;
 }
 
 .svc-step__num {
@@ -605,7 +605,7 @@ body.rtl .svc-work-nav i {
 .svc-step p {
     margin: 0;
     font-size: 0.9rem;
-    line-height: 1.65;
+    line-height: 1.52;
     color: rgba(224, 232, 255, 0.66);
 }
 
@@ -616,14 +616,14 @@ body.rtl .svc-work-nav i {
 .svc-packages {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    gap: 18px;
     align-items: stretch;
 }
 
 .svc-package {
     display: flex;
     flex-direction: column;
-    padding: 34px 30px;
+    padding: 27px 24px;
 }
 
 .svc-package--featured {
@@ -726,9 +726,9 @@ body.rtl .svc-work-nav i {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 28px;
+    gap: 22px;
     margin-top: 22px;
-    padding: 26px 30px;
+    padding: 21px 24px;
 }
 
 .svc-included h3 {
@@ -742,7 +742,7 @@ body.rtl .svc-work-nav i {
 .svc-included__items {
     display: flex;
     flex-wrap: wrap;
-    gap: 18px 32px;
+    gap: 18px 26px;
 }
 
 .svc-included__item {
@@ -773,13 +773,13 @@ body.rtl .svc-work-nav i {
 .svc-quotes {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    gap: 18px;
 }
 
 .svc-quote {
     display: flex;
     flex-direction: column;
-    padding: 28px;
+    padding: 22px;
 }
 
 .svc-quote__stars {
@@ -793,7 +793,7 @@ body.rtl .svc-work-nav i {
     flex: 1;
     margin: 0 0 22px;
     font-size: 0.95rem;
-    line-height: 1.7;
+    line-height: 1.55;
     color: rgba(230, 236, 255, 0.84);
 }
 
@@ -838,7 +838,7 @@ body.rtl .svc-work-nav i {
     justify-content: space-between;
     gap: 16px;
     width: 100%;
-    padding: 22px 26px;
+    padding: 18px 21px;
     font: inherit;
     font-size: 1rem;
     font-weight: 500;
@@ -874,9 +874,9 @@ body.rtl .svc-work-nav i {
 
 .svc-faq__a p {
     margin: 0;
-    padding: 0 26px 22px;
+    padding: 0 21px 18px;
     font-size: 0.94rem;
-    line-height: 1.75;
+    line-height: 1.58;
     color: rgba(224, 232, 255, 0.7);
 }
 
@@ -885,7 +885,7 @@ body.rtl .svc-work-nav i {
    ========================= */
 
 .svc-cta {
-    padding: 64px 40px;
+    padding: 51px 32px;
     text-align: center;
     border-radius: var(--card-radius-lg);
 }
@@ -940,7 +940,7 @@ body.rtl .svc-project__quote p::before {
 @media (max-width: 1024px) {
     .svc-hero__card {
         grid-template-columns: 1fr;
-        padding: 44px 36px;
+        padding: 35px 29px;
     }
 
     .svc-grid,
@@ -976,7 +976,7 @@ body.rtl .svc-project__quote p::before {
 
     .svc-hero__card {
         gap: 18px;
-        padding: 22px 16px 18px;
+        padding: 18px 16px 18px;
         border-radius: var(--card-radius-md);
     }
 
@@ -1073,7 +1073,7 @@ body.rtl .svc-project__quote p::before {
     }
 
     .svc-mockup {
-        padding: 24px 20px 20px;
+        padding: 19px 16px 16px;
     }
 
     .svc-phone {
@@ -1097,11 +1097,11 @@ body.rtl .svc-project__quote p::before {
     .svc-included {
         flex-direction: column;
         align-items: flex-start;
-        padding: 24px 22px;
+        padding: 19px 18px;
     }
 
     .svc-cta {
-        padding: 44px 22px;
+        padding: 35px 18px;
     }
 }
 
