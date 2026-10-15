@@ -78,7 +78,7 @@ const shopifyProjects = [
     rating: 5,
     quoteKey: "testimonials.oneandall",
     featured: true, // shown in the hero
-  },,
+  },
   {
     name: "LAIL COLLECTIVE",
     logo: "/assets/lail.jpg",
