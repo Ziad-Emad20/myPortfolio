@@ -168,7 +168,7 @@
     color: #ffffff;
 }
 
-.svc-hero__title span {
+.svc-hero__accent {
     background: linear-gradient(90deg, #89b7ff, #3d7bff);
     -webkit-background-clip: text;
     background-clip: text;
@@ -504,6 +504,14 @@
     letter-spacing: -0.03em;
 }
 
+.svc-package__price em {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.8rem;
+    font-style: normal;
+    color: rgba(137, 183, 255, 0.8);
+}
+
 .svc-package__list {
     flex: 1;
     margin: 0 0 26px;
@@ -534,6 +542,51 @@
     text-align: center;
     font-size: 0.88rem;
     color: rgba(224, 232, 255, 0.55);
+}
+
+/* Included with every store */
+.svc-included {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    margin-top: 22px;
+    padding: 26px 30px;
+}
+
+.svc-included h3 {
+    margin: 0;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.svc-included__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 32px;
+}
+
+.svc-included__item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.svc-included__item .svc-icon {
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    flex-shrink: 0;
+    font-size: 1.05rem;
+}
+
+.svc-included__item p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: rgba(230, 236, 255, 0.85);
 }
 
 /* =========================
@@ -757,9 +810,40 @@ body.rtl .svc-project__link i {
 
     .svc-grid,
     .svc-steps,
-    .svc-work,
     .svc-quotes {
         grid-template-columns: 1fr;
+    }
+
+    /* Projects: horizontal swipe on mobile */
+    .svc-work {
+        display: flex;
+        gap: 14px;
+        margin: 0 -1rem;
+        padding: 6px 1rem 18px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding: 0 1rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .svc-work::-webkit-scrollbar {
+        display: none;
+    }
+
+    .svc-project {
+        flex: 0 0 82%;
+        scroll-snap-align: start;
+    }
+
+    .svc-project:hover {
+        transform: none;
+    }
+
+    .svc-included {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 22px;
     }
 
     .svc-cta {
