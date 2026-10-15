@@ -32,6 +32,16 @@ const shopifyProjects = [
     quoteKey: "testimonials.sis",
   },
   {
+    name: "CHANCE",
+    logo: "/assets/chance.jpg",
+    typeKey: "work.chance",
+    desktop: "/assets/projects/chance-desktop.webp",
+    mobile: "/assets/projects/chance-mobile.webp",
+    floatIcon: "/assets/projects/chance-chat.svg",
+    rating: 5,
+    quoteKey: "testimonials.chance",
+  },
+  {
     name: "Scrubio",
     logo: "/assets/scrubio.jpg",
     typeKey: "work.scrubio",
