@@ -3,14 +3,23 @@
 
   <url>
     <loc>https://ziademad.co/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://ziademad.co/pages/contact.html</loc>
+    <loc>https://ziademad.co/pages/course</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://ziademad.co/pages/course.html</loc>
+    <loc>https://ziademad.co/pages/contact</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>
